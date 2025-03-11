@@ -1,69 +1,4 @@
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Collaboration Platform</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <h1>Connect with students facing the same challenges and collaborate in <span class="highlight">real-time</span>.</h1>
-            <p>Find help. Solve together. Level up your coding skill.</p>
-            <button class="cta-button">Get Started</button>
-        </section>
-        
-        <!-- Features Section -->
-        <section class="row g-4">
-            <div class="col-md-4">
-                <div class="feature-card"></div>
-            </div>
-            <div class="col-md-4">
-                <div class="feature-card"></div>
-            </div>
-            <div class="col-md-4">
-                <div class="feature-card"></div>
-            </div>
-        </section>
-        
-        <!-- Info Bar -->
-        <section class="info-bar"></section>
-        
-        <!-- Steps Section -->
-        <section class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content"></div>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content"></div>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content"></div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-
-
-
-
-<%# 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,13 +20,25 @@
         <!-- Features Section -->
         <section class="row g-4">
             <div class="col-md-4">
-                <div class="feature-card"></div>
+                <div class="feature-card">
+                    <%# <i class="fas fa-users feature-icon"></i> %>
+                    <h3 class="feature-title">Peer Learning</h3>
+                    <p class="small text-muted">Get help from students who’ve already solved the exercises.</p>
+                </div>
             </div>
             <div class="col-md-4">
-                <div class="feature-card"></div>
+                <div class="feature-card">
+                    <%# <i class="fa-calendar-days"></i> %>
+                    <h3 class="feature-title"> Booking System </h3>
+                    <p class="small text-muted">Instantly book a session with available students. </p>
+                </div>
             </div>
             <div class="col-md-4">
-                <div class="feature-card"></div>
+                <div class="feature-card">
+                    <%# <i class="fas fa-code feature-icon"></i> %>
+                    <h3 class="feature-title">Communication</h3>
+                    <p class="small text-muted">Improve your skills by helping others</p>
+                </div>
             </div>
         </section>
         
@@ -99,24 +46,29 @@
         <section class="info-bar"></section>
         
         <!-- Steps Section -->
-        <section class="steps">
-            <div class="d-flex align-items-center mb-3 gap-3">
+       <section class="steps">
+            <div class="step">
                 <div class="step-number">1</div>
-                <div class="step-content"></div>
+                <div class="step-content">
+                    <p class="step-title">Create your profile and specify what you're working on</p>
+                </div>
             </div>
-            <div class="d-flex align-items-center mb-3 gap-3">
+            <div class="step">
                 <div class="step-number">2</div>
-                <div class="step-content"></div>
+                <div class="step-content">
+                    <p class="step-title">Get matched with students tackling similar challenges</p>
+                </div>
             </div>
-            <div class="d-flex align-items-center mb-3 gap-3">
+            <div class="step">
                 <div class="step-number">3</div>
-                <div class="step-content"></div>
+                <div class="step-content">
+                    <p class="step-title">Schedule or join instant study sessions and collaborate</p>
+                </div>
             </div>
         </section>
-        
     </div>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html> %>
+</html> 
