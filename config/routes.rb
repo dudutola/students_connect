@@ -9,4 +9,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  authenticated :user do
+    get "pages", to: "pages#dashboard", as: :dashboard
+  end
 end
