@@ -1,0 +1,28 @@
+.dashboard__content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  h1 {
+    font-weight: bold;
+  }
+
+  &--word {
+    background-color: $main-color-yellow;
+    padding: 0px 6px;
+    border-radius: 10px;
+  }
+
+  p {
+    color: $main-color-gray;
+  }
+}
+
+.btn-help {
+  font-size: 20px;
+  padding: 16px 54px;
+  background-color: #79E168;
+  border-radius: 24px;
+  font-weight: bold;
+  color: $dark-green;
+}

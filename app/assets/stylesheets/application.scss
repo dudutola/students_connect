@@ -10,7 +10,17 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/dashboard";
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: $container-main-color;
+}
+
+.container {
+  margin-top: 48px;
+}
+
+a {
+  text-decoration: none;
 }
