@@ -13,9 +13,10 @@ class ApplicationController < ActionController::Base
   def after_sign_up_path_for(resource)
     dashboard_path
   end
-  
+
   private
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+  end
 end
