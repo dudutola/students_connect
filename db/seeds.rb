@@ -21,4 +21,4 @@ Chapter.create(name: "JavaScript")
 Chapter.create(name: "React")
 Chapter.create(name: "Getting Hired")
 
-puts "all done"
+puts "all set "
