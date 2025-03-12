@@ -29,7 +29,8 @@
     width: 80%;
     margin: auto;
 
-    i {
+    .fa-chevron-down,
+    .fa-chevron-up {
       color: black;
     }
   }
@@ -68,6 +69,10 @@ summary {
   // border: 1px solid #ddd;
   border-radius: 4px;
   cursor: pointer;
+
+  .fa-book-open {
+    color: $main-color-yellow;
+  }
 }
 
 details[open] summary i {

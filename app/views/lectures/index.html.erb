@@ -18,7 +18,8 @@
 
           <% group_lectures.each do |lecture| %>
             <div class="lecture-card">
-              <%= link_to "#" do %>
+              <%= link_to "#", class: "d-flex align-items-center" do %>
+                <i class="fa-solid fa-book-open"></i>
                 <p class="m-0"><%= lecture.title %></p>
               <% end %>
             </div>
