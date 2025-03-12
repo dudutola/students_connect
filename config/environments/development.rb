@@ -76,4 +76,7 @@ Rails.application.configure do
   config.action_controller.raise_on_missing_callback_actions = false
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # regex to allow all ngrok subdomains
+  config.hosts << /.*\.ngrok-free\.app/
 end
