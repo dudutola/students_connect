@@ -1,20 +1,30 @@
-<% @lectures.group_by(&:chapter).each do |chapter, lectures| %>
-  <h1><%= chapter.name %></h1>
-  <p>Ruby is known as the language designed for developer happiness.</p>
-  <p>In this course, you’ll go from basics to projects, and if you ever feel stuck, don't worry, <span>connect with others and get the help you need</span>!</p>
+<%# implement a searchbar here or a filter too empty%>
 
-  <% lectures.group_by(&:group_name).each do |group_name, group_lectures| %>
-    <details class="collapsible-group">
-      <summary>
-        <span class="group-name"><%= group_name %> Lectures</span>
-        <span class="arrow">&#x25BC;</span>
-      </summary>
+<div class="lectures-collapse">
+  <% @lectures.group_by(&:chapter).each do |chapter, lectures| %>
+    <div class="chapter-description mb-5">
+      <h1 class="chapter-name"><%= chapter.name %></h1>
+      <p class="m-0">Ruby is known as the language designed for developer happiness.</p>
+      <p class="m-0">In this course, you’ll go from basics to projects, and if you ever feel stuck, don't worry, <span class="connection">connect with others and get the help you need</span>!</p>
+    </div>
 
-      <% group_lectures.each do |lecture| %>
-        <div class="lecture-card">
-          <h3><%= lecture.title %></h3>
-        </div>
+    <div class="collapsible">
+      <% lectures.group_by(&:group_name).each do |group_name, group_lectures| %>
+        <details class="collapsible-group">
+          <summary>
+            <span class="group-name"><%= group_name %></span>
+            <i class="fas fa-chevron-down"></i>
+          </summary>
+
+          <% group_lectures.each do |lecture| %>
+            <div class="lecture-card">
+              <%= link_to "#" do %>
+                <p class="m-0"><%= lecture.title %></p>
+              <% end %>
+            </div>
+          <% end %>
+        </details>
       <% end %>
-    </details>
+    </div>
   <% end %>
-<% end %>
+</div>
