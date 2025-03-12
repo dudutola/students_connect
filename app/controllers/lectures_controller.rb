@@ -1,5 +1,5 @@
 class LecturesController < ApplicationController
   def index
-    @lectures = Lecture.all
+    @lectures = policy_scope(Lecture)
   end
 end

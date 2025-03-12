@@ -1,0 +1,20 @@
+<% @lectures.group_by(&:chapter).each do |chapter, lectures| %>
+  <h1><%= chapter.name %></h1>
+  <p>Ruby is known as the language designed for developer happiness.</p>
+  <p>In this course, you’ll go from basics to projects, and if you ever feel stuck, don't worry, <span>connect with others and get the help you need</span>!</p>
+
+  <% lectures.group_by(&:group_name).each do |group_name, group_lectures| %>
+    <details class="collapsible-group">
+      <summary>
+        <span class="group-name"><%= group_name %> Lectures</span>
+        <span class="arrow">&#x25BC;</span>
+      </summary>
+
+      <% group_lectures.each do |lecture| %>
+        <div class="lecture-card">
+          <h3><%= lecture.title %></h3>
+        </div>
+      <% end %>
+    </details>
+  <% end %>
+<% end %>
