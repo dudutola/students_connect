@@ -1,0 +1,165 @@
+// all
+.dashboard__cards {
+  display: flex;
+  gap: 48px;
+  margin: 32px 0;
+
+  > * {
+    flex-grow: 1;
+  }
+
+  .profile-pending-meeting {
+    gap: 33px;
+  }
+
+  .profile-pending {
+    display: flex;
+    gap: 24px;
+
+    > * {
+      flex: 1;
+    }
+  }
+}
+
+// profile
+.profile__card {
+  padding: 24px;
+  background-color: white;
+  border-radius: 20px;
+
+  &--avatar {
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+  }
+
+  p {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+
+    li {
+      color: $main-color-gray;
+    }
+  }
+
+  .links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    color: $main-color-gray;
+  }
+}
+
+// pending
+.pending__cards {
+  gap: 24px;
+}
+
+.pending__card {
+  padding: 12px;
+  background-color: white;
+  border-radius: 20px;
+
+  .user-infos {
+    gap: 12px;
+
+  }
+
+  .text {
+   font-size: 12px;
+  }
+
+  &--avatar {
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+  }
+
+  &--user {
+    display: flex !important;
+    gap: 24px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &--details {
+    // p {
+    //   color: $main-color-gray;
+    // }
+
+    a {
+      color: $main-color-green;
+      text-decoration: underline;
+    }
+  }
+}
+
+.time,
+.challenge-name  {
+  color: $main-color-gray;
+}
+
+i {
+  margin-right: 12px;
+  color: $main-color-yellow;
+}
+
+
+.fa-github {
+  color: $main-color-gray;
+  margin: 0;
+  padding: 4px;
+  border: 1px solid $main-color-gray;
+  border-radius: 20px;
+  margin-top: 2rem;
+}
+
+
+// connections
+.connections__cards {
+  gap: 22px;
+}
+
+.connection__card {
+  gap: 12px;
+  padding: 24px;
+  background-color: white;
+  border-radius: 20px;
+
+  &--avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .user-infos {
+    gap: 12px;
+  }
+}
+
+
+// meetings
+.meetings__cards {
+  > * {
+    flex-grow: 1;
+  }
+}
+
+.meeting__card {
+  padding: 12px;
+  background-color: white;
+  border-radius: 20px;
+
+  &--avatar {
+    width: 67px;
+  }
+}

@@ -12,6 +12,8 @@
 @import "pages/index";
 @import "pages/dashboard";
 
+@import "components/cards";
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: $container-main-color;

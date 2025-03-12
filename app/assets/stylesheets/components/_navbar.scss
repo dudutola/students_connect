@@ -18,14 +18,13 @@
   .dropdown {
     .my-avatar {
       width: 50px;
-      border: 3px solid $second-main-color;
     }
   }
 }
 
 .navbar-nav .nav-link.active {
   font-weight: bold;
-  border-bottom: 3px solid $second-main-color;
+  border-bottom: 3px solid $main-color-green;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;

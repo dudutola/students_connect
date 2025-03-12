@@ -1,10 +1,240 @@
 <section class="user-dashboard d-flex justify-content-between align-items-center">
   <div class="dashboard__content">
     <h1>My <span class="dashboard__content--word">Dashboard</span></h1>
-    <p>Welcome back <%= current_user.name.split(" ").first %>! </p>
+    <p>Welcome back <%= current_user.name.split(" ").first %>!</p>
   </div>
 
   <div class="btn">
     <%= link_to "Get Help!", "#", class: "btn-help" %>
   </div>
 </section>
+
+<div class="dashboard__cards">
+  <div class="d-flex flex-column profile-pending-meeting">
+    <div class="d-flex profile-pending">
+      <section class="profile__card">
+        <div class="text-center">
+          <%= image_tag current_user.avatar_url, class: "profile__card--avatar green-border", alt: "" %>
+          <p><strong><%= current_user.name %></strong></p>
+        </div>
+        <ul class="list-unstyled">
+          <li><i class="fa-solid fa-location-dot"></i>Web Development FT <%= current_user.bio %></li>
+          <li><i class="fa-solid fa-location-dot"></i>Batch #1956 <%= current_user.education %></li>
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            <%= current_user.location %>
+          </li>
+        </ul>
+        <div class="links">
+          <i class="fa-brands fa-github"></i>
+          <i class="fa-brands fa-github"></i>
+          <i class="fa-brands fa-github"></i>
+        </div>
+      </section>
+
+      <section class="pending__cards d-flex flex-column">
+        <h2><strong>Pending requests</strong></h2>
+        <div class="pending__card">
+          <div class="d-flex user-infos">
+            <%= image_tag current_user.avatar_url, class: "pending__card--avatar green-border", alt: "" %>
+
+            <div>
+              <div class="d-flex pending__card--user">
+                <p><%= current_user.name %></p>
+                <p class="text time">2 min ago</p>
+              </div>
+              <p class="text">Asked for your help</p>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center pending__card--details">
+            <p class="challenge-name m-0">Stupid Coaching</p>
+            <%= link_to "View details", "#", class: "text view-details" %>
+          </div>
+        </div>
+
+        <div class="pending__card">
+          <div class="d-flex user-infos">
+            <%= image_tag current_user.avatar_url, class: "pending__card--avatar green-border", alt: "" %>
+
+            <div>
+              <div class="d-flex pending__card--user">
+                <p><%= current_user.name %></p>
+                <p class="text time">2 min ago</p>
+              </div>
+              <p class="text">Asked for your help</p>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center pending__card--details">
+            <p class="challenge-name m-0">Stupid Coaching</p>
+            <%= link_to "View details", "#", class: "text view-details" %>
+          </div>
+        </div>
+
+        <div class="pending__card">
+          <div class="d-flex user-infos">
+            <%= image_tag current_user.avatar_url, class: "pending__card--avatar green-border", alt: "" %>
+
+            <div>
+              <div class="d-flex pending__card--user">
+                <p><%= current_user.name %></p>
+                <p class="text time">2 min ago</p>
+              </div>
+              <p class="text">Asked for your help</p>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center pending__card--details">
+            <p class="challenge-name m-0">Stupid Coaching</p>
+            <%= link_to "View details", "#", class: "text view-details" %>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="meetings__cards">
+      <h2><strong>My meetings</strong></h2>
+      <div class="d-flex gap-3 w-100">
+        <div class="meeting__card flex-fill">
+          <div class="">
+            <%= image_tag current_user.avatar_url, class: "meeting__card--avatar green-border radius-avatar", alt: "" %>
+            <p><strong><%= current_user.name %></strong></p>
+          </div>
+          <ul class="list-unstyled">
+            <li><i class="fa-solid fa-location-dot"></i>Web Development FT <%= current_user.bio %></li>
+            <li><i class="fa-solid fa-location-dot"></i>Batch #1956 <%= current_user.education %></li>
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <%= current_user.location %>
+            </li>
+          </ul>
+          <div class="links">
+            <i class="fa-brands fa-github"></i>
+            <i class="fa-brands fa-github"></i>
+            <i class="fa-brands fa-github"></i>
+          </div>
+        </div>
+
+        <div class="meeting__card flex-fill">
+          <div class="">
+            <%= image_tag current_user.avatar_url, class: "meeting__card--avatar green-border radius-avatar", alt: "" %>
+            <p><strong><%= current_user.name %></strong></p>
+          </div>
+          <ul class="list-unstyled">
+            <li><i class="fa-solid fa-location-dot"></i>Web Development FT <%= current_user.bio %></li>
+            <li><i class="fa-solid fa-location-dot"></i>Batch #1956 <%= current_user.education %></li>
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <%= current_user.location %>
+            </li>
+          </ul>
+          <div class="links">
+            <i class="fa-brands fa-github"></i>
+            <i class="fa-brands fa-github"></i>
+            <i class="fa-brands fa-github"></i>
+          </div>
+        </div>
+
+        <div class="meeting__card flex-fill">
+          <div class="">
+            <%= image_tag current_user.avatar_url, class: "meeting__card--avatar green-border radius-avatar", alt: "" %>
+            <p><strong><%= current_user.name %></strong></p>
+          </div>
+          <ul class="list-unstyled">
+            <li><i class="fa-solid fa-location-dot"></i>Web Development FT <%= current_user.bio %></li>
+            <li><i class="fa-solid fa-location-dot"></i>Batch #1956 <%= current_user.education %></li>
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <%= current_user.location %>
+            </li>
+          </ul>
+          <div class="links">
+            <i class="fa-brands fa-github"></i>
+            <i class="fa-brands fa-github"></i>
+            <i class="fa-brands fa-github"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="connections__cards d-flex flex-column">
+    <h2><strong>My Connections</strong></h2>
+    <div class="connection__card d-flex flex-column">
+      <div class="d-flex user-infos">
+        <%= image_tag current_user.avatar_url, class: "connection__card--avatar green-border radius-avatar", alt: "" %>
+
+        <div class="w-100">
+          <div class="d-flex justify-content-between connection__card--user">
+            <p><%= current_user.name %></p>
+            <p class="text time">❤️</p>
+          </div>
+          <p class="text">Asked for your help</p>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center connection__card--details">
+        <p class="challenge-name m-0">Stupid Coaching</p>
+        <%= link_to "View details", "#", class: "text view-details" %>
+      </div>
+    </div>
+
+    <div class="connection__card d-flex flex-column">
+      <div class="d-flex user-infos">
+        <%= image_tag current_user.avatar_url, class: "connection__card--avatar green-border radius-avatar", alt: "" %>
+
+        <div class="w-100">
+          <div class="d-flex justify-content-between connection__card--user">
+            <p><%= current_user.name %></p>
+            <p class="text time">❤️</p>
+          </div>
+          <p class="text">Asked for your help</p>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center connection__card--details">
+        <p class="challenge-name m-0">Stupid Coaching</p>
+        <%= link_to "View details", "#", class: "text view-details" %>
+      </div>
+    </div>
+
+    <div class="connection__card d-flex flex-column">
+      <div class="d-flex user-infos">
+        <%= image_tag current_user.avatar_url, class: "connection__card--avatar green-border radius-avatar", alt: "" %>
+
+        <div class="w-100">
+          <div class="d-flex justify-content-between connection__card--user">
+            <p><%= current_user.name %></p>
+            <p class="text time">❤️</p>
+          </div>
+          <p class="text">Asked for your help</p>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center connection__card--details">
+        <p class="challenge-name m-0">Stupid Coaching</p>
+        <%= link_to "View details", "#", class: "text view-details" %>
+      </div>
+    </div>
+
+     <div class="connection__card d-flex flex-column">
+      <div class="d-flex user-infos">
+        <%= image_tag current_user.avatar_url, class: "connection__card--avatar green-border radius-avatar", alt: "" %>
+
+        <div class="w-100">
+          <div class="d-flex justify-content-between connection__card--user">
+            <p><%= current_user.name %></p>
+            <p class="text time">❤️</p>
+          </div>
+          <p class="text">Asked for your help</p>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center connection__card--details">
+        <p class="challenge-name m-0">Stupid Coaching</p>
+        <%= link_to "View details", "#", class: "text view-details" %>
+      </div>
+    </div>
+  </section>
+</div>
