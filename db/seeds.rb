@@ -21,6 +21,7 @@ Chapter.create(name: "JavaScript")
 Chapter.create(name: "React")
 Chapter.create(name: "Getting Hired")
 
+
 puts "all done"
 
 
@@ -62,3 +63,6 @@ lectures.each do |lecture_data|
 end
 
 puts "Lectures created!"
+
+puts "all set"
+
