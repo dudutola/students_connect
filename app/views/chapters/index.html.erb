@@ -1,0 +1,17 @@
+<h1>Chapters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @chapters.each do |chapter| %>
+      <tr>
+        <td><%= chapter.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
