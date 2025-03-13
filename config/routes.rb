@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       member do
         post :mark_as_done
       end
+
+      resources :meetings, only: [ :create ]
     end
   end
 
