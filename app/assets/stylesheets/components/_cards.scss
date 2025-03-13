@@ -163,3 +163,80 @@ i {
     width: 67px;
   }
 }
+
+
+
+// lecture
+.lecture__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .lecture__card {
+    padding: 16px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-radius: 20px;
+    transition: 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+    }
+  }
+
+  .lecture__avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4CAF50;
+  }
+
+  .favorite-icon {
+    font-size: 1.8rem;
+    color: red;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+
+  .small {
+    font-size: 0.85rem;
+  }
+
+  .text-muted {
+    color: #6c757d;
+  }
+
+  .current-lecture {
+    font-size: 0.75rem;
+    color: #198754;
+  }
+
+  .timezone p {
+    margin: 0;
+  }
+
+  .gap-3 {
+    gap: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .col-md-4 {
+    width: calc((100% - 16px) / 3);
+  }
+}
+
+@media (max-width: 767px) {
+  .col-md-4 {
+    width: 100%;
+  }
+}

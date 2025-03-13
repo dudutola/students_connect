@@ -1,0 +1,12 @@
+.lecture-content {
+  border-left: 3px solid black;
+  border-bottom: 3px solid black;
+  padding-left: 20px;
+  padding-bottom: 16px;
+}
+
+.lecture__help {
+  &--subtitle {
+    font-size: 1.8rem;
+  }
+}

@@ -1,0 +1,12 @@
+.mark-done-btn {
+  position: fixed;
+  top: 188px;
+  right: 184px;
+  z-index: 1000;
+  padding: 12px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: $main-color-green;
+  color: $dark-green;
+  font-weight: bold;
+}

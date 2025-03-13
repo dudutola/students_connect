@@ -1,4 +1,4 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
+	# This file should ensure the existence of records required to run the application in every environment (production,
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -8,7 +8,11 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+LectureUser.destroy_all
+Lecture.destroy_all
 Chapter.destroy_all
+User.destroy_all
+puts "Cleaning everything..."
 
 # Create sample chapters
 
@@ -21,12 +25,6 @@ Chapter.create(name: "JavaScript")
 Chapter.create(name: "React")
 Chapter.create(name: "Getting Hired")
 
-
-puts "all done"
-
-
-Lecture.destroy_all
-puts "Cleaning all lectures..."
 
 ruby_chapter = Chapter.find_by(name: "Ruby")
 
@@ -62,7 +60,20 @@ lectures.each do |lecture_data|
   Lecture.create!(lecture_data.merge(chapter_id: ruby_chapter.id))
 end
 
-puts "Lectures created!"
+10.times do
+  user = User.create!(
+    username: Faker::Internet.username,
+    password: 'password',
+    email: Faker::Internet.email,
+    name: Faker::Name.name,
+    location: Faker::Address.country,
+    avatar_url: "https://i.pravatar.cc/150?img=#{rand(1..70)}",
+    provider: 'github',
+    uid: SecureRandom.uuid
+  )
 
-puts "all set"
+  LectureUser.create! user: user, lecture: Lecture.first
+  puts "Created user #{user.name}"
+end
 
+puts "Everything created!"
