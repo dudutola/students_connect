@@ -14,7 +14,8 @@ Rails.application.routes.draw do
       end
     end
   end
-  resource :profile, only: [:show]
+  get "profile/:id", to: "users#show", as: "user_profile"
+
   # Defines the root path route ("/")
   # root "posts#index"
   authenticated :user do
