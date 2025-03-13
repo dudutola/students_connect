@@ -16,14 +16,15 @@ puts "Cleaning everything..."
 
 # Create sample chapters
 
-Chapter.create(name: "Ruby")
-Chapter.create(name: "Intermediate HTML and CSS")
-Chapter.create(name: "Databases")
-Chapter.create(name: "Ruby on Rails")
-Chapter.create(name: "Advanced HTML and CSS")
-Chapter.create(name: "JavaScript")
-Chapter.create(name: "React")
-Chapter.create(name: "Getting Hired")
+Chapter.create(name: "Ruby", description: "Fundamentals of Ruby programming language")
+Chapter.create(name: "Intermediate HTML and CSS", description: "Advanced layouts and styling techniques")
+Chapter.create(name: "Databases", description: "SQL, database design, and ActiveRecord")
+Chapter.create(name: "Ruby on Rails", description: "MVC architecture and building web apps")
+Chapter.create(name: "Advanced HTML and CSS", description: "Responsive design and CSS frameworks")
+Chapter.create(name: "JavaScript", description: "DOM manipulation and ES6+ features")
+Chapter.create(name: "React", description: "Component-based UI development")
+Chapter.create(name: "Getting Hired", description: "Portfolio building and interview prep")
+
 
 
 ruby_chapter = Chapter.find_by(name: "Ruby")
