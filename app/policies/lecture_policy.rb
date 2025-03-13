@@ -15,4 +15,8 @@ class LecturePolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def mark_as_done?
+    true
+  end
 end

@@ -8,12 +8,16 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :chapters, only: [ :index ] do
-    resources :lectures, only: [ :index, :show ]
+    resources :lectures, only: [ :index, :show ] do
+      member do
+        post :mark_as_done
+      end
+    end
   end
 
   # Defines the root path route ("/")
   # root "posts#index"
   authenticated :user do
-    get "pages", to: "pages#dashboard", as: :dashboard
+    get "my-dashboard", to: "pages#dashboard", as: :dashboard
   end
 end
