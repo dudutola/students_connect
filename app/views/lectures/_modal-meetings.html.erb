@@ -6,16 +6,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [@lecture.chapter, @lecture, Meeting.new] do |f| %>
+        <%= simple_form_for [@lecture.chapter, @lecture, @meeting] do |f| %>
           <%= f.hidden_field :receiver_id, value: lecture_user.user.id %>
           <%= f.hidden_field :requester_id, value: current_user.id %>
           <%= f.hidden_field :lecture_id, value: @lecture.id %>
 
           <%= f.input :start_time, as: :datetime, label: "Start Time" %>
           <%= f.input :end_time, as: :datetime, label: "End Time" %>
-          <%= f.input :start_time, as: :datetime_local, label: "Start Time", input_html: { value: @meeting.start_time.strftime('%Y-%m-%d %I:%M %p') } %>
-          <%= f.input :end_time, as: :datetime_local, label: "End Time", input_html: { value: @meeting.end_time.strftime('%Y-%m-%d %I:%M %p') } %>
-
 
           <%= f.button :submit, "Send Request", class: "btn btn-success" %>
         <% end %>
