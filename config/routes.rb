@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :meetings, only: [ :create ]
     end
   end
+  get "profile/:id", to: "users#show", as: "user_profile"
 
   # Defines the root path route ("/")
   # root "posts#index"
