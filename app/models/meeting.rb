@@ -3,6 +3,8 @@ class Meeting < ApplicationRecord
   belongs_to :receiver, class_name: "User"
   belongs_to :lecture
 
+  before_validation :set_default_status, on: :create
+
   validates :lecture, presence: true
   validates :requester, presence: true
   validates :receiver, presence: true
@@ -13,6 +15,10 @@ class Meeting < ApplicationRecord
   validate :end_time_after_start_time
 
   private
+
+  def set_default_status
+    self.status ||= 'pending'
+  end
 
   def end_time_after_start_time
     if end_time <= start_time

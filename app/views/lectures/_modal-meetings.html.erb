@@ -1,0 +1,22 @@
+<div class="modal fade" id="meetingModal-<%= lecture_user.user.id %>" tabindex="-1" aria-labelledby="meetingModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="meetingModalLabel">Request Meeting with <%= lecture_user.user.name %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [@lecture.chapter, @lecture, @meeting] do |f| %>
+          <%= f.hidden_field :receiver_id, value: lecture_user.user.id %>
+          <%= f.hidden_field :requester_id, value: current_user.id %>
+          <%= f.hidden_field :lecture_id, value: @lecture.id %>
+
+          <%= f.input :start_time, as: :datetime, label: "Start Time" %>
+          <%= f.input :end_time, as: :datetime, label: "End Time" %>
+
+          <%= f.button :submit, "Send Request", class: "btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

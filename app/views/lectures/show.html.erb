@@ -57,7 +57,14 @@
           </div>
         </div>
 
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#meetingModal-<%= lecture_user.user.id %>">
+        Request Meeting
+      </button>
       </div>
+
+
     </div>
+
+    <%= render "modal-meetings", lecture: @lecture, lecture_user: lecture_user %>
   <% end %>
 </div>
