@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       end
     end
   end
-
+  resource :profile, only: [:show]
   # Defines the root path route ("/")
   # root "posts#index"
   authenticated :user do
