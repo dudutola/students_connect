@@ -11,8 +11,26 @@
     padding: 0 150px;
   }
 
-  .navbar-brand img {
-    width: 40px;
+  .navbar-brand {
+    background-color: $main-color-yellow;
+    padding: 0;
+    width: 110px;
+    position: relative;
+    border-radius: 10px;
+    padding-top: 8px;
+
+    &__first--word {
+      font-size: 22px;
+      font-weight: bold;
+      position: absolute;
+      top: -14px;
+    }
+
+    &__second--word {
+      font-size: 18px;
+      color: white;
+      text-align: center;
+    }
   }
 
   .dropdown {
