@@ -93,20 +93,25 @@
     }
     %>
     
-    <% Chapter.all.each do |chapter| %>
-      <% 
-      style = topic_styles[chapter.name] || topic_styles["default"]
-      %>
-      <div class="topic-card <%= style[:class] %>">
-        <div class="topic-content">
-          <div class="topic-icon">
-            <%= raw style[:icon] %>
-          </div>
-          <h3 class="topic-title"><%= chapter.name %></h3>
-          <p class="topic-desc"><%= chapter.description %></p>
+   <% @chapters.each do |chapter| %>
+  <% 
+
+  style = topic_styles[chapter.name] || topic_styles["default"]
+  %>
+  
+  <div class="topic-card <%= style[:class] %>">
+    <%= link_to(chapter_lectures_path(chapter), class: "topic-card-link") do %>
+      <div class="topic-content">
+        <div class="topic-icon">
+          <%= raw style[:icon] %>
         </div>
+        <h3 class="topic-title"><%= chapter.name %></h3>
+        <p class="topic-desc"><%= chapter.description %></p>
       </div>
     <% end %>
   </div>
-  </div>
+<% end %>
+</div>
+</div>
+</body>
 </body>
