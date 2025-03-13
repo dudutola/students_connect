@@ -4,22 +4,22 @@
       <h1>Full Stack Ruby On Rails</h1>
       <!--<p class="subtitle">Find your bubble</p>-->
     </header>
-     
+
   <div class="guidance-box">
     <p class="guidance-text">
-     This page contains the topics from the 
+     This page contains the topics from the
       <a href="https://www.theodinproject.com/paths/full-stack-ruby-on-rails" target="_blank" class="odin-link">
         Full Stack Ruby on Rails curriculum
-      </a> 
+      </a>
        by The Odin Project.<br>
        <br>
-       Select the area you're currently working on or struggling with to explore exercises 
-      and connect with students who are ready to help you right away. 
+       Select the area you're currently working on or struggling with to explore exercises
+      and connect with students who are ready to help you right away.
     </p>
   </div>
 
   <div class="topic-grid">
-    <% 
+    <%
     topic_styles = {
       "Ruby" => {
         class: "ruby-card",
@@ -84,7 +84,7 @@
               </svg>'
       },
       "default" => {
-        class: "ruby-card", 
+        class: "ruby-card",
         icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#CC342D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="16 18 22 12 16 6"></polyline>
                 <polyline points="8 6 2 12 8 18"></polyline>
@@ -92,15 +92,15 @@
       }
     }
     %>
-    
+
    <% @chapters.each do |chapter| %>
-  <% 
+  <%
 
   style = topic_styles[chapter.name] || topic_styles["default"]
   %>
-  
+
   <div class="topic-card <%= style[:class] %>">
-    <%= link_to(chapter_lectures_path(chapter), class: "topic-card-link") do %>
+    <%= link_to(chapter_path(chapter), class: "topic-card-link") do %>
       <div class="topic-content">
         <div class="topic-icon">
           <%= raw style[:icon] %>

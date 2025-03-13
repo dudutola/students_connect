@@ -1,8 +1,4 @@
 class LecturesController < ApplicationController
-  def index
-    @lectures = policy_scope(Lecture)
-  end
-
   def show
     @lecture = Lecture.find(params[:id])
     authorize @lecture
@@ -10,7 +6,7 @@ class LecturesController < ApplicationController
   end
 
   def mark_as_done
-    @lecutre = Lecture.find(params[:id])
+    @lecture = Lecture.find(params[:id])
     authorize @lecture
 
     LectureUser.find_or_create_by(user: current_user, lecture: @lecture)

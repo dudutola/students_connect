@@ -1,3 +1,5 @@
+<%= link_to "< Back", chapter_path(@lecture.chapter)  %>
+
 <div class="d-flex justify-content-between align-items-center mb-5 flex-column flex-md-row text-center text-md-start lecture-content">
   <div>
     <%= link_to "https://www.theodinproject.com/lessons/ruby-how-this-course-will-work", target: "_blank" do  %>
@@ -8,7 +10,9 @@
   </div>
 
   <% unless @lecture.lecture_users.exists?(user: current_user) %>
-    <%= link_to "Mark as Done!", mark_as_done_chapter_lecture_path(@lecture), method: :post, class: "mark-done-btn" %>
+    <%= simple_form_for @lecture, url: mark_as_done_lecture_path(@lecture), method: :post do |f| %>
+      <%= f.button :submit, "Mark as Done!", class: "mark-done-btn" %>
+    <% end %>
   <% else %>
     <p class="text-success fw-bold">✅ You have completed this lecture!</p>
   <% end %>

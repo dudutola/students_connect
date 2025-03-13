@@ -6,7 +6,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [@lecture.chapter, @lecture, @meeting] do |f| %>
+        <%= simple_form_for [@lecture, @meeting] do |f| %>
           <%= f.hidden_field :receiver_id, value: lecture_user.user.id %>
           <%= f.hidden_field :requester_id, value: current_user.id %>
           <%= f.hidden_field :lecture_id, value: @lecture.id %>
