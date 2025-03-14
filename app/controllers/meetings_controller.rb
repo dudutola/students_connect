@@ -3,7 +3,7 @@ class MeetingsController < ApplicationController
 
   def index
     # @meetings = Meeting.where("requester_id = ? OR receiver_id = ?", current_user.id, current_user.id)
-    @meetings = policy_scope(Meeting)
+    @meetings = policy_scope(Meeting).order(created_at: :asc)
   end
 
   def show
