@@ -1,0 +1,14 @@
+.content-name {
+  border-bottom: 2px solid $main-color-gray;
+  gap: 32px;
+
+  .underline {
+    border-bottom: 4px solid $main-color-green;
+    padding-bottom: 14px;
+    margin: 0;
+  }
+
+  h3 {
+    cursor: pointer;
+  }
+}

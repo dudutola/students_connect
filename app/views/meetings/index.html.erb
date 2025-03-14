@@ -1,30 +1,75 @@
-<div class="dashboard__cards">
-  <div class="d-flex flex-column profile-pending-meeting">
-    <section class="pending__cards d-flex flex-column">
-      <h2><strong>Pending requests</strong></h2>
+<h2>
 
-      <% @meetings.each do |meeting| %>
-        <!-- Displaying card for the receiver (the person you asked for help) -->
-        <div class="pending__card">
-          <div class="d-flex user-infos">
-            <!-- Display the receiver's avatar -->
-            <%= image_tag meeting.receiver.avatar_url, class: "pending__card--avatar green-border", alt: "" %>
+</h2>
 
-            <div>
-              <div class="d-flex pending__card--user">
-                <p><%= meeting.receiver.name %></p> <!-- Receiver's name -->
-                <p class="text time"><%= time_ago_in_words(meeting.created_at) %> ago</p> <!-- Time passed since the request -->
+<div class="profile-container m-5" data-controller="toggle-meetings">
+  <div class="d-flex content-name">
+    <h3 class="toggle-header fw-bold underline"
+        data-toggle-meetings-target="myRequestsHeader"
+        data-action="click->toggle-meetings#toggle"
+        data-value="myRequests">My Requests</h3>
+
+    <h3 class="toggle-header fw-bold"
+        data-toggle-meetings-target="requestsForMeHeader"
+        data-action="click->toggle-meetings#toggle"
+        data-value="requestsForMe">Requests for Me</h3>
+  </div>
+
+  <!-- My Requests Section -->
+  <div id="my-requests-content" data-toggle-meetings-target="myRequestsContent" class="toggle-content">
+    <% my_requests = @meetings.where(requester_id: current_user.id) %>
+    <% if my_requests.any? %>
+      <div class="dashboard__cards">
+        <% my_requests.each do |meeting| %>
+          <div class="pending__card">
+            <div class="d-flex user-infos">
+              <%= image_tag meeting.receiver.avatar_url, class: "pending__card--avatar green-border", alt: "" %>
+              <div>
+                <div class="d-flex pending__card--user">
+                  <p><%= meeting.receiver.name %></p>
+                  <p class="text time"><%= time_ago_in_words(meeting.created_at) %> ago</p>
+                </div>
+                <p class="text">You asked for their help</p>
               </div>
-              <p class="text">You asked for their help</p> <!-- Text for when you asked for help -->
+            </div>
+            <div class="d-flex justify-content-between align-items-center pending__card--details">
+              <p class="challenge-name m-0"><%= meeting.lecture.title %></p>
+              <%= link_to "View details", meeting_path(meeting), class: "text view-details" %>
             </div>
           </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p>You don't have any requests yet.</p>
+    <% end %>
+  </div>
 
-          <div class="d-flex justify-content-between align-items-center pending__card--details">
-            <p class="challenge-name m-0"><%= meeting.lecture.title %></p> <!-- Title of the lecture -->
-            <%= link_to "View details", meeting_path(meeting), class: "text view-details" %> <!-- Link to view more details -->
+  <!-- Requests for Me Section -->
+  <div id="requests-for-me-content" data-toggle-meetings-target="requestsForMeContent" class="toggle-content d-none">
+    <% requests_for_me = @meetings.where(receiver_id: current_user.id) %>
+    <% if requests_for_me.any? %>
+      <div class="dashboard__cards">
+        <% requests_for_me.each do |meeting| %>
+          <div class="pending__card">
+            <div class="d-flex user-infos">
+              <%= image_tag meeting.requester.avatar_url, class: "pending__card--avatar green-border", alt: "" %>
+              <div>
+                <div class="d-flex pending__card--user">
+                  <p><%= meeting.requester.name %></p>
+                  <p class="text time"><%= time_ago_in_words(meeting.created_at) %> ago</p>
+                </div>
+                <p class="text">They asked for your help</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pending__card--details">
+              <p class="challenge-name m-0"><%= meeting.lecture.title %></p>
+              <%= link_to "View details", meeting_path(meeting), class: "text view-details" %>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </section>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="mt-4">No one asked for your help yet.</p>
+    <% end %>
   </div>
 </div>
