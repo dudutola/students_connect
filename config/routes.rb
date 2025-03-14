@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   authenticated :user do
-    get "my-dashboard", to: "pages#dashboard", as: :dashboard
+    get "my-dashboard", to: "meetings#index", as: :dashboard
   end
-  
+  # get "my-dashboardd", to: "pages#dashboard", as: :dashboard
+
   get "profile/:id", to: "users#show", as: "user_profile"
 
   resources :chapters, only: [ :index, :show ]
@@ -25,5 +26,5 @@ Rails.application.routes.draw do
     resources :meetings, only: [ :create ]
   end
 
-  resources :meetings, only: [ :index, :show ]
+  resources :meetings, only: [ :show ]
 end

@@ -5,6 +5,7 @@
 
   h1 {
     font-weight: bold;
+    color: $dark-green;
   }
 
   &--word {
@@ -16,7 +17,53 @@
   p {
     color: $main-color-gray;
   }
+
+  .dashboard__cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .pending__card {
+    flex: 1 1 250px;
+    max-width: 350px;
+    width: 100%;
+    box-sizing: border-box;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .user-infos {
+      display: flex;
+      gap: 10px;
+    }
+
+    .pending__card--avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid green;
+    }
+
+    .pending__card--user {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .pending__card--details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .pending__card {
+      flex: 1 1 100%;
+    }
+  }
 }
+
 
 .btn-help {
   font-size: 20px;
@@ -27,4 +74,22 @@
   color: $dark-green;
 }
 
-// testing
+
+.rounded-calendar-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background-color: white;
+  border: 2px solid #007bff;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+}

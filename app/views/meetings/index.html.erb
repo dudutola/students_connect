@@ -1,8 +1,47 @@
-<h2>
+<section class="user-dashboard d-flex justify-content-between align-items-center">
+  <div class="dashboard__content">
+    <h1>My <span class="dashboard__content--word">Dashboard</span></h1>
+    <p>Welcome back <%= current_user.name.split(" ").first %>!</p>
+  </div>
+</section>
 
-</h2>
+<section class="meetings__cards mt-4 mb-5">
+  <h2><strong>My next meetings</strong></h2>
 
-<div class="profile-container m-5" data-controller="toggle-meetings">
+  <% if @meetings.any? %>
+    <div class="d-flex gap-3 w-100 flex-wrap mt-4">
+      <% @meetings.first(3).each do |meeting| %>
+        <div class="meeting__card flex-fill p-3 shadow">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <%= image_tag meeting.receiver.avatar_url, class: "meeting__card--avatar green-border radius-avatar", alt: "" %>
+            <div>
+              <p class="mb-0 text-decoration-underline"><strong><%= meeting.receiver.name %></strong></p>
+              <p class="small text-muted">In <%= distance_of_time_in_words(Time.now, meeting.start_time) %></p>
+            </div>
+          </div>
+          <ul class="list-unstyled mb-2">
+            <li><strong>Lecture:</strong> <%= meeting.lecture.title %></li>
+            <li><strong>Start time:</strong> <%= meeting.start_time.strftime("%B %d, %Y %H:%M") %></li>
+            <li><strong>End time:</strong> <%= meeting.end_time.strftime("%H:%M") %></li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="text-center mt-5">
+      <%= link_to "📅 See all meetings in calendar","#", class: "rounded-calendar-btn" %>
+    </div>
+
+  <% else %>
+    <div class="text-center p-4">
+      <p style="font-size: 3rem;">📭</p>
+      <p class="text-muted mb-0">You have no meetings scheduled yet.</p>
+      <p class="small text-muted">Start by <%= link_to "exploring lectures", chapters_path %> and connecting with others!</p>
+    </div>
+  <% end %>
+</section>
+
+<div class="profile-container mt-5 mb-5" data-controller="toggle-meetings">
   <div class="d-flex content-name">
     <h3 class="toggle-header fw-bold underline"
         data-toggle-meetings-target="myRequestsHeader"
@@ -21,12 +60,12 @@
     <% if my_requests.any? %>
       <div class="dashboard__cards">
         <% my_requests.each do |meeting| %>
-          <div class="pending__card">
+          <div class="pending__card shadow-sm">
             <div class="d-flex user-infos">
               <%= image_tag meeting.receiver.avatar_url, class: "pending__card--avatar green-border", alt: "" %>
               <div>
                 <div class="d-flex pending__card--user">
-                  <p><%= meeting.receiver.name %></p>
+                  <p class="text-decoration-underline"><%= meeting.receiver.name %></p>
                   <p class="text time"><%= time_ago_in_words(meeting.created_at) %> ago</p>
                 </div>
                 <p class="text">You asked for their help</p>
@@ -40,7 +79,7 @@
         <% end %>
       </div>
     <% else %>
-      <p>You don't have any requests yet.</p>
+      <p class="mt-4">You don't have any requests yet.</p>
     <% end %>
   </div>
 
@@ -50,12 +89,12 @@
     <% if requests_for_me.any? %>
       <div class="dashboard__cards">
         <% requests_for_me.each do |meeting| %>
-          <div class="pending__card">
+          <div class="pending__card shadow-sm">
             <div class="d-flex user-infos">
               <%= image_tag meeting.requester.avatar_url, class: "pending__card--avatar green-border", alt: "" %>
               <div>
                 <div class="d-flex pending__card--user">
-                  <p><%= meeting.requester.name %></p>
+                  <p class="text-decoration-underline"><%= meeting.requester.name %></p>
                   <p class="text time"><%= time_ago_in_words(meeting.created_at) %> ago</p>
                 </div>
                 <p class="text">They asked for your help</p>
