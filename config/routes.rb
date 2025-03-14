@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   authenticated :user do
     get "my-dashboard", to: "pages#dashboard", as: :dashboard
   end
+  
+  get "profile/:id", to: "users#show", as: "user_profile"
 
-  resources :chapters, only: [ :index, :show ] do
-  end
+  resources :chapters, only: [ :index, :show ]
 
   resources :lectures, only: [ :show ] do
     member do
