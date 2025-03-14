@@ -1,0 +1,30 @@
+<div class="dashboard__cards">
+  <div class="d-flex flex-column profile-pending-meeting">
+    <section class="pending__cards d-flex flex-column">
+      <h2><strong>Pending requests</strong></h2>
+
+      <% @meetings.each do |meeting| %>
+        <!-- Displaying card for the receiver (the person you asked for help) -->
+        <div class="pending__card">
+          <div class="d-flex user-infos">
+            <!-- Display the receiver's avatar -->
+            <%= image_tag meeting.receiver.avatar_url, class: "pending__card--avatar green-border", alt: "" %>
+
+            <div>
+              <div class="d-flex pending__card--user">
+                <p><%= meeting.receiver.name %></p> <!-- Receiver's name -->
+                <p class="text time"><%= time_ago_in_words(meeting.created_at) %> ago</p> <!-- Time passed since the request -->
+              </div>
+              <p class="text">You asked for their help</p> <!-- Text for when you asked for help -->
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center pending__card--details">
+            <p class="challenge-name m-0"><%= meeting.lecture.title %></p> <!-- Title of the lecture -->
+            <%= link_to "View details", meeting_path(meeting), class: "text view-details" %> <!-- Link to view more details -->
+          </div>
+        </div>
+      <% end %>
+    </section>
+  </div>
+</div>

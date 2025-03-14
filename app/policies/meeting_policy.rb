@@ -7,9 +7,14 @@ class MeetingPolicy < ApplicationPolicy
 
   class Scope < ApplicationPolicy::Scope
     # NOTE: Be explicit about which records you allow access to!
-    # def resolve
-    #   scope.all
-    # end
+    def resolve
+      # scope.all
+      scope.where("requester_id = ? OR receiver_id = ?", user.id, user.id)
+    end
+  end
+
+  def show?
+    record.requester == user || record.receiver == user
   end
 
   def create?

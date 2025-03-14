@@ -1,0 +1,12 @@
+<section class="meeting-details">
+  <h1>Meeting Details</h1>
+
+  <div class="meeting-info">
+    <p><strong>Requester:</strong> <%= @meeting.requester.name %></p>
+    <p><strong>Receiver:</strong> <%= @meeting.receiver.name %></p>
+    <p><strong>Lecture:</strong> <%= @meeting.lecture.title %></p>
+    <p><strong>Start time:</strong> <%= @meeting.start_time.strftime("%B %d, %Y %H:%M") %></p>
+    <p><strong>End time:</strong> <%= @meeting.end_time.strftime("%H:%M") %></p>
+    <%= link_to 'Back to Meetings', meetings_path, class: 'btn btn-secondary' %>
+  </div>
+</section>
