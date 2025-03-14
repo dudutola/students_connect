@@ -1,179 +1,200 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root {
+  --background-color: #fef6e9;
+  --card-color: #ffffff;
+  --text-color: #2a2a2a;
+  --accent-color: #F7DB60;
+  --badge-color: #f2f2f2;
+  --border-radius: 16px;
+  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  --transition: all 0.25s ease;
 }
 
 body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
   line-height: 1.6;
-  color: #333;
-  background-color: #f9f9f9;
+  padding: 0;
+  margin: 0;
 }
 
-/* Profile Container */
-// .profile-container {
-//   max-width: 900px;
-//   margin: 40px auto;
-//   padding: 20px;
-// }
+/* Main container - all profile content goes here */
+.profile-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
 
-/* Profile Header */
+@media (min-width: 768px) {
+  .profile-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Header section */
 .profile-header {
+  grid-column: 1 / -1;
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
-  align-items: flex-end;
+  gap: 28px;
+  margin-bottom: 12px;
 }
 
 .profile-avatar {
-  width: 24vh;
-  height: 24vh;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  // border: 1px solid #e0e0e0;
-  margin-right: 20px;
-  // background-color: #f5f5f5;
+  object-fit: cover;
+  border: 2px solid (#79E168);
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+.profile-avatar:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-intro {
+  flex: 1;
 }
 
 .profile-name {
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-bottom: 5px;
+  font-size: 42px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
   color: #333;
 }
 
 .profile-location {
-  font-size: 0.9rem;
-  color: #f06292;
-  margin-bottom: 8px;
   display: flex;
   align-items: center;
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: #555;
 }
 
-.location-icon {
-  margin-right: 5px;
+.profile-location svg {
+  margin-right: 6px;
+  fill: #555;
 }
 
-.profile-social {
+/* Social links */
+.social-links {
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--card-color);
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
 
-.social-icon.github {
+.social-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  background-color: var(--accent-color);
+}
+
+.social-link:hover svg {
+  fill: white;
+}
+
+.social-link svg {
+  width: 22px;
+  height: 22px;
+  fill: #333;
+  transition: var(--transition);
+}
+
+/* Content cards */
+.content-card {
+  background-color: var(--card-color);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  box-shadow: var(--box-shadow);
+  height: 100%;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 20px;
   color: #333;
+  position: relative;
+  padding-bottom: 10px;
 }
 
-.social-icon.linkedin {
-  color: #0c0c0c;
+.card-title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--accent-color);
+  border-radius: 3px;
 }
 
-/* Profile Content */
-.profile-content {
+/* Skills styling */
+.skills-container {
   display: flex;
-  gap: 25px;
-  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.profile-about {
-  flex: 2;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 20px;
-  background-color: #fff;
-}
-
-.profile-skills {
-  flex: 1;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 20px;
-  background-color: #fff;
-}
-
-h2 {
-  font-size: 1.1rem;
+.skill-badge {
+  background-color: var(--badge-color);
+  border-radius: 30px;
+  padding: 8px 18px;
+  font-size: 15px;
   font-weight: 500;
-  margin-bottom: 15px;
-  color: #333;
+  transition: var(--transition);
 }
 
-.about-content {
-  min-height: 100px;
-}
-
-.about-content p {
-  margin-bottom: 10px;
-}
-
-.skills-content {
-  min-height: 100px;
-}
-
-/* Skills List */
-.skills-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.skill-item {
-  display: inline-block;
-  background-color: #e9ecef;
-  color: #495057;
-  padding: 5px 10px;
-  border-radius: 15px;
-  font-size: 0.85rem;
-  margin-right: 8px;
-  margin-bottom: 8px;
-}
-
-/* Profile Actions */
-.profile-actions {
-  text-align: right;
-}
-
-.btn {
-  display: inline-block;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.2s;
-}
-
-.btn-primary {
-  background-color: #007bff;
+.skill-badge:hover {
+  background-color: var(--accent-color);
   color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.btn-primary:hover {
-  background-color: #0069d9;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .profile-content {
-    flex-direction: column;
-  }
-  
+/* Responsive adjustments */
+@media (max-width: 767px) {
   .profile-header {
     flex-direction: column;
     text-align: center;
   }
-  
-  .profile-avatar {
-    margin-right: 0;
-    margin-bottom: 15px;
-  }
-  
-  .profile-social {
+
+  .profile-location {
     justify-content: center;
   }
-  
-  .profile-actions {
-    text-align: center;
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .card-title:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .profile-container {
+    gap: 20px;
+  }
+
+  .content-card {
+    padding: 24px;
   }
 }
