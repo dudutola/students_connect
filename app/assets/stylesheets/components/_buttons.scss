@@ -1,12 +1,31 @@
+.back-btn {
+  // review this color
+  color: #0151a8;
+  font-size: 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #e2e6ea;
+    color: $dark-green;
+  }
+}
+
 .mark-done-btn {
-  position: fixed;
-  top: 188px;
-  right: 184px;
-  z-index: 1000;
+  // position: fixed;
+  // top: 188px;
+  // right: 184px;
+  // z-index: 1000;
   padding: 12px 20px;
   border-radius: 50px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   background-color: $main-color-green;
   color: $dark-green;
   font-weight: bold;
+
+  &:hover {
+    background: #6ED05F;
+  }
 }

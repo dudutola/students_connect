@@ -8,5 +8,11 @@
 .lecture__help {
   &--subtitle {
     font-size: 1.8rem;
+    margin: 0;
+  }
+
+  p {
+    font-size: 20px;
+    // color: $main-color-gray;
   }
 }
