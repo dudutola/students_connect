@@ -321,6 +321,7 @@
         .accordion-button:not(.collapsed) {
             background: var(--primary-yellow);
             color: white;
+            box-shadow: none;
         }
         
         .accordion-button:focus {

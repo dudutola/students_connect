@@ -19,7 +19,7 @@ body {
 }
 
 /* Main container - all profile content goes here */
-.profile-container {
+.profile-user-container {
   max-width: 1000px;
   margin: 40px auto;
   padding: 0 20px;
@@ -29,7 +29,7 @@ body {
 }
 
 @media (min-width: 768px) {
-  .profile-container {
+  .profile-user-container {
     grid-template-columns: 1fr 1fr;
   }
 }
