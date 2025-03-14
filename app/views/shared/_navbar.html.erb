@@ -25,7 +25,9 @@
         <% end %>
       <% else %>
         <div class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to new_user_session_path, class: "github-btn" do %>
+            <i class="fab fa-github"></i> Sign in with Github
+          <% end %>
         </div>
       <% end %>
     </div>
