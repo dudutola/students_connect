@@ -1,4 +1,4 @@
-<%= link_to "< Back", chapter_path(@lecture.chapter)  %>
+<%= link_to "< Back to #{@lecture.chapter.name}", chapter_path(@lecture.chapter), class: "back-btn mb-5"  %>
 
 <div class="d-flex justify-content-between align-items-center mb-5 flex-column flex-md-row text-center text-md-start lecture-content">
   <div>
@@ -23,7 +23,7 @@
   <p class="text-muted">Reach out to someone who completed this lecture and might be able to help you!</p>
 </div>
 
-<h3 class="mt-4 mb-4"><%= pluralize(@lecture.lecture_users.count, "person") %> completed this lecture:</h3>
+<h3 class="mt-5 mb-4"><%= pluralize(@lecture.lecture_users.count, "person") %> completed this lecture:</h3>
 <div class="lecture__list row">
   <% @lecture.lecture_users.order(created_at: :asc).each do |lecture_user| %>
     <div class="col-md-4 mb-4">
