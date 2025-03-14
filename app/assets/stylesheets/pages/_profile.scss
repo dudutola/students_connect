@@ -1,0 +1,179 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Profile Container */
+// .profile-container {
+//   max-width: 900px;
+//   margin: 40px auto;
+//   padding: 20px;
+// }
+
+/* Profile Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  align-items: flex-end;
+}
+
+.profile-avatar {
+  width: 24vh;
+  height: 24vh;
+  border-radius: 50%;
+  // border: 1px solid #e0e0e0;
+  margin-right: 20px;
+  // background-color: #f5f5f5;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.profile-location {
+  font-size: 0.9rem;
+  color: #f06292;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.location-icon {
+  margin-right: 5px;
+}
+
+.profile-social {
+  display: flex;
+  gap: 10px;
+}
+
+
+.social-icon.github {
+  color: #333;
+}
+
+.social-icon.linkedin {
+  color: #0c0c0c;
+}
+
+/* Profile Content */
+.profile-content {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.profile-about {
+  flex: 2;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.profile-skills {
+  flex: 1;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.about-content {
+  min-height: 100px;
+}
+
+.about-content p {
+  margin-bottom: 10px;
+}
+
+.skills-content {
+  min-height: 100px;
+}
+
+/* Skills List */
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-item {
+  display: inline-block;
+  background-color: #e9ecef;
+  color: #495057;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+/* Profile Actions */
+.profile-actions {
+  text-align: right;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-content {
+    flex-direction: column;
+  }
+  
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-avatar {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  .profile-social {
+    justify-content: center;
+  }
+  
+  .profile-actions {
+    text-align: center;
+  }
+}

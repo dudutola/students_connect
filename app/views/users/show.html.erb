@@ -1,38 +1,47 @@
-<div class="profile-container">
-  <div class="profile-header">
-    <div class="profile-avatar">
-      <% if @user.avatar_url.present? %>
-        <%= image_tag @user.avatar_url, class: "avatar-img" %>
-      <% end %>
-    </div>
-    <div class="profile-info">
-      <h1 class="profile-name"><%= @user.name %></h1>
-      <div class="profile-location">
-        <i class="fas fa-map-marker-alt location-icon"></i>
-        <%# <span><%= @user.location, <%= local_time_display(@user)</span> %>
-      </div>
-      <div class="profile-social">
-        <i class="fab fa-twitter social-icon twitter"></i>
-        <i class="fab fa-github social-icon github"></i>
-        <i class="fab fa-linkedin social-icon linkedin"></i>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="profile-content">
-  <div class="profile-about">
-    <h2>About Me</h2>
-    <div class="about-content">
-      <%= simple_format(@user.bio) %>
+<body>
+  <div class="profile-container">
+    <!-- Profile Header -->
+    <div class="profile-header">
+      <div class="profile-avatar">
+        <%= image_tag @user.avatar_url, class: "profile-avatar" %>  
+      </div>
+      <div class="profile-info">
+        <h1 class="profile-name"><%= @user.name %></h1>
+        <div class="profile-location">
+          <i class="fas fa-map-marker-alt location-icon"></i>
+          <span>Lisbon</span>
+        </div>
+        <div class="profile-social">
+          <a href="#" class="social-icon github"><i class="fa-brands fa-github"></i>
+          <a href="#" class="social-icon linkedin"><i class="fa-brands fa-linkedin"></i>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Profile Content -->
+    <div class="profile-content">
+      <div class="profile-about">
+        <h2>About Me</h2>
+        <div class="about-content">
+          <p>I'm a web development student passionate about creating user-friendly applications. Currently working on improving my Rails and JavaScript skills.</p>
+          <p>I enjoy collaborating with others and solving challenging problems.</p>
+        </div>
+      </div>
+      
+      <div class="profile-skills">
+        <h2>Skills</h2>
+        <div class="skills-content">
+          <ul class="skills-list">
+            <li class="skill-item">Ruby</li>
+            <li class="skill-item">Rails</li>
+            <li class="skill-item">HTML</li>
+            <li class="skill-item">CSS</li>
+            <li class="skill-item">JavaScript</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="profile-skills">
-    <h2>Skills</h2>
-    <div class="skills-content">
-      <ul class="skills-list">
-        <!-- Skills will be added here later -->
-      </ul>
-    </div>
-  </div>
-</div>
+</body>
+</html>
