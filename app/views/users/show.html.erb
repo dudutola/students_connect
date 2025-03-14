@@ -1,0 +1,38 @@
+<div class="profile-container">
+  <div class="profile-header">
+    <div class="profile-avatar">
+      <% if @user.avatar_url.present? %>
+        <%= image_tag @user.avatar_url, class: "avatar-img" %>
+      <% end %>
+    </div>
+    <div class="profile-info">
+      <h1 class="profile-name"><%= @user.name %></h1>
+      <div class="profile-location">
+        <i class="fas fa-map-marker-alt location-icon"></i>
+        <%# <span><%= @user.location, <%= local_time_display(@user)</span> %>
+      </div>
+      <div class="profile-social">
+        <i class="fab fa-twitter social-icon twitter"></i>
+        <i class="fab fa-github social-icon github"></i>
+        <i class="fab fa-linkedin social-icon linkedin"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="profile-content">
+  <div class="profile-about">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <%= simple_format(@user.bio) %>
+    </div>
+  </div>
+  <div class="profile-skills">
+    <h2>Skills</h2>
+    <div class="skills-content">
+      <ul class="skills-list">
+        <!-- Skills will be added here later -->
+      </ul>
+    </div>
+  </div>
+</div>
