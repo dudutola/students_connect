@@ -1,8 +1,14 @@
 class MeetingsController < ApplicationController
   before_action :set_lecture, only: [ :create ]
 
-  def show
+  def index
+    # @meetings = Meeting.where("requester_id = ? OR receiver_id = ?", current_user.id, current_user.id)
+    @meetings = policy_scope(Meeting)
+  end
 
+  def show
+    @meeting = Meeting.find(params[:id])
+    authorize @meeting
   end
 
   def create
