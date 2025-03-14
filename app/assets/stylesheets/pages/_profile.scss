@@ -1,0 +1,200 @@
+:root {
+  --background-color: #fef6e9;
+  --card-color: #ffffff;
+  --text-color: #2a2a2a;
+  --accent-color: #F7DB60;
+  --badge-color: #f2f2f2;
+  --border-radius: 16px;
+  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  --transition: all 0.25s ease;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
+}
+
+/* Main container - all profile content goes here */
+.profile-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .profile-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Header section */
+.profile-header {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 12px;
+}
+
+.profile-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid (#79E168);
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+.profile-avatar:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-intro {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 42px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: #333;
+}
+
+.profile-location {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: #555;
+}
+
+.profile-location svg {
+  margin-right: 6px;
+  fill: #555;
+}
+
+/* Social links */
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--card-color);
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  background-color: var(--accent-color);
+}
+
+.social-link:hover svg {
+  fill: white;
+}
+
+.social-link svg {
+  width: 22px;
+  height: 22px;
+  fill: #333;
+  transition: var(--transition);
+}
+
+/* Content cards */
+.content-card {
+  background-color: var(--card-color);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  box-shadow: var(--box-shadow);
+  height: 100%;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.card-title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--accent-color);
+  border-radius: 3px;
+}
+
+/* Skills styling */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill-badge {
+  background-color: var(--badge-color);
+  border-radius: 30px;
+  padding: 8px 18px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.skill-badge:hover {
+  background-color: var(--accent-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-location {
+    justify-content: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .card-title:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .profile-container {
+    gap: 20px;
+  }
+
+  .content-card {
+    padding: 24px;
+  }
+}

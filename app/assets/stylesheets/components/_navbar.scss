@@ -65,4 +65,12 @@
       color: #6A6A6A;
     }
   }
+  .fa-github {
+    color: $main-color-gray;
+    margin: 0;
+    padding: 4px;
+    border: 1px solid $main-color-gray;
+    border-radius: 20px;
+    margin-top: 2rem;
+  }
 }
