@@ -31,10 +31,16 @@
 
         <div class="d-flex align-items-center justify-content-between">
           <div class="d-flex align-items-center gap-3">
-            <%= image_tag lecture_user.user.avatar_url, class: "lecture__avatar", alt: "#{lecture_user.user.name}'s avatar" %>
+            <%= link_to user_profile_path(lecture_user.user), data: { turbo: false } do  %>
+              <%= image_tag lecture_user.user.avatar_url, class: "lecture__avatar", alt: "#{lecture_user.user.name}'s avatar" %>
+            <%end%>
 
             <div>
-              <h4 class="m-0 fw-bold"><%= lecture_user.user.name %></h4>
+              <h4 class="m-0 fw-bold">
+                <%= link_to user_profile_path(lecture_user.user), data: { turbo: false } do %>
+                  <%= lecture_user.user.name %></h4>
+                <%end%> 
+              </h4>
               <p class="current-lecture m-0 text-success small">Currently learning this lecture</p>
             </div>
           </div>
