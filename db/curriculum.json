@@ -1,0 +1,1090 @@
+[
+  {
+    "chapter_title": "Ruby",
+    "chapter_overview": "Time to dive deep into Ruby, the language 'designed for programmer happiness.' You'll cover object-oriented design, testing, and data structures – essential knowledge for learning other programming languages, too!",
+    "chapter_groups": [
+      {
+        "group_title": "Introduction",
+        "group_lectures": [
+          {
+            "lecture_title": "How This Course Will Work",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-how-this-course-will-work"
+          },
+          {
+            "lecture_title": "Installing Ruby",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-installing-ruby"
+          }
+        ]
+      },
+      {
+        "group_title": "Basic Ruby",
+        "group_lectures": [
+          {
+            "lecture_title": "Basic Data Types",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-basic-data-types"
+          },
+          {
+            "lecture_title": "Variables",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-variables"
+          },
+          {
+            "lecture_title": "Input and Output",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-input-and-output"
+          },
+          {
+            "lecture_title": "Conditional Logic",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-conditional-logic"
+          },
+          {
+            "lecture_title": "Loops",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-loops"
+          },
+          {
+            "lecture_title": "Arrays",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-arrays"
+          },
+          {
+            "lecture_title": "Hashes",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-hashes"
+          },
+          {
+            "lecture_title": "Methods",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-methods"
+          },
+          {
+            "lecture_title": "Debugging",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-debugging"
+          },
+          {
+            "lecture_title": "Basic Enumerable Methods",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-basic-enumerable-methods"
+          },
+          {
+            "lecture_title": "Predicate Enumerable Methods",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-predicate-enumerable-methods"
+          },
+          {
+            "lecture_title": "Nested Collections",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-nested-collections"
+          }
+        ]
+      },
+      {
+        "group_title": "Basic Ruby Projects",
+        "group_lectures": [
+          {
+            "lecture_title": "Project: Caesar Cipher",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-caesar-cipher"
+          },
+          {
+            "lecture_title": "Project: Sub Strings",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-sub-strings"
+          },
+          {
+            "lecture_title": "Project: Stock Picker",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-stock-picker"
+          },
+          {
+            "lecture_title": "Project: Bubble Sort",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-bubble-sort"
+          }
+        ]
+      },
+      {
+        "group_title": "Object Oriented Programming Basics",
+        "group_lectures": [
+          {
+            "lecture_title": "Object Oriented Programming",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-object-oriented-programming"
+          },
+          {
+            "lecture_title": "Project Management",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-project-management"
+          },
+          {
+            "lecture_title": "Linting and RuboCop",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-linting-and-rubocop"
+          },
+          {
+            "lecture_title": "Project: Tic Tac Toe",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-tic-tac-toe"
+          },
+          {
+            "lecture_title": "Project: Mastermind",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-mastermind"
+          }
+        ]
+      },
+      {
+        "group_title": "Files and Serialization",
+        "group_lectures": [
+          {
+            "lecture_title": "Files and Serialization",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-files-and-serialization"
+          },
+          {
+            "lecture_title": "Project: Event Manager",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-event-manager"
+          },
+          {
+            "lecture_title": "Project: Hangman",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-hangman"
+          }
+        ]
+      },
+      {
+        "group_title": "Advanced Ruby",
+        "group_lectures": [
+          {
+            "lecture_title": "Pattern Matching",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-pattern-matching"
+          },
+          {
+            "lecture_title": "Blocks",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-blocks"
+          },
+          {
+            "lecture_title": "Project: Custom Enumerables",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-custom-enumerables"
+          }
+        ]
+      },
+      {
+        "group_title": "A Bit of Computer Science",
+        "group_lectures": [
+          {
+            "lecture_title": "A Very Brief Intro to CS",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-a-very-brief-intro-to-cs"
+          },
+          {
+            "lecture_title": "Recursive Methods",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-recursive-methods"
+          },
+          {
+            "lecture_title": "Project: Recursion",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-recursion"
+          },
+          {
+            "lecture_title": "Time Complexity",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-time-complexity"
+          },
+          {
+            "lecture_title": "Space Complexity",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-space-complexity"
+          },
+          {
+            "lecture_title": "Common Data Structures and Algorithms",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-common-data-structures-and-algorithms"
+          },
+          {
+            "lecture_title": "Project: Linked Lists",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-linked-lists"
+          },
+          {
+            "lecture_title": "HashMap Data Structure",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-hashmap-data-structure"
+          },
+          {
+            "lecture_title": "Project: HashMap",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-hashmap"
+          },
+          {
+            "lecture_title": "Project: Binary Search Trees",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-binary-search-trees"
+          },
+          {
+            "lecture_title": "Project: Knights Travails",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-knights-travails"
+          }
+        ]
+      },
+      {
+        "group_title": "Intermediate Git",
+        "group_lectures": [
+          {
+            "lecture_title": "A Deeper Look at Git",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-a-deeper-look-at-git"
+          },
+          {
+            "lecture_title": "Working with Remotes",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-working-with-remotes"
+          },
+          {
+            "lecture_title": "Using Git in the Real World",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-using-git-in-the-real-world"
+          }
+        ]
+      },
+      {
+        "group_title": "Testing Ruby with RSpec",
+        "group_lectures": [
+          {
+            "lecture_title": "Test Driven Development",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-test-driven-development"
+          },
+          {
+            "lecture_title": "Introduction to RSpec",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-introduction-to-rspec"
+          },
+          {
+            "lecture_title": "Project: Connect Four",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-connect-four"
+          }
+        ]
+      },
+      {
+        "group_title": "Conclusion",
+        "group_lectures": [
+          {
+            "lecture_title": "Project: Ruby Final Project",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-ruby-final-project"
+          },
+          {
+            "lecture_title": "Conclusion",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-conclusion"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "chapter_title": "Intermediate HTML and CSS",
+    "chapter_overview": "Let's learn a little more about what you can do with HTML and CSS.",
+    "chapter_groups": [
+      {
+        "group_title": "Intermediate HTML Concepts",
+        "group_lectures": [
+          {
+            "lecture_title": "Introduction",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-introduction"
+          },
+          {
+            "lecture_title": "Emmet",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-emmet"
+          },
+          {
+            "lecture_title": "SVG",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-svg"
+          },
+          {
+            "lecture_title": "Tables",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-tables"
+          }
+        ]
+      },
+      {
+        "group_title": "Intermediate CSS Concepts",
+        "group_lectures": [
+          {
+            "lecture_title": "Default Styles",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-default-styles"
+          },
+          {
+            "lecture_title": "CSS Units",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-css-units"
+          },
+          {
+            "lecture_title": "More Text Styles",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-more-text-styles"
+          },
+          {
+            "lecture_title": "More CSS Properties",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-more-css-properties"
+          },
+          {
+            "lecture_title": "Advanced Selectors",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-advanced-selectors"
+          },
+          {
+            "lecture_title": "Positioning",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-positioning"
+          },
+          {
+            "lecture_title": "CSS Functions",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-css-functions"
+          },
+          {
+            "lecture_title": "Custom Properties",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-custom-properties"
+          },
+          {
+            "lecture_title": "Browser Compatibility",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-browser-compatibility"
+          },
+          {
+            "lecture_title": "Frameworks and Preprocessors",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-frameworks-and-preprocessors"
+          }
+        ]
+      },
+      {
+        "group_title": "Forms",
+        "group_lectures": [
+          {
+            "lecture_title": "Form Basics",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-form-basics"
+          },
+          {
+            "lecture_title": "Form Validation",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-form-validation"
+          },
+          {
+            "lecture_title": "Project: Sign-up Form",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-sign-up-form"
+          }
+        ]
+      },
+      {
+        "group_title": "Grid",
+        "group_lectures": [
+          {
+            "lecture_title": "Introduction to Grid",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-introduction-to-grid"
+          },
+          {
+            "lecture_title": "Creating a Grid",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-creating-a-grid"
+          },
+          {
+            "lecture_title": "Positioning Grid Elements",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-positioning-grid-elements"
+          },
+          {
+            "lecture_title": "Advanced Grid Properties",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-advanced-grid-properties"
+          },
+          {
+            "lecture_title": "Using Flexbox and Grid",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-using-flexbox-and-grid"
+          },
+          {
+            "lecture_title": "Project: Admin Dashboard",
+            "lecture_url": "https://www.theodinproject.com/lessons/intermediate-html-and-css-admin-dashboard"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "chapter_title": "Databases",
+    "chapter_overview": "Databases are used to organize and capture large amounts of data, typically by inputting, storing, retrieving and managing the information. This course will focus on relational databases, which are widely used to store data and SQL, the language used to query the database.",
+    "chapter_groups": [
+      {
+        "group_title": "Databases",
+        "group_lectures": [
+          {
+            "lecture_title": "Databases",
+            "lecture_url": "https://www.theodinproject.com/lessons/databases"
+          },
+          {
+            "lecture_title": "Databases and SQL",
+            "lecture_url": "https://www.theodinproject.com/lessons/databases-databases-and-sql"
+          },
+          {
+            "lecture_title": "Project: SQL Zoo",
+            "lecture_url": "https://www.theodinproject.com/lessons/databases-sql-zoo"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "chapter_title": "Ruby on Rails",
+    "chapter_overview": "Take Ruby to the next level with the Ruby on Rails framework! Learn how to fully craft your site's backend using the Model-View-Controller design pattern. You'll gain the confidence to launch a website in under an hour.",
+    "chapter_groups": [
+      {
+        "group_title": "Introduction",
+        "group_lectures": [
+          {
+            "lecture_title": "How This Course Will Work",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-how-this-course-will-work"
+          },
+          {
+            "lecture_title": "Introduction to the Back End",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-introduction-to-the-back-end"
+          },
+          {
+            "lecture_title": "Introduction to Frameworks",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-introduction-to-frameworks"
+          },
+          {
+            "lecture_title": "Project: Installing Rails",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-installing-rails"
+          },
+          {
+            "lecture_title": "A Railsy Web Refresher",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-a-railsy-web-refresher"
+          }
+        ]
+      },
+      {
+        "group_title": "Rails Basics",
+        "group_lectures": [
+          {
+            "lecture_title": "Routing",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-routing"
+          },
+          {
+            "lecture_title": "Controllers",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-controllers"
+          },
+          {
+            "lecture_title": "Views",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-views"
+          },
+          {
+            "lecture_title": "Project: Blog App",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-blog-app"
+          },
+          {
+            "lecture_title": "Deployment",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-deployment"
+          }
+        ]
+      },
+      {
+        "group_title": "Active Record Basics",
+        "group_lectures": [
+          {
+            "lecture_title": "Active Record Basics",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-active-record-basics"
+          },
+          {
+            "lecture_title": "Migrations",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-migrations"
+          },
+          {
+            "lecture_title": "Basic Validations",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-basic-validations"
+          },
+          {
+            "lecture_title": "Basic Associations",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-basic-associations"
+          },
+          {
+            "lecture_title": "Project: Micro-Reddit",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-micro-reddit"
+          }
+        ]
+      },
+      {
+        "group_title": "Assets and Navigation",
+        "group_lectures": [
+          {
+            "lecture_title": "The Asset Pipeline",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-the-asset-pipeline"
+          },
+          {
+            "lecture_title": "Importmaps",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-importmaps"
+          },
+          {
+            "lecture_title": "Turbo Drive",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-turbo-drive"
+          }
+        ]
+      },
+      {
+        "group_title": "Forms and Authentication",
+        "group_lectures": [
+          {
+            "lecture_title": "Form Basics",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-form-basics"
+          },
+          {
+            "lecture_title": "Project: Forms",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-forms"
+          },
+          {
+            "lecture_title": "Sessions Cookies and Authentication",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-sessions-cookies-and-authentication"
+          },
+          {
+            "lecture_title": "Project: Members Only!",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-members-only"
+          }
+        ]
+      },
+      {
+        "group_title": "Advanced Forms and Active Record",
+        "group_lectures": [
+          {
+            "lecture_title": "Installing PostgreSQL",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-installing-postgresql"
+          },
+          {
+            "lecture_title": "Active Record Queries",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-active-record-queries"
+          },
+          {
+            "lecture_title": "Active Record Associations",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-active-record-associations"
+          },
+          {
+            "lecture_title": "Project: Private Events",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-private-events"
+          },
+          {
+            "lecture_title": "Active Record Callbacks",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-active-record-callbacks"
+          },
+          {
+            "lecture_title": "Advanced Forms",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-advanced-forms"
+          },
+          {
+            "lecture_title": "Project: Flight Booker",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-flight-booker"
+          }
+        ]
+      },
+      {
+        "group_title": "APIs",
+        "group_lectures": [
+          {
+            "lecture_title": "APIs and Building Your Own",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-apis-and-building-your-own"
+          },
+          {
+            "lecture_title": "Working with External APIs",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-working-with-external-apis"
+          },
+          {
+            "lecture_title": "Project: Kittens API",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-kittens-api"
+          },
+          {
+            "lecture_title": "Project: Flickr API",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-flickr-api"
+          }
+        ]
+      },
+      {
+        "group_title": "Rails Sprinkles",
+        "group_lectures": [
+          {
+            "lecture_title": "CSS Bundling",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-css-bundling"
+          },
+          {
+            "lecture_title": "JS Bundling",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-js-bundling"
+          },
+          {
+            "lecture_title": "Turbo",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-turbo"
+          },
+          {
+            "lecture_title": "Stimulus",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-stimulus"
+          }
+        ]
+      },
+      {
+        "group_title": "Mailers and Advanced Topics",
+        "group_lectures": [
+          {
+            "lecture_title": "Mailers",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-mailers"
+          },
+          {
+            "lecture_title": "Project: Sending Confirmation Emails",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-sending-confirmation-emails"
+          },
+          {
+            "lecture_title": "Advanced Topics",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-advanced-topics"
+          },
+          {
+            "lecture_title": "Websockets and Actioncable",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-websockets-and-actioncable"
+          },
+          {
+            "lecture_title": "Project: Rails Final Project",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-rails-final-project"
+          },
+          {
+            "lecture_title": "Conclusion",
+            "lecture_url": "https://www.theodinproject.com/lessons/ruby-on-rails-conclusion"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "chapter_title": "Advanced HTML and CSS",
+    "chapter_overview": "It's time to dig in and become the CSS expert you deserve to be. After this course you'll be equipped to create web projects that look beautiful on any device!",
+    "chapter_groups": [
+      {
+        "group_title": "Animation",
+        "group_lectures": [
+          {
+            "lecture_title": "Transforms",
+            "lecture_url": "https://www.theodinproject.com/lessons/advanced-html-and-css-transforms"
+          },
+          {
+            "lecture_title": "Transitions",
+            "lecture_url": "https://www.theodinproject.com/lessons/advanced-html-and-css-transitions"
+          },
+          {
+            "lecture_title": "Keyframes",
+            "lecture_url": "https://www.theodinproject.com/lessons/advanced-html-and-css-keyframes"
+          }
+        ]
+      },
+      {
+        "group_title": "Accessibility",
+        "group_lectures": [
+          {
+            "lecture_title": "Introduction to Web Accessibility",
+            "lecture_url": "https://www.theodinproject.com/lessons/advanced-html-and-css-introduction-to-web-accessibility"
+          },
+          {
+            "lecture_title": "The Web Content Accessibility Guidelines (WCAG)",
+            "lecture_url": "https://www.theodinproject.com/lessons/advanced-html-and-css-the-web-content-accessibility-guidelines-wcag"
+          },
+          {
+            "lecture_title": "Semantic HTML",
+            "lecture_url": "https://www.theodinproject.com/lessons/advanced-html-and-css-semantic-html"
+          },
+          {
+            "lecture_title": "Accessible Colors",
+            "lecture_url": "https://www.theodinproject.com/lessons/advanced-html-and-css-accessible-colors"
+          },
+          {
+            "lecture_title": "Keyboard Navigation",
+            "lecture_url": "https://www.theodinproject.com/lessons/advanced-html-and-css-keyboard-navigation"
+          },
+          {
+            "lecture_title": "Meaningful Text",
+            "lecture_url": "https://www.theodinproject.com/lessons/advanced-html-and-css-meaningful-text"
+          },
+          {
+            "lecture_title": "WAI-ARIA",
+            "lecture_url": "https://www.theodinproject.com/lessons/advanced-html-and-css-wai-aria"
+          },
+          {
+            "lecture_title": "Accessibility Auditing",
+            "lecture_url": "https://www.theodinproject.com/lessons/advanced-html-and-css-accessibility-auditing"
+          }
+        ]
+      },
+      {
+        "group_title": "Responsive Design",
+        "group_lectures": [
+          {
+            "lecture_title": "Introduction to Responsive Design",
+            "lecture_url": "https://www.theodinproject.com/lessons/advanced-html-and-css-introduction-to-responsive-design"
+          },
+          {
+            "lecture_title": "Natural Responsiveness",
+            "lecture_url": "https://www.theodinproject.com/lessons/advanced-html-and-css-natural-responsiveness"
+          },
+          {
+            "lecture_title": "Responsive Images",
+            "lecture_url": "https://www.theodinproject.com/lessons/advanced-html-and-css-responsive-images"
+          },
+          {
+            "lecture_title": "Media Queries",
+            "lecture_url": "https://www.theodinproject.com/lessons/advanced-html-and-css-media-queries"
+          },
+          {
+            "lecture_title": "Project: Homepage",
+            "lecture_url": "https://www.theodinproject.com/lessons/advanced-html-and-css-homepage"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "chapter_title": "JavaScript",
+    "chapter_overview": "Make your websites dynamic and interactive with JavaScript! You'll create features and stand-alone applications. This module includes projects where you will learn how to manipulate the DOM, use object-oriented programming principles, and fetch real-world data using APIs.",
+    "chapter_groups": [
+      {
+        "group_title": "Introduction",
+        "group_lectures": [
+          {
+            "lecture_title": "How This Course Will Work",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-how-this-course-will-work"
+          },
+          {
+            "lecture_title": "A Quick Review",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-a-quick-review"
+          }
+        ]
+      },
+      {
+        "group_title": "Organizing Your JavaScript Code",
+        "group_lectures": [
+          {
+            "lecture_title": "Organizing Your JavaScript Code Introduction",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-organizing-your-javascript-code-introduction"
+          },
+          {
+            "lecture_title": "Objects and Object Constructors",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-objects-and-object-constructors"
+          },
+          {
+            "lecture_title": "Project: Library",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-library"
+          },
+          {
+            "lecture_title": "Factory Functions and the Module Pattern",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-factory-functions-and-the-module-pattern"
+          },
+          {
+            "lecture_title": "Project: Tic Tac Toe",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-tic-tac-toe"
+          },
+          {
+            "lecture_title": "Classes",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-classes"
+          },
+          {
+            "lecture_title": "ES6 Modules",
+            "lecture_url": "https://www.theodinproject.com/lessons/rails-path-javascript-es6-modules"
+          },
+          {
+            "lecture_title": "npm",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-npm"
+          },
+          {
+            "lecture_title": "Webpack",
+            "lecture_url": "https://www.theodinproject.com/lessons/rails-path-javascript-webpack"
+          },
+          {
+            "lecture_title": "Project: Restaurant Page",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-restaurant-page"
+          },
+          {
+            "lecture_title": "Revisiting Webpack",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-revisiting-webpack"
+          },
+          {
+            "lecture_title": "JSON",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-json"
+          },
+          {
+            "lecture_title": "OOP Principles",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-oop-principles"
+          },
+          {
+            "lecture_title": "Project: Todo List",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-todo-list"
+          }
+        ]
+      },
+      {
+        "group_title": "JavaScript in the Real World",
+        "group_lectures": [
+          {
+            "lecture_title": "Linting",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-linting"
+          },
+          {
+            "lecture_title": "Dynamic User Interface Interactions",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-dynamic-user-interface-interactions"
+          },
+          {
+            "lecture_title": "Form Validation with JavaScript",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-form-validation-with-javascript"
+          },
+          {
+            "lecture_title": "What is ES6?",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-what-is-es6"
+          }
+        ]
+      },
+      {
+        "group_title": "Asynchronous JavaScript and APIs",
+        "group_lectures": [
+          {
+            "lecture_title": "Asynchronous Code",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-asynchronous-code"
+          },
+          {
+            "lecture_title": "Working with APIs",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-working-with-apis"
+          },
+          {
+            "lecture_title": "Async and Await",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-async-and-await"
+          },
+          {
+            "lecture_title": "Project: Weather App",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-weather-app"
+          }
+        ]
+      },
+      {
+        "group_title": "Testing JavaScript",
+        "group_lectures": [
+          {
+            "lecture_title": "Testing Basics",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-testing-basics"
+          },
+          {
+            "lecture_title": "Project: Testing Practice",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-testing-practice"
+          },
+          {
+            "lecture_title": "More Testing",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-more-testing"
+          },
+          {
+            "lecture_title": "Project: Battleship",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-battleship"
+          }
+        ]
+      },
+      {
+        "group_title": "Finishing Up with JavaScript",
+        "group_lectures": [
+          {
+            "lecture_title": "Conclusion",
+            "lecture_url": "https://www.theodinproject.com/lessons/javascript-conclusion"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "chapter_title": "React",
+    "chapter_overview": "Let's learn React, the most popular JavaScript library for building user interfaces. Take your frontend skills to a whole new level!",
+    "chapter_groups": [
+      {
+        "group_title": "Introduction",
+        "group_lectures": [
+          {
+            "lecture_title": "How This Course Will Work",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-how-this-course-will-work"
+          },
+          {
+            "lecture_title": "Introduction To React",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-introduction-to-react"
+          },
+          {
+            "lecture_title": "Setting Up A React Environment",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-setting-up-a-react-environment"
+          }
+        ]
+      },
+      {
+        "group_title": "Getting Started With React",
+        "group_lectures": [
+          {
+            "lecture_title": "React Components",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-react-components"
+          },
+          {
+            "lecture_title": "What Is JSX?",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-what-is-jsx"
+          },
+          {
+            "lecture_title": "Rendering Techniques",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-rendering-techniques"
+          },
+          {
+            "lecture_title": "Keys In React",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-keys-in-react"
+          },
+          {
+            "lecture_title": "Passing Data Between Components",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-passing-data-between-components"
+          }
+        ]
+      },
+      {
+        "group_title": "States And Effects",
+        "group_lectures": [
+          {
+            "lecture_title": "Introduction To State",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-introduction-to-state"
+          },
+          {
+            "lecture_title": "More On State",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-more-on-state"
+          },
+          {
+            "lecture_title": "Project: CV Application",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-cv-application"
+          },
+          {
+            "lecture_title": "How To Deal With Side Effects",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-how-to-deal-with-side-effects"
+          },
+          {
+            "lecture_title": "Project: Memory Card",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-memory-card"
+          }
+        ]
+      },
+      {
+        "group_title": "Class Components",
+        "group_lectures": [
+          {
+            "lecture_title": "Class Based Components",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-class-based-components"
+          },
+          {
+            "lecture_title": "Component Lifecycle Methods",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-component-lifecycle-methods"
+          }
+        ]
+      },
+      {
+        "group_title": "React Testing",
+        "group_lectures": [
+          {
+            "lecture_title": "Introduction To React Testing",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-introduction-to-react-testing"
+          },
+          {
+            "lecture_title": "Mocking Callbacks And Components",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-mocking-callbacks-and-components"
+          }
+        ]
+      },
+      {
+        "group_title": "The React Ecosystem",
+        "group_lectures": [
+          {
+            "lecture_title": "Type Checking With PropTypes",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-type-checking-with-proptypes"
+          },
+          {
+            "lecture_title": "React Router",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-react-router"
+          },
+          {
+            "lecture_title": "Fetching Data In React",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-fetching-data-in-react"
+          },
+          {
+            "lecture_title": "Styling React Applications",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-styling-react-applications"
+          },
+          {
+            "lecture_title": "Project: Shopping Cart",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-shopping-cart"
+          }
+        ]
+      },
+      {
+        "group_title": "More React Concepts",
+        "group_lectures": [
+          {
+            "lecture_title": "Managing State With The Context API",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-managing-state-with-the-context-api"
+          },
+          {
+            "lecture_title": "Reducing State",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-reducing-state"
+          },
+          {
+            "lecture_title": "Refs And Memoization",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-refs-and-memoization"
+          }
+        ]
+      },
+      {
+        "group_title": "React And The Backend",
+        "group_lectures": [
+          {
+            "lecture_title": "Using Ruby On Rails For Your Backend",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-using-ruby-on-rails-for-your-backend"
+          },
+          {
+            "lecture_title": "Project: Where's Waldo (A Photo Tagging App)",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-where-s-waldo-a-photo-tagging-app"
+          },
+          {
+            "lecture_title": "Project: Messaging App",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-new-messaging-app"
+          }
+        ]
+      },
+      {
+        "group_title": "Conclusion",
+        "group_lectures": [
+          {
+            "lecture_title": "Conclusion",
+            "lecture_url": "https://www.theodinproject.com/lessons/react-conclusion"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "chapter_title": "Getting Hired",
+    "chapter_overview": "Web development is a lifelong journey of learning and growth. Continue that journey on a professional development team! You'll learn where to find jobs, how to do great interviews, and the best strategies to launch your career.",
+    "chapter_groups": [
+      {
+        "group_title": "Preparing for Your Job Search",
+        "group_lectures": [
+          {
+            "lecture_title": "How This Course Will Work",
+            "lecture_url": "https://www.theodinproject.com/lessons/getting-hired-how-this-course-will-work"
+          },
+          {
+            "lecture_title": "Professional Networking",
+            "lecture_url": "https://www.theodinproject.com/lessons/getting-hired-professional-networking"
+          },
+          {
+            "lecture_title": "Strategy",
+            "lecture_url": "https://www.theodinproject.com/lessons/getting-hired-strategy"
+          },
+          {
+            "lecture_title": "It Starts with YOU",
+            "lecture_url": "https://www.theodinproject.com/lessons/getting-hired-it-starts-with-you"
+          },
+          {
+            "lecture_title": "What Companies Want",
+            "lecture_url": "https://www.theodinproject.com/lessons/getting-hired-what-companies-want"
+          },
+          {
+            "lecture_title": "What You Can Do to Prepare",
+            "lecture_url": "https://www.theodinproject.com/lessons/getting-hired-what-you-can-do-to-prepare"
+          },
+          {
+            "lecture_title": "Project: Building Your Personal Website",
+            "lecture_url": "https://www.theodinproject.com/lessons/getting-hired-building-your-personal-website"
+          }
+        ]
+      },
+      {
+        "group_title": "Applying to and Interviewing for Jobs",
+        "group_lectures": [
+          {
+            "lecture_title": "Collecting Job Leads",
+            "lecture_url": "https://www.theodinproject.com/lessons/getting-hired-collecting-job-leads"
+          },
+          {
+            "lecture_title": "Qualifying Job Leads",
+            "lecture_url": "https://www.theodinproject.com/lessons/getting-hired-qualifying-job-leads"
+          },
+          {
+            "lecture_title": "Project: Building Your Resume",
+            "lecture_url": "https://www.theodinproject.com/lessons/getting-hired-building-your-resume"
+          },
+          {
+            "lecture_title": "Applying for Web Development Jobs",
+            "lecture_url": "https://www.theodinproject.com/lessons/getting-hired-applying-for-web-development-jobs"
+          },
+          {
+            "lecture_title": "Preparing to Interview and Interviewing",
+            "lecture_url": "https://www.theodinproject.com/lessons/getting-hired-preparing-to-interview-and-interviewing"
+          },
+          {
+            "lecture_title": "Handling a Job Offer",
+            "lecture_url": "https://www.theodinproject.com/lessons/getting-hired-handling-a-job-offer"
+          },
+          {
+            "lecture_title": "Conclusion",
+            "lecture_url": "https://www.theodinproject.com/lessons/getting-hired-conclusion"
+          }
+        ]
+      }
+    ]
+  }
+]
