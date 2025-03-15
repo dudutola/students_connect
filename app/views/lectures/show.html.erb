@@ -25,19 +25,21 @@
 
 <h3 class="mt-5 mb-4"><%= pluralize(@lecture.lecture_users.count, "person") %> completed this lecture:</h3>
 <div class="lecture__list row">
-  <% @lecture.lecture_users.order(created_at: :asc).each do |lecture_user| %>
+  <% @lecture.lecture_users.order(created_at: :desc).each do |lecture_user| %>
     <div class="col-md-4 mb-4">
       <div class="lecture__card p-3 d-flex flex-column gap-3 rounded-lg">
 
         <div class="d-flex align-items-center justify-content-between">
-          <div class="d-flex align-items-center gap-3">
-            <%= image_tag lecture_user.user.avatar_url, class: "lecture__avatar", alt: "#{lecture_user.user.name}'s avatar" %>
+          <%= link_to user_profile_path(lecture_user.user) do %>
+            <div class="d-flex align-items-center gap-3">
+              <%= image_tag lecture_user.user.avatar_url, class: "lecture__avatar", alt: "#{lecture_user.user.name}'s avatar" %>
 
-            <div>
-              <h4 class="m-0 fw-bold"><%= lecture_user.user.name %></h4>
-              <p class="current-lecture m-0 text-success small">Currently learning this lecture</p>
+              <div>
+                <h4 class="m-0 fw-bold text-dark text-decoration-underline"><%= lecture_user.user.name %></h4>
+                <p class="current-lecture m-0 text-success small">Currently learning this lecture</p>
+              </div>
             </div>
-          </div>
+          <% end %>
 
           <span class="favorite-icon">
             <i class="fa-regular fa-heart"></i>
@@ -60,13 +62,12 @@
             <p class="m-0 small text-muted">4:06 PM</p>
           </div>
         </div>
-
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#meetingModal-<%= lecture_user.user.id %>">
-        Request Meeting
-      </button>
+        <% if lecture_user.user != current_user %>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#meetingModal-<%= lecture_user.user.id %>">
+            Request Meeting
+          </button>
+        <% end %>
       </div>
-
-
     </div>
 
     <%= render "modal-meetings", lecture: @lecture, lecture_user: lecture_user %>
