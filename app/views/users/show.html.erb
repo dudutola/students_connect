@@ -8,6 +8,15 @@
       </div>
       <div class="profile-intro">
         <h1 class="profile-name"><%= @user.name %></h1>
+
+        <% if current_user && current_user.id == @user.id %>
+          <div class="edit-profile-button">
+            <%= link_to edit_user_profile_path(@user), class: "btn btn-sm btn-outline-primary", data: { turbo: false } do %>
+              <i class="fa-solid fa-pencil me-1"></i> Edit Profile
+            <% end %>
+          </div>
+        <% end %>
+        
         <div class="profile-location">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
             <path d="M12 0C7.802 0 4 3.403 4 7.602 4 11.8 12 24 12 24s8-12.2 8-16.398C20 3.403 16.199 0 12 0zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" />
@@ -30,23 +39,38 @@
     </header>
 
     <!-- About Me Card -->
-    <section class="content-card about-section">
+      <section class="content-card about-section">
       <h2 class="card-title">About Me</h2>
-      <p>I'm a web development student passionate about creating user-friendly applications. Currently working on improving my Rails and JavaScript skills.</p>
-      <p>I enjoy collaborating with others and solving challenging problems.</p>
+      <% if @user.description.present? %>
+        <p><%= @user.description %></p>
+      <% else %>
+        <p>I'm a web development student passionate about creating user-friendly applications. Currently working on improving my Rails and JavaScript skills.</p>
+        <p>I enjoy collaborating with others and solving challenging problems.</p>
+      <% end %>
     </section>
 
     <!-- Skills Card -->
     <section class="content-card skills-section">
       <h2 class="card-title">Skills</h2>
       <div class="skills-container">
-        <span class="skill-badge">Ruby</span>
-        <span class="skill-badge">Rails</span>
-        <span class="skill-badge">HTML</span>
-        <span class="skill-badge">CSS</span>
-        <span class="skill-badge">JavaScript</span>
-      </div>
-    </section>
+        <% if @user.skills.present? && @user.skills.any? %>
+          <% @user.skills.each do |skill| %>
+            <span class="skill-badge"><%= skill %></span>
+          <% end %>
+        <% else %>
+         <% if current_user && current_user.id == @user.id %>
+        <p class="add-skills-message">
+          <%= link_to edit_user_profile_path(@user), class: "add-skills-link", data: { turbo: false } do %>
+            <i class="fa-solid fa-plus me-1"></i> Add your skills
+          <% end %>
+        </p>
+        <% else %>
+          <p class="no-skills-message">No skills added yet.</p>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
   </div>
 </body>
 </html>
+
