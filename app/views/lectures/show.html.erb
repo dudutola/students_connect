@@ -9,12 +9,17 @@
     <%= link_to "View this course in Odin Project", "https://www.theodinproject.com/lessons/ruby-how-this-course-will-work", target: "_blank" %>
   </div>
 
-  <% unless @lecture.lecture_users.exists?(user: current_user) %>
+  <% if @lecture.lecture_users.exists?(user: current_user) %>
+    <div class="d-flex flex-column align-items-end">
+      <p class="text-success fw-bold mb-0">✅ You have completed this lecture!</p>
+      <%= simple_form_for @lecture, url: mark_as_done_lecture_path(@lecture), method: :post do |f| %>
+        <%= f.button :submit, "Cancel ❌", class: "cancel-done-btn text-danger p-0 fw-bold" %>
+      <% end %>
+    </div>
+  <% else %>
     <%= simple_form_for @lecture, url: mark_as_done_lecture_path(@lecture), method: :post do |f| %>
       <%= f.button :submit, "Mark as Done!", class: "mark-done-btn" %>
     <% end %>
-  <% else %>
-    <p class="text-success fw-bold">✅ You have completed this lecture!</p>
   <% end %>
 </div>
 
