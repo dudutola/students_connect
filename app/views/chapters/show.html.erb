@@ -7,38 +7,18 @@
       <p class="m-0">Ruby is known as the language designed for developer happiness.</p>
       <p class="m-0">In this course, you’ll go from basics to projects, and if you ever feel stuck, don't worry, <span class="connection">connect with others and get the help you need</span>!</p>
 
-
       <div>
         <% if @previous_chapter %>
-          <%= link_to lecture_path(Lecture.find(1269)) do %>
-            <span>lecture</span>
-          <% end %>
           <%= link_to chapter_path(@previous_chapter) do %>
             <span>prev</span>
           <% end %>
-        <% else %>
-          <%= link_to @next_chapter do %>
-          <span>n</span>
-          <% end %>
-
         <% end %>
 
-
-
-         <% if @previous_chapter %>
-          <%= link_to chapter_path(@previous_chapter.id) do %>
-            <span>p</span>
-          <% end %>
-        <% end %>
-
-         <% if @next_chapter %>
+        <% if @previous_chapter %>
           <%= link_to chapter_path(@next_chapter) do %>
-          <span>n</span>
+            <span>next</span>
           <% end %>
-
         <% end %>
-
-
       </div>
     </div>
 
