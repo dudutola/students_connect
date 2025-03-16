@@ -25,7 +25,7 @@
 
 <h3 class="mt-5 mb-4"><%= pluralize(@lecture.lecture_users.count, "person") %> completed this lecture:</h3>
 <div class="lecture__list row">
-  <% @lecture.lecture_users.order(created_at: :asc).each do |lecture_user| %>
+  <% @lecture.lecture_users.order(created_at: :desc).each do |lecture_user| %>
     <div class="col-md-4 mb-4">
       <div class="lecture__card p-3 d-flex flex-column gap-3 rounded-lg">
 
