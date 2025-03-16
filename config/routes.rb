@@ -26,5 +26,10 @@ Rails.application.routes.draw do
     resources :meetings, only: [ :create ]
   end
 
-  resources :meetings, only: [ :show ]
+  resources :meetings, only: [ :show ] do
+    member do
+      patch :accepted
+      patch :declined
+    end
+  end
 end
