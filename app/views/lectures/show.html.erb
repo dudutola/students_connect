@@ -1,12 +1,12 @@
-<%= link_to "< Back to #{@lecture.chapter.name}", chapter_path(@lecture.chapter), class: "back-btn mb-5"  %>
+<%= link_to "< Back to #{@lecture.chapter.name}", chapter_path(@lecture.chapter), class: "back-btn mb-5" %>
 
 <div class="d-flex justify-content-between align-items-center mb-5 flex-column flex-md-row text-center text-md-start lecture-content">
   <div>
-    <%= link_to "https://www.theodinproject.com/lessons/ruby-how-this-course-will-work", target: "_blank" do  %>
+    <%= link_to @lecture.resource_url, target: "_blank" do  %>
       <h1 class="m-0 pb-2 text-decoration-underline fw-bold"><%= @lecture.title %></h1>
     <% end %>
     <%# add the icon %>
-    <%= link_to "View this course in Odin Project", "https://www.theodinproject.com/lessons/ruby-how-this-course-will-work", target: "_blank" %>
+    <%= link_to "View this course in Odin Project", @lecture.resource_url, target: "_blank" %>
   </div>
 
   <% unless @lecture.lecture_users.exists?(user: current_user) %>
@@ -65,8 +65,6 @@
         Request Meeting
       </button>
       </div>
-
-
     </div>
 
     <%= render "modal-meetings", lecture: @lecture, lecture_user: lecture_user %>

@@ -25,6 +25,21 @@ Chapter.create(name: "JavaScript", description: "DOM manipulation and ES6+ featu
 Chapter.create(name: "React", description: "Component-based UI development")
 Chapter.create(name: "Getting Hired", description: "Portfolio building and interview prep")
 
+chapters_descriptions = [
+  { description: "Fundamentals of Ruby programming language" },
+  { description: "Advanced layouts and styling techniques" },
+  { description: "SQL, database design, and ActiveRecord" },
+  { description: "MVC architecture and building web apps" },
+  { description: "Responsive design and CSS frameworks" },
+  { description: "DOM manipulation and ES6+ features" },
+  { description: "Component-based UI development" },
+  { description: "Portfolio building and interview prep" },
+  { description: "Fundamentals of Ruby programming language" },
+  { description: "Fundamentals of Ruby programming language" },
+  { description: "Fundamentals of Ruby programming language" },
+  { description: "Fundamentals of Ruby programming language" },
+  { description: "Fundamentals of Ruby programming language" },
+]
 
 
 ruby_chapter = Chapter.find_by(name: "Ruby")

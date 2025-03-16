@@ -1,6 +1,7 @@
 [
   {
     "chapter_title": "Ruby",
+    "chapter_description": "Fundamentals of Ruby programming language",
     "chapter_overview": "Time to dive deep into Ruby, the language 'designed for programmer happiness.' You'll cover object-oriented design, testing, and data structures – essential knowledge for learning other programming languages, too!",
     "chapter_groups": [
       {
@@ -249,6 +250,7 @@
   },
   {
     "chapter_title": "Intermediate HTML and CSS",
+    "chapter_description": "Advanced layouts and styling techniques",
     "chapter_overview": "Let's learn a little more about what you can do with HTML and CSS.",
     "chapter_groups": [
       {
@@ -367,6 +369,7 @@
   },
   {
     "chapter_title": "Databases",
+    "chapter_description": "SQL, database design, and ActiveRecord",
     "chapter_overview": "Databases are used to organize and capture large amounts of data, typically by inputting, storing, retrieving and managing the information. This course will focus on relational databases, which are widely used to store data and SQL, the language used to query the database.",
     "chapter_groups": [
       {
@@ -390,6 +393,7 @@
   },
   {
     "chapter_title": "Ruby on Rails",
+    "chapter_description": "MVC architecture and building web apps",
     "chapter_overview": "Take Ruby to the next level with the Ruby on Rails framework! Learn how to fully craft your site's backend using the Model-View-Controller design pattern. You'll gain the confidence to launch a website in under an hour.",
     "chapter_groups": [
       {
@@ -613,6 +617,7 @@
   },
   {
     "chapter_title": "Advanced HTML and CSS",
+    "chapter_description": "Responsive design and CSS frameworks",
     "chapter_overview": "It's time to dig in and become the CSS expert you deserve to be. After this course you'll be equipped to create web projects that look beautiful on any device!",
     "chapter_groups": [
       {
@@ -698,6 +703,7 @@
   },
   {
     "chapter_title": "JavaScript",
+    "chapter_description": "DOM manipulation and ES6+ features",
     "chapter_overview": "Make your websites dynamic and interactive with JavaScript! You'll create features and stand-alone applications. This module includes projects where you will learn how to manipulate the DOM, use object-oriented programming principles, and fetch real-world data using APIs.",
     "chapter_groups": [
       {
@@ -850,6 +856,7 @@
   },
   {
     "chapter_title": "React",
+    "chapter_description": "Component-based UI development",
     "chapter_overview": "Let's learn React, the most popular JavaScript library for building user interfaces. Take your frontend skills to a whole new level!",
     "chapter_groups": [
       {
@@ -1017,6 +1024,7 @@
   },
   {
     "chapter_title": "Getting Hired",
+    "chapter_description": "Portfolio building and interview prept",
     "chapter_overview": "Web development is a lifelong journey of learning and growth. Continue that journey on a professional development team! You'll learn where to find jobs, how to do great interviews, and the best strategies to launch your career.",
     "chapter_groups": [
       {
