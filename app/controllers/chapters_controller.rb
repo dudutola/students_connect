@@ -10,7 +10,7 @@ class ChaptersController < ApplicationController
 
     all_chapters = Chapter.all
     current_chapter_index = all_chapters.find_index(@chapter)
-    @previous_chapter = all_chapters[current_chapter_index - 1]
-    @next_chapter = all_chapters[current_chapter_index + 1]
+    @previous_chapter = all_chapters[current_chapter_index - 1] if current_chapter_index > 0
+    @next_chapter = all_chapters[current_chapter_index + 1] if current_chapter_index < all_chapters.length - 1
   end
 end

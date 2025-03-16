@@ -10,13 +10,13 @@
       <div>
         <% if @previous_chapter %>
           <%= link_to chapter_path(@previous_chapter) do %>
-            <span>prev</span>
+            <i class="fa-solid fa-angle-left"></i>
           <% end %>
         <% end %>
 
-        <% if @previous_chapter %>
+        <% if @next_chapter %>
           <%= link_to chapter_path(@next_chapter) do %>
-            <span>next</span>
+            <i class="fa-solid fa-angle-right"></i>
           <% end %>
         <% end %>
       </div>
