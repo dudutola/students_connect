@@ -79,7 +79,7 @@
     <section class="content-card progress-section">
     <h2 class="card-title">Course Progress</h2>
     
-    <% Chapter.includes(:lectures).each do |chapter| %>
+    <% Chapter.all.includes(:lectures).each do |chapter| %>
       <% 
         progress_percentage = current_user.chapter_progress(chapter)
         completed_lectures = current_user.completed_lectures_in_chapter(chapter)
@@ -90,7 +90,7 @@
       %>
       
       <div class="chapter-progress-card">
-        <div class="progress-header" data-toggle="collapse" data-target="#chapter-<%= chapter.id %>" aria-expanded="false" role="button">
+        <div class="progress-header" data-bs-toggle="collapse" data-bs-target="#chapter-<%= chapter.id %>" aria-expanded="false" role="button">
           <h3><%= chapter.name %></h3>
           <div class="progress-stats">
             <span class="completion-count"><%= completed_lectures %>/<%= total_lectures %></span>
