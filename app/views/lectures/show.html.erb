@@ -36,18 +36,14 @@
 
         <div class="d-flex align-items-center justify-content-between">
 
-          <div class="d-flex align-items-center gap-3">
-            <%= link_to user_profile_path(lecture_user.user), data: { turbo: false } do  %>
+          <%= link_to user_profile_path(lecture_user.user) do %>
+            <div class="d-flex align-items-center gap-3">
               <%= image_tag lecture_user.user.avatar_url, class: "lecture__avatar", alt: "#{lecture_user.user.name}'s avatar" %>
-            <%end%>
 
-            <div>
-              <h4 class="m-0 fw-bold">
-                <%= link_to user_profile_path(lecture_user.user), data: { turbo: false } do %>
-                  <%= lecture_user.user.name %></h4>
-                <%end%> 
-              </h4>
-              <p class="current-lecture m-0 text-success small">Currently learning this lecture</p>
+              <div>
+                <h4 class="m-0 fw-bold text-dark text-decoration-underline"><%= lecture_user.user.name %></h4>
+                <p class="current-lecture m-0 text-success small">Currently learning this lecture</p>
+              </div>
 
             </div>
           <% end %>
@@ -73,13 +69,14 @@
             <p class="m-0 small text-muted">4:06 PM</p>
           </div>
         </div>
+
         <% if lecture_user.user != current_user %>
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#meetingModal-<%= lecture_user.user.id %>">
             Request Meeting
           </button>
         <% end %>
+
       </div>
-    </div>
 
     <%= render "modal-meetings", lecture: @lecture, lecture_user: lecture_user %>
   <% end %>
