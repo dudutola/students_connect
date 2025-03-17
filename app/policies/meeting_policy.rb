@@ -21,4 +21,16 @@ class MeetingPolicy < ApplicationPolicy
     # For example, check if the user is either the requester or the receiver
     user == record.requester || user == record.receiver
   end
+
+  def accept?
+    record.receiver == user
+  end
+
+  def decline?
+    record.requester == user
+  end
+
+  def cancel?
+    record.requester == user && record.status == "pending"
+  end
 end
