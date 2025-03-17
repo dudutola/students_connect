@@ -20,18 +20,33 @@ Meeting.destroy_all
 
 puts "Database cleaned."
 
-10.times do
+users_data = [
+  { username: "rita", email: "rita@studentsconnect.com", name: "Rita Costiv", location: "United States" },
+  { username: "tomás", email: "tomas@studentsconnect.com", name: "Tomás Gray Vasco", location: "Spain" },
+  { username: "simão", email: "simao@studentsconnect.com", name: "Simão Martins", location: "Portugal" },
+  { username: "miguel", email: "miguel@studentsconnect.com", name: "Miguel Rodrigues", location: "England" },
+  { username: "talice", email: "talice@studentsconnect.com", name: "Talice Netos", location: "São Tomé and Príncipe" },
+  { username: "diego", email: "diego@studentsconnect.com", name: "Diego Maldonado", location: "Brasil" },
+  { username: "roberta", email: "roberta@studentsconnect.com", name: "Roberta Messi", location: "Colombia" },
+  { username: "pedro", email: "pedro@studentsconnect.com", name: "Pedro Costa", location: "Gabon" },
+  { username: "alice", email: "alice@studentsconnect.com", name: "Alice Albuquerque", location: "France" },
+  { username: "tomás", email: "tomascampos@studentsconnect.com", name: "Tomás Campos", location: "Madagascar" },
+  { username: "carla", email: "carla@studentsconnect.com", name: "Carla Ferrer", location: "Malta" }
+]
+
+users_data.each do |user_data|
   user = User.create!(
-    username: Faker::Internet.username,
+    username: user_data[:username],
     password: 'password',
-    email: Faker::Internet.email,
-    name: Faker::Name.name,
-    location: Faker::Address.country,
+    email: user_data[:email],
+    name: user_data[:name],
+    location: user_data[:country],
     avatar_url: "https://i.pravatar.cc/150?img=#{rand(1..70)}",
     provider: 'github',
     uid: SecureRandom.uuid
   )
   puts "Created user #{user.name}"
+  LectureUser.create! user: user, lecture: Lecture.first
 end
 
 filepath = File.join(__dir__, "curriculum.json")
