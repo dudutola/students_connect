@@ -1,10 +1,25 @@
 <%# implement a searchbar here or a filter too empty%>
 
 <div class="lectures-collapse">
-  <div class="chapter-description mb-5">
-    <h1 class="chapter-name"><%= @chapter.name %></h1>
-    <p class="m-0"><%= @chapter.overview %></p>
-  </div>
+  <% @lectures.group_by(&:chapter).each do |chapter, lectures| %>
+    <div class="chapter-description mb-5">
+      <h1 class="chapter-name"><%= @chapter.name %></h1>
+      <p class="m-0"><%= @chapter.overview %></p>
+    </div>
+
+      <div>
+        <% if @previous_chapter %>
+          <%= link_to chapter_path(@previous_chapter) do %>
+            <i class="fa-solid fa-angle-left"></i>
+          <% end %>
+        <% end %>
+
+        <% if @next_chapter %>
+          <%= link_to chapter_path(@next_chapter) do %>
+            <i class="fa-solid fa-angle-right"></i>
+          <% end %>
+        <% end %>
+      </div>
 
   <div class="collapsible">
     <% @lectures.group_by(&:group_name).each do |group_name, group_lectures| %>
