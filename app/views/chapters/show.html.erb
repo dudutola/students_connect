@@ -4,9 +4,6 @@
   <% @lectures.group_by(&:chapter).each do |chapter, lectures| %>
     <div class="chapter-description mb-5">
       <h1 class="chapter-name"><%= @chapter.name %></h1>
-      <p class="m-0"><%= @chapter.overview %></p>
-    </div>
-
       <div>
         <% if @previous_chapter %>
           <%= link_to chapter_path(@previous_chapter) do %>
@@ -20,24 +17,28 @@
           <% end %>
         <% end %>
       </div>
+      <p class="m-0"><%= @chapter.overview %></p>
+    </div>
 
-  <div class="collapsible">
-    <% @lectures.group_by(&:group_name).each do |group_name, group_lectures| %>
-      <details class="collapsible-group">
-        <summary>
-          <span class="group-name"><%= group_name %></span>
-          <i class="fas fa-chevron-down"></i>
-        </summary>
 
-        <% group_lectures.each do |lecture| %>
-          <div class="lecture-card">
-            <%= link_to lecture_path(lecture), class: "d-flex align-items-center" do %>
-              <i class="fa-solid fa-book-open"></i>
-              <p class="m-0"><%= lecture.title %></p>
-            <% end %>
-          </div>
-        <% end %>
-      </details>
-    <% end %>
-  </div>
+    <div class="collapsible">
+      <% @lectures.group_by(&:group_name).each do |group_name, group_lectures| %>
+        <details class="collapsible-group">
+          <summary>
+            <span class="group-name"><%= group_name %></span>
+            <i class="fas fa-chevron-down"></i>
+          </summary>
+
+          <% group_lectures.each do |lecture| %>
+            <div class="lecture-card">
+              <%= link_to lecture_path(lecture), class: "d-flex align-items-center" do %>
+                <i class="fa-solid fa-book-open"></i>
+                <p class="m-0"><%= lecture.title %></p>
+              <% end %>
+            </div>
+          <% end %>
+        </details>
+      <% end %>
+    </div>
+  <% end %>
 </div>
