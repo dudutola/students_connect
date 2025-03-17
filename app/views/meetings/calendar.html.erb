@@ -1,10 +1,16 @@
 <%= month_calendar do |date| %>
   <%= date.day %>
 
-  <% @meetings.each do |meeting| %>
+  <% @accepted_meetings.each do |meeting| %>
     <% if meeting.start_time.to_date == date %>
       <div class="event">
-        <%= meeting.title %>
+        <%= link_to meeting_path(meeting) do %>
+          <div class="meeting-card p-2">
+            <p class="mb-0"><strong><%= meeting.receiver.name %></strong></p>
+            <p class="mb-0"><strong><%= meeting.lecture.title %></strong></p>
+            <p class="mb-0"><%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %></p>
+          </div>
+        <% end %>
       </div>
     <% end %>
   <% end %>
