@@ -26,6 +26,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
+  grid-template-columns: 2fr 1fr;
 }
 
 .edit-profile-button {
@@ -40,6 +41,9 @@ body {
   color: #000000;
 }
 
+.progress-section{
+  width: 150%;
+}
 // .edit-profile-button:hover {
 //   background-color: #f5f5f5;
 // }
