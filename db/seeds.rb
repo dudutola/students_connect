@@ -46,7 +46,6 @@ users_data.each do |user_data|
     uid: SecureRandom.uuid
   )
   puts "Created user #{user.name}"
-  LectureUser.create! user: user, lecture: Lecture.first
 end
 
 filepath = File.join(__dir__, "curriculum.json")
