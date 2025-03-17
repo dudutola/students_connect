@@ -1,13 +1,16 @@
 class MeetingsController < ApplicationController
+  before_action :set_meeting, only: [ :show, :accept ]
   before_action :set_lecture, only: [ :create ]
 
   def index
     # @meetings = Meeting.where("requester_id = ? OR receiver_id = ?", current_user.id, current_user.id)
     @meetings = policy_scope(Meeting).order(created_at: :asc)
+
+    @pending_meetings = @meetings.where(status: "pending")
+    @accepted_meetings = @meetings.where(status: "accepted")
   end
 
   def show
-    @meeting = Meeting.find(params[:id])
     authorize @meeting
   end
 
@@ -17,13 +20,26 @@ class MeetingsController < ApplicationController
     authorize @meeting
 
     if @meeting.save
-      redirect_to lecture_path(@lecture.chapter, @lecture), notice: "Meeting request sent!"
+      # redirect_to lecture_path(@lecture.chapter, @lecture), notice: "Meeting request sent!"
+      redirect_to @meeting, notice: "Meeting request sent!"
     else
       redirect_to lecture_path(@lecture.chapter, @lecture), alert: "Failed to send meeting request."
     end
   end
 
+  def accept
+    if @meeting.update(status: "accepted")
+      redirect_to dashboard_path, notice: 'Meeting request accepted!'
+    else
+      redirect_to dashboard_path, alert: 'Something went wrong.'
+    end
+  end
+
   private
+
+  def set_meeting
+    @meeting = Meeting.find(params[:id])
+  end
 
   def meeting_params
     params.require(:meeting).permit(:start_time, :end_time, :status, :requester_id, :receiver_id, :lecture_id)

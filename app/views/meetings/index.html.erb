@@ -8,9 +8,9 @@
 <section class="meetings__cards mt-4 mb-5">
   <h2><strong>My next meetings</strong></h2>
 
-  <% if @meetings.any? %>
+  <% if @accepted_meetings.any? %>
     <div class="d-flex gap-3 w-100 flex-wrap mt-4">
-      <% @meetings.first(3).each do |meeting| %>
+      <% @accepted_meetings.first(3).each do |meeting| %>
         <div class="meeting__card flex-fill p-3 shadow">
           <div class="d-flex align-items-center gap-2 mb-2">
             <%= image_tag meeting.receiver.avatar_url, class: "meeting__card--avatar green-border radius-avatar", alt: "" %>
@@ -29,9 +29,8 @@
     </div>
 
     <div class="text-center mt-5">
-      <%= link_to "📅 See all meetings in calendar","#", class: "rounded-calendar-btn" %>
+      <%= link_to "📅 See all meetings in calendar", "#", class: "rounded-calendar-btn" %>
     </div>
-
   <% else %>
     <div class="text-center p-4">
       <p style="font-size: 3rem;">📭</p>
@@ -46,7 +45,7 @@
     <h3 class="toggle-header fw-bold underline"
         data-toggle-meetings-target="myRequestsHeader"
         data-action="click->toggle-meetings#toggle"
-        data-value="myRequests">My Requests</h3>
+        data-value="myRequests">My Pending Requests</h3>
 
     <h3 class="toggle-header fw-bold"
         data-toggle-meetings-target="requestsForMeHeader"
@@ -56,10 +55,9 @@
 
   <!-- My Requests Section -->
   <div id="my-requests-content" data-toggle-meetings-target="myRequestsContent" class="toggle-content">
-    <% my_requests = @meetings.where(requester_id: current_user.id) %>
-    <% if my_requests.any? %>
+    <% if @pending_meetings.any? %>
       <div class="dashboard__cards">
-        <% my_requests.each do |meeting| %>
+        <% @pending_meetings.each do |meeting| %>
           <div class="pending__card shadow-sm">
             <div class="d-flex user-infos">
               <%= image_tag meeting.receiver.avatar_url, class: "pending__card--avatar green-border", alt: "" %>
