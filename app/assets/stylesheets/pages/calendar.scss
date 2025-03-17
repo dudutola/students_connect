@@ -1,0 +1,41 @@
+.simple-calendar {
+  background-color: white;
+  overflow: hidden;
+
+  table {
+    width: 97%;
+    margin: auto;
+  }
+
+  .calendar-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 32px;
+    border-top: 1px solid #A3A1A161;
+
+    .calendar-title {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      a {
+        font-size: 18px;
+      }
+
+      .calendar-nav-arrow {
+        font-size: 28px;
+      }
+    }
+  }
+}
+
+.simple-calendar .day {
+  height: 122px;
+  // height: 130px;
+}
