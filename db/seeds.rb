@@ -40,7 +40,7 @@ users_data.each do |user_data|
     password: 'password',
     email: user_data[:email],
     name: user_data[:name],
-    location: user_data[:country],
+    location: user_data[:location],
     avatar_url: "https://i.pravatar.cc/150?img=#{rand(1..70)}",
     provider: 'github',
     uid: SecureRandom.uuid
