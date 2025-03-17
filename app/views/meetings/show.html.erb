@@ -9,8 +9,14 @@
     <p><strong>End time:</strong> <%= @meeting.end_time.strftime("%H:%M") %></p>
 
     <% if @meeting.status == "pending" && current_user == @meeting.receiver %>
-      <%= link_to 'Accept', accept_meeting_path(@meeting), method: :patch, class: 'btn btn-success' %>
-      <%= link_to 'Decline', decline_meeting_path(@meeting), method: :patch, class: 'btn btn-danger' %>
+      <%= simple_form_for @meeting, url: accept_meeting_path(@meeting), method: :patch do |f| %>
+        <%= f.button :submit, "Accept", class: "btn btn-success" %>
+      <% end %>
+
+      <%= simple_form_for @meeting, url: decline_meeting_path(@meeting), method: :patch do |f| %>
+        <%= f.button :submit, "Decline", class: "btn btn-danger" %>
+      <% end %>
+
     <% elsif @meeting.status == "pending" && current_user == @meeting.requester %>
       <%= link_to 'Cancel Request', cancel_meeting_path(@meeting), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"  }, class: 'btn btn-warning' %>
     <% end %>
