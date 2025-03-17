@@ -9,7 +9,9 @@ class User < ApplicationRecord
 
   has_many :requested_meetings, class_name: "Meeting", foreign_key: :requester_id, dependent: :destroy
   has_many :received_meetings, class_name: "Meeting", foreign_key: :receiver_id, dependent: :destroy
-  
+
+  has_many :availabilities, dependent: :destroy
+
   serialize :skills, Array, coder: YAML
 
   def self.from_omniauth(access_token)
