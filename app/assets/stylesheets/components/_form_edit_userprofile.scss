@@ -1,0 +1,115 @@
+/* Add these styles to your CSS file */
+
+/* Profile page styles */
+.edit-profile-button {
+  margin: 10px 0 15px;
+}
+
+.edit-profile-button .btn {
+  padding: 5px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.edit-profile-button .btn:hover {
+  background-color: #0d6efd;
+  color: white;
+}
+
+/* Profile edit page styles */
+.profile-edit-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.edit-profile-heading {
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  font-size: 2rem;
+}
+
+.edit-section {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.section-heading {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.skills-instruction {
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.predefined-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.skill-checkbox {
+  min-width: 120px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.skill-checkbox input {
+  margin-right: 8px;
+}
+
+.custom-skill-form {
+  margin-top: 1.5rem;
+}
+
+.form-actions {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}
+
+.error-message {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #f8d7da;
+  border: 1px solid #f5c2c7;
+  border-radius: 6px;
+  color: #842029;
+}
+
+.error-message h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.error-message ul {
+  margin-bottom: 0;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .profile-edit-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .predefined-skills {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .skill-checkbox {
+    min-width: 100%;
+  }
+}

@@ -1,0 +1,122 @@
+<!-- app/views/users/edit.html.erb -->
+<div class="profile-edit-container">
+  <h1 class="edit-profile-heading">Edit Your Profile</h1>
+  
+  <%= form_with(model: @user, url: user_profile_path(@user), method: :patch, data: { turbo: false }) do |f| %>
+    <% if @user.errors.any? %>
+      <div class="error-message">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this profile from being saved:</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <!-- About Me Section -->
+    <div class="edit-section">
+      <h2 class="section-heading">About Me</h2>
+      <div class="form-group">
+        <%= f.label :description, "Tell us about yourself" %>
+        <%= f.text_area :description, class: "form-control", rows: 6, 
+            placeholder: "Share your background, interests, and what you're learning in web development..." %>
+      </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="edit-section">
+      <h2 class="section-heading">Skills</h2>
+      <div class="skills-editor">
+        <p class="skills-instruction">Select your skills or add custom ones:</p>
+        
+        <div class="predefined-skills">
+          <% available_skills = ["HTML", "CSS", "JavaScript", "Ruby", "Rails", "React", "Node.js", "SQL", "Python", "Git"] %>
+          
+          <% available_skills.each do |skill| %>
+            <div class="skill-checkbox">
+              <%= check_box_tag "user[skills][]", skill, @user.skills&.include?(skill), id: "skill-#{skill.parameterize}", class: "form-check-input" %>
+              <%= label_tag "skill-#{skill.parameterize}", skill, class: "form-check-label" %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="custom-skill-form mt-4">
+          <label class="form-label">Add a custom skill:</label>
+          <div class="input-group">
+            <input type="text" id="custom-skill-input" class="form-control" placeholder="Enter skill name...">
+            <button type="button" id="add-custom-skill" class="btn btn-outline-primary">
+              Add Skill
+            </button>
+          </div>
+        </div>
+        
+        <!-- Critical: This hidden field ensures we get an empty array when no checkboxes are selected -->
+        <%= hidden_field_tag "user[skills][]", "" %>
+      </div>
+    </div>
+
+    <!-- Form actions -->
+    <div class="form-actions">
+      <%= f.submit "Save Changes", class: "btn btn-primary" %>
+      <%= link_to "Cancel", user_profile_path(@user), class: "btn btn-outline-secondary ms-2" %>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const addCustomSkillBtn = document.getElementById('add-custom-skill');
+    const customSkillInput = document.getElementById('custom-skill-input');
+    const predefinedSkills = document.querySelector('.predefined-skills');
+    
+    if (addCustomSkillBtn && customSkillInput && predefinedSkills) {
+      addCustomSkillBtn.addEventListener('click', function() {
+        const skillName = customSkillInput.value.trim();
+        
+        if (skillName) {
+          // Create a unique ID for the skill
+          const skillId = 'skill-' + skillName.toLowerCase().replace(/\s+/g, '-');
+          
+          // Check if this skill already exists
+          if (!document.getElementById(skillId)) {
+            // Create a new skill checkbox
+            const skillDiv = document.createElement('div');
+            skillDiv.className = 'skill-checkbox';
+            
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.name = 'user[skills][]';
+            checkbox.value = skillName;
+            checkbox.id = skillId;
+            checkbox.className = 'form-check-input';
+            checkbox.checked = true;
+            
+            const label = document.createElement('label');
+            label.htmlFor = skillId;
+            label.className = 'form-check-label';
+            label.textContent = skillName;
+            
+            skillDiv.appendChild(checkbox);
+            skillDiv.appendChild(label);
+            predefinedSkills.appendChild(skillDiv);
+            
+            // Clear the input
+            customSkillInput.value = '';
+          } else {
+            // If skill already exists, just check it
+            document.getElementById(skillId).checked = true;
+          }
+        }
+      });
+      
+      // Allow adding by pressing Enter
+      customSkillInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          addCustomSkillBtn.click();
+        }
+      });
+    }
+  });
+</script>
