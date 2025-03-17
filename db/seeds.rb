@@ -8,73 +8,80 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-LectureUser.destroy_all
-Lecture.destroy_all
-Chapter.destroy_all
-User.destroy_all
+require 'json'
+
 puts "Cleaning everything..."
 
-# Create sample chapters
+User.destroy_all
+Chapter.destroy_all
+Lecture.destroy_all
+LectureUser.destroy_all
+Meeting.destroy_all
 
-Chapter.create(name: "Ruby", description: "Fundamentals of Ruby programming language")
-Chapter.create(name: "Intermediate HTML and CSS", description: "Advanced layouts and styling techniques")
-Chapter.create(name: "Databases", description: "SQL, database design, and ActiveRecord")
-Chapter.create(name: "Ruby on Rails", description: "MVC architecture and building web apps")
-Chapter.create(name: "Advanced HTML and CSS", description: "Responsive design and CSS frameworks")
-Chapter.create(name: "JavaScript", description: "DOM manipulation and ES6+ features")
-Chapter.create(name: "React", description: "Component-based UI development")
-Chapter.create(name: "Getting Hired", description: "Portfolio building and interview prep")
+puts "Database cleaned."
 
-
-
-ruby_chapter = Chapter.find_by(name: "Ruby")
-
-puts "Creating lectures..."
-lectures = [
-  # Introduction group
-  { title: "How This Course Will Work", group_name: "Introduction" },
-  { title: "Installing Ruby", group_name: "Introduction" },
-
-  # Basic Ruby group
-  { title: "Basic Data Types", group_name: "Basic Ruby" },
-  { title: "Variables", group_name: "Basic Ruby" },
-  { title: "Input and Output", group_name: "Basic Ruby" },
-  { title: "Conditional Logic", group_name: "Basic Ruby" },
-  { title: "Loops", group_name: "Basic Ruby" },
-  { title: "Arrays", group_name: "Basic Ruby" },
-  { title: "Hashes", group_name: "Basic Ruby" },
-  { title: "Methods", group_name: "Basic Ruby" },
-  { title: "Debugging", group_name: "Basic Ruby" },
-  { title: "Basic Enumerable Methods", group_name: "Basic Ruby" },
-  { title: "Predicate Enumerable Methods", group_name: "Basic Ruby" },
-  { title: "Nested Collections", group_name: "Basic Ruby" },
-
-  # Basic Ruby Projects group
-  { title: "Basic Ruby Projects", group_name: "Basic Ruby Projects" },
-  { title: "Project: Caesar Cipher", group_name: "Basic Ruby Projects" },
-  { title: "Project: Sub Strings", group_name: "Basic Ruby Projects" },
-  { title: "Project: Stock Picker", group_name: "Basic Ruby Projects" },
-  { title: "Project: Bubble Sort", group_name: "Basic Ruby Projects" }
+users_data = [
+  { username: "rita", email: "rita@studentsconnect.com", name: "Rita Costiv", location: "United States" },
+  { username: "tomás", email: "tomas@studentsconnect.com", name: "Tomás Gray Vasco", location: "Spain" },
+  { username: "simão", email: "simao@studentsconnect.com", name: "Simão Martins", location: "Portugal" },
+  { username: "miguel", email: "miguel@studentsconnect.com", name: "Miguel Rodrigues", location: "England" },
+  { username: "talice", email: "talice@studentsconnect.com", name: "Talice Netos", location: "São Tomé and Príncipe" },
+  { username: "diego", email: "diego@studentsconnect.com", name: "Diego Maldonado", location: "Brasil" },
+  { username: "roberta", email: "roberta@studentsconnect.com", name: "Roberta Messi", location: "Colombia" },
+  { username: "pedro", email: "pedro@studentsconnect.com", name: "Pedro Costa", location: "Gabon" },
+  { username: "alice", email: "alice@studentsconnect.com", name: "Alice Albuquerque", location: "France" },
+  { username: "tomás", email: "tomascampos@studentsconnect.com", name: "Tomás Campos", location: "Madagascar" },
+  { username: "carla", email: "carla@studentsconnect.com", name: "Carla Ferrer", location: "Malta" }
 ]
 
-lectures.each do |lecture_data|
-  Lecture.create!(lecture_data.merge(chapter_id: ruby_chapter.id))
-end
-
-10.times do
+users_data.each do |user_data|
   user = User.create!(
-    username: Faker::Internet.username,
+    username: user_data[:username],
     password: 'password',
-    email: Faker::Internet.email,
-    name: Faker::Name.name,
-    location: Faker::Address.country,
+    email: user_data[:email],
+    name: user_data[:name],
+    location: user_data[:country],
     avatar_url: "https://i.pravatar.cc/150?img=#{rand(1..70)}",
     provider: 'github',
     uid: SecureRandom.uuid
   )
-
-  LectureUser.create! user: user, lecture: Lecture.first
   puts "Created user #{user.name}"
+  LectureUser.create! user: user, lecture: Lecture.first
+end
+
+filepath = File.join(__dir__, "curriculum.json")
+serialized_curriculum = File.read(filepath)
+chapters = JSON.parse(serialized_curriculum)
+
+chapters.each do |chapter|
+  new_chapter = Chapter.find_or_create_by!(
+    name: chapter["chapter_title"],
+    description: chapter["chapter_description"],
+    overview: chapter["chapter_overview"]
+  )
+  puts "Created chapter #{new_chapter.name}"
+
+  chapter["chapter_groups"].each do |chapter_group|
+    chapter_group["group_lectures"].each do |group_lecture|
+     lecture = Lecture.find_or_create_by!(
+        title: group_lecture["lecture_title"],
+        group_name: chapter_group["group_title"],
+        resource_url: group_lecture["lecture_url"],
+        chapter: new_chapter
+      )
+
+      rand(2..6).times do
+        user = User.all.sample
+        begin
+          LectureUser.create!(user: user, lecture: lecture)
+        rescue ActiveRecord::RecordInvalid => error
+          puts "User #{user.name} already has this lecture"
+          puts error.message
+        end
+      end
+      puts "Created lecture #{lecture.title} in chapter #{new_chapter.name}"
+    end
+  end
 end
 
 puts "Everything created!"

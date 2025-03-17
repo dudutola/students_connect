@@ -1,20 +1,25 @@
-<%= link_to "< Back to #{@lecture.chapter.name}", chapter_path(@lecture.chapter), class: "back-btn mb-5"  %>
+<%= link_to "< Back to #{@lecture.chapter.name}", chapter_path(@lecture.chapter), class: "back-btn mb-5" %>
 
 <div class="d-flex justify-content-between align-items-center mb-5 flex-column flex-md-row text-center text-md-start lecture-content">
   <div>
-    <%= link_to "https://www.theodinproject.com/lessons/ruby-how-this-course-will-work", target: "_blank" do  %>
+    <%= link_to @lecture.resource_url, target: "_blank" do  %>
       <h1 class="m-0 pb-2 text-decoration-underline fw-bold"><%= @lecture.title %></h1>
     <% end %>
     <%# add the icon %>
-    <%= link_to "View this course in Odin Project", "https://www.theodinproject.com/lessons/ruby-how-this-course-will-work", target: "_blank" %>
+    <%= link_to "View this course in Odin Project", @lecture.resource_url, target: "_blank" %>
   </div>
 
-  <% unless @lecture.lecture_users.exists?(user: current_user) %>
+  <% if @lecture.lecture_users.exists?(user: current_user) %>
+    <div class="d-flex flex-column align-items-end">
+      <p class="text-success fw-bold mb-0">✅ You have completed this lecture!</p>
+      <%= simple_form_for @lecture, url: mark_as_done_lecture_path(@lecture), method: :post do |f| %>
+        <%= f.button :submit, "Cancel ❌", class: "cancel-done-btn text-danger p-0 fw-bold" %>
+      <% end %>
+    </div>
+  <% else %>
     <%= simple_form_for @lecture, url: mark_as_done_lecture_path(@lecture), method: :post do |f| %>
       <%= f.button :submit, "Mark as Done!", class: "mark-done-btn" %>
     <% end %>
-  <% else %>
-    <p class="text-success fw-bold">✅ You have completed this lecture!</p>
   <% end %>
 </div>
 
@@ -25,19 +30,21 @@
 
 <h3 class="mt-5 mb-4"><%= pluralize(@lecture.lecture_users.count, "person") %> completed this lecture:</h3>
 <div class="lecture__list row">
-  <% @lecture.lecture_users.order(created_at: :asc).each do |lecture_user| %>
+  <% @lecture.lecture_users.order(created_at: :desc).each do |lecture_user| %>
     <div class="col-md-4 mb-4">
       <div class="lecture__card p-3 d-flex flex-column gap-3 rounded-lg">
 
         <div class="d-flex align-items-center justify-content-between">
-          <div class="d-flex align-items-center gap-3">
-            <%= image_tag lecture_user.user.avatar_url, class: "lecture__avatar", alt: "#{lecture_user.user.name}'s avatar" %>
+          <%= link_to user_profile_path(lecture_user.user) do %>
+            <div class="d-flex align-items-center gap-3">
+              <%= image_tag lecture_user.user.avatar_url, class: "lecture__avatar", alt: "#{lecture_user.user.name}'s avatar" %>
 
-            <div>
-              <h4 class="m-0 fw-bold"><%= lecture_user.user.name %></h4>
-              <p class="current-lecture m-0 text-success small">Currently learning this lecture</p>
+              <div>
+                <h4 class="m-0 fw-bold text-dark text-decoration-underline"><%= lecture_user.user.name %></h4>
+                <p class="current-lecture m-0 text-success small">Currently learning this lecture</p>
+              </div>
             </div>
-          </div>
+          <% end %>
 
           <span class="favorite-icon">
             <i class="fa-regular fa-heart"></i>
@@ -60,13 +67,12 @@
             <p class="m-0 small text-muted">4:06 PM</p>
           </div>
         </div>
-
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#meetingModal-<%= lecture_user.user.id %>">
-        Request Meeting
-      </button>
+        <% if lecture_user.user != current_user %>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#meetingModal-<%= lecture_user.user.id %>">
+            Request Meeting
+          </button>
+        <% end %>
       </div>
-
-
     </div>
 
     <%= render "modal-meetings", lecture: @lecture, lecture_user: lecture_user %>
