@@ -10,7 +10,7 @@ class Meeting < ApplicationRecord
   validates :receiver, presence: true
   validates :start_time, presence: true
   validates :end_time, presence: true
-  validates :status, inclusion: { in: %w[pending confirmed declined] }
+  validates :status, inclusion: { in: %w[pending accepted declined] }
 
   validate :end_time_after_start_time
 
