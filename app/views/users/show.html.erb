@@ -72,52 +72,55 @@
       <% end %>
     </div>
   </section>
-  <section class="content-card progress-section">
-  <h2 class="card-title">Course Progress</h2>
-  
-  <% Chapter.includes(:lectures).each do |chapter| %>
-    <% 
-      progress_percentage = current_user.chapter_progress(chapter)
-      completed_lectures = current_user.completed_lectures_in_chapter(chapter)
-      total_lectures = chapter.lectures.count
-      
-      # Skip chapters with no completed lectures
-      next if completed_lectures == 0
-    %>
+  <% if current_user && current_user.id == @user.id %>
+
+    <section class="content-card progress-section">
+    <h2 class="card-title">Course Progress</h2>
     
-    <div class="chapter-progress-card">
-      <div class="progress-header" data-toggle="collapse" data-target="#chapter-<%= chapter.id %>" aria-expanded="false" role="button">
-        <h3><%= chapter.name %></h3>
-        <div class="progress-stats">
-          <span class="completion-count"><%= completed_lectures %>/<%= total_lectures %></span>
-          <span class="percentage-badge"><%= progress_percentage %>%</span>
-          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+    <% Chapter.includes(:lectures).each do |chapter| %>
+      <% 
+        progress_percentage = current_user.chapter_progress(chapter)
+        completed_lectures = current_user.completed_lectures_in_chapter(chapter)
+        total_lectures = chapter.lectures.count
+        
+        # Skip chapters with no completed lectures
+        next if completed_lectures == 0
+      %>
+      
+      <div class="chapter-progress-card">
+        <div class="progress-header" data-toggle="collapse" data-target="#chapter-<%= chapter.id %>" aria-expanded="false" role="button">
+          <h3><%= chapter.name %></h3>
+          <div class="progress-stats">
+            <span class="completion-count"><%= completed_lectures %>/<%= total_lectures %></span>
+            <span class="percentage-badge"><%= progress_percentage %>%</span>
+            <i class="fa-solid fa-chevron-down toggle-icon"></i>
+          </div>
+        </div>
+        
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: <%= progress_percentage %>%"></div>
+        </div>
+        
+        <div class="lecture-list collapse" id="chapter-<%= chapter.id %>">
+          <% 
+            # Get only completed lectures for this chapter
+            completed_chapter_lectures = chapter.lectures.joins(:lecture_users)
+                                          .where(lecture_users: { user_id: current_user.id })
+                                          .distinct
+          %>
+          
+          <% completed_chapter_lectures.each do |lecture| %>
+            <div class="lecture-item completed">
+              <div class="lecture-status">
+                <i class="fa-solid fa-check-circle"></i>
+              </div>
+              <%= link_to lecture.title, lecture_path(lecture), class: "lecture-link" %>
+            </div>
+          <% end %>
         </div>
       </div>
-      
-      <div class="progress-bar-container">
-        <div class="progress-bar" style="width: <%= progress_percentage %>%"></div>
-      </div>
-      
-      <div class="lecture-list collapse" id="chapter-<%= chapter.id %>">
-        <% 
-          # Get only completed lectures for this chapter
-          completed_chapter_lectures = chapter.lectures.joins(:lecture_users)
-                                         .where(lecture_users: { user_id: current_user.id })
-                                         .distinct
-        %>
-        
-        <% completed_chapter_lectures.each do |lecture| %>
-          <div class="lecture-item completed">
-            <div class="lecture-status">
-              <i class="fa-solid fa-check-circle"></i>
-            </div>
-            <%= link_to lecture.title, lecture_path(lecture), class: "lecture-link" %>
-          </div>
-        <% end %>
-      </div>
-    </div>
+    <% end %>
+  </section>
   <% end %>
-</section>
   </div>
 </div>
