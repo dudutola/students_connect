@@ -4,4 +4,5 @@ import "controllers"
 import "@popperjs/core"
 import "bootstrap"
 import "./controllers/toggle-lectures-progress";
+import "./controllers/login"
 

@@ -1,20 +1,17 @@
-<h2>Log in</h2>
+<%# app/views/devise/sessions/new.html.erb %>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+<%# If you want to keep the standard Devise form for non-GitHub auth, you can keep it here %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+<%# Include the GitHub login modal %>
+<%= render 'shared/login_modal' %>
 
-<%= render "devise/shared/links" %>
+<script>
+  // Automatically show the login modal when this page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('login-modal');
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+</script>
