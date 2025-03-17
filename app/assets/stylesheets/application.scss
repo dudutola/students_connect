@@ -2,6 +2,7 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
+@import "simple_calendar";
 
 // External libraries
 @import "bootstrap";
@@ -15,6 +16,7 @@
 @import "pages/lecture";
 @import "pages/meeting";
 @import "pages/profile";
+@import "pages/calendar";
 
 @import "components/cards";
 @import "components/collapsible";

@@ -59,6 +59,11 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def calendar
+    skip_authorization
+    @meetings = Meeting.all
+  end
+
   private
 
   def set_meeting

@@ -35,5 +35,9 @@ Rails.application.routes.draw do
       patch :decline
       delete :cancel
     end
+
+    collection do
+      get :calendar
+    end
   end
 end
