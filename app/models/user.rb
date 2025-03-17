@@ -12,6 +12,36 @@ class User < ApplicationRecord
   
   serialize :skills, Array, coder: YAML
 
+ 
+  def completed_lecture?(lecture)
+    return false if lecture.nil?
+    
+    lecture_users.exists?(lecture: lecture)
+  end
+  
+  # Calculate percentage completion for a chapter
+  def chapter_progress(chapter)
+    return 0 if chapter.nil?
+    
+    total_lectures = chapter.lectures.count
+    return 0 if total_lectures == 0
+    
+    completed_lectures = chapter.lectures.joins(:lecture_users)
+                             .where(lecture_users: { user_id: self.id })
+                             .distinct.count
+    
+    (completed_lectures.to_f / total_lectures * 100).round
+  end
+  
+  # Get count of completed lectures in a chapter
+  def completed_lectures_in_chapter(chapter)
+    return 0 if chapter.nil?
+    
+    chapter.lectures.joins(:lecture_users)
+           .where(lecture_users: { user_id: self.id })
+           .distinct.count
+  end
+  
   def self.from_omniauth(access_token)
     data = access_token.info
     uid = access_token.uid

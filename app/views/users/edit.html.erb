@@ -50,6 +50,22 @@
             </button>
           </div>
         </div>
+
+        <div>
+        <br>
+          <h2 class="section-heading">Social Links</h2>
+          <div class="form-group mb-3">
+            <%= f.label :slack_url, "Slack Profile URL" %>
+            <%= f.text_field :slack_url, class: "form-control", placeholder: "https://yourworkspace.slack.com/team/yourusername" %>
+            <small class="form-text text-muted">Enter your Slack profile URL or username</small>
+          </div>
+        </div>
+          <div class="form-group mb-3">
+            <%= f.label :linkedin_url, "LinkedIn Profile URL" %>
+            <%= f.text_field :linkedin_url, class: "form-control", placeholder: "https://linkedin.com/in/yourusername" %>
+            <small class="form-text text-muted">Enter your full LinkedIn profile URL</small>
+          </div>
+      
         
         <!-- Critical: This hidden field ensures we get an empty array when no checkboxes are selected -->
         <%= hidden_field_tag "user[skills][]", "" %>

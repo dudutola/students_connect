@@ -88,6 +88,14 @@ body {
   gap: 12px;
 }
 
+.social-link.slack svg {
+  fill: #4A154B; /* Slack purple color */
+}
+
+.social-link.slack:hover svg {
+  fill: #611f64; /* Slightly darker on hover */
+}
+
 .social-link {
   display: flex;
   align-items: center;
@@ -168,6 +176,130 @@ body {
   color: white;
   transform: translateY(-3px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chapter-progress-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.progress-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.progress-stats {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.completion-count {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.percentage-badge {
+  background-color: #4a6fdc;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.progress-bar-container {
+  height: 8px;
+  background-color: #e6e6e6;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #4a6fdc;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.lecture-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lecture-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.lecture-item:hover {
+  background-color: #f5f5f5;
+}
+
+.lecture-item.current {
+  background-color: #e6f0ff;
+  border-left: 3px solid #4a6fdc;
+}
+
+.lecture-item.completed .lecture-status {
+  color: #28a745;
+}
+
+.lecture-item.current .lecture-status {
+  color: #4a6fdc;
+}
+
+.lecture-status {
+  margin-right: 10px;
+  width: 24px;
+  text-align: center;
+  color: #aaa;
+}
+
+.lecture-link {
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.lecture-item.completed .lecture-link {
+  color: #28a745;
+}
+
+.progress-header {
+  cursor: pointer;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.progress-header[aria-expanded="true"] .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.collapse:not(.show) {
+  display: none;
+}
+
+.collapse.show {
+  display: block;
 }
 
 /* Responsive adjustments */
