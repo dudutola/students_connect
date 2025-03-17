@@ -12,3 +12,17 @@
     cursor: pointer;
   }
 }
+
+.meeting-details {
+  .meeting-info {
+    div {
+      gap: 20px;
+
+      .fa-plus {
+        font-size: 24px;
+        color: black;
+        margin: 0;
+      }
+    }
+  }
+}

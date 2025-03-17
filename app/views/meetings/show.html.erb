@@ -2,8 +2,20 @@
   <h1>Meeting Details</h1>
 
   <div class="meeting-info">
-    <p><strong>Requester:</strong> <%= @meeting.requester.name %></p>
-    <p><strong>Receiver:</strong> <%= @meeting.receiver.name %></p>
+    <p><%= @meeting.requester.name %> you have a meeting with <%= @meeting.receiver.name %>.</p>
+
+    <div class="d-flex align-items-center mb-3">
+      <% if @meeting.requester.avatar_url.present? %>
+        <%= image_tag(@meeting.requester.avatar_url, alt: @meeting.requester.name, class: "avatar-large") %>
+      <% end %>
+
+      <i class="fa-solid fa-plus"></i>
+
+      <% if @meeting.receiver.avatar_url.present? %>
+        <%= image_tag(@meeting.receiver.avatar_url, alt: @meeting.receiver.name, class: "avatar-large") %>
+      <% end %>
+    </div>
+
     <p><strong>Lecture:</strong> <%= @meeting.lecture.title %></p>
     <p><strong>Start time:</strong> <%= @meeting.start_time.strftime("%B %d, %Y %H:%M") %></p>
     <p><strong>End time:</strong> <%= @meeting.end_time.strftime("%H:%M") %></p>
