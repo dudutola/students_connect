@@ -12,7 +12,6 @@
       <%= link_to 'Accept', accept_meeting_path(@meeting), method: :patch, class: 'btn btn-success' %>
       <%= link_to 'Decline', decline_meeting_path(@meeting), method: :patch, class: 'btn btn-danger' %>
     <% elsif @meeting.status == "pending" && current_user == @meeting.requester %>
-      <%# <%= link_to 'Cancel Request', cancel_meeting_path(@meeting), method: :delete, class: 'btn btn-warning' %>
       <%= link_to 'Cancel Request', cancel_meeting_path(@meeting), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"  }, class: 'btn btn-warning' %>
     <% end %>
 
