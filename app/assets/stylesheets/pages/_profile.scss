@@ -21,16 +21,41 @@ body {
 /* Main container - all profile content goes here */
 .profile-user-container {
   max-width: 1000px;
-  margin: 40px auto;
+  margin: 100px auto;
   padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
+  grid-template-columns: 2fr 1fr;
+}
+
+.edit-profile-button {
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  color: #000000;
+}
+
+.progress-section{
+  width: 150%;
+}
+// .edit-profile-button:hover {
+//   background-color: #f5f5f5;
+// }
+
+.edit-profile-button i {
+  margin-right: 6px;
+  font-size: 12px;
 }
 
 @media (min-width: 768px) {
   .profile-user-container {
-    grid-template-columns: 1fr 1fr;
+    // grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -38,9 +63,16 @@ body {
 .profile-header {
   grid-column: 1 / -1;
   display: flex;
-  align-items: center;
   gap: 28px;
   margin-bottom: 12px;
+  flex-direction: row;
+  align-content: space-around;
+  justify-content: flex-end;
+}
+.profile-header-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .profile-avatar {
