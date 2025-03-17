@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   get "profile/:id/edit", to: "users#edit", as: "edit_user_profile"
   patch "profile/:id", to: "users#update"
-  
+
   resources :chapters, only: [ :index, :show ]
 
   resources :lectures, only: [ :show ] do
@@ -31,8 +31,9 @@ Rails.application.routes.draw do
 
   resources :meetings, only: [ :show ] do
     member do
-      patch :accepted
-      patch :declined
+      patch :accept
+      patch :decline
+      delete :cancel
     end
   end
 end

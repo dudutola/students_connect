@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-  before_action :set_meeting, only: [ :show, :accept ]
+  before_action :set_meeting, only: [ :show, :accept, :decline, :cancel ]
   before_action :set_lecture, only: [ :create ]
 
   def index
@@ -28,10 +28,34 @@ class MeetingsController < ApplicationController
   end
 
   def accept
+    authorize @meeting
+
     if @meeting.update(status: "accepted")
-      redirect_to dashboard_path, notice: 'Meeting request accepted!'
+      redirect_to dashboard_path, notice: "Meeting request accepted!"
     else
-      redirect_to dashboard_path, alert: 'Something went wrong.'
+      redirect_to dashboard_path, alert: "Something went wrong."
+    end
+  end
+
+  def decline
+    authorize @meeting
+
+    if @meeting.update(status: "declined")
+      redirect_to dashboard_path, notice: "Meeting request declined!"
+    else
+      redirect_to dashboard_path, alert: "Something went wrong."
+    end
+
+  end
+
+  def cancel
+    authorize @meeting
+
+    if @meeting.requester == current_user && @meeting.status == "pending"
+      @meeting.destroy
+      redirect_to dashboard_path, notice: "Meeting request canceled."
+    else
+      redirect_to dashboard_path, alert: 'You can only cancel your own pending requests.'
     end
   end
 
