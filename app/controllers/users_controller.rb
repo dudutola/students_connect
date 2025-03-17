@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   
   def user_params
     # The skills array will be handled by the serialize method in the model
-    params.require(:user).permit(:description, :github_url, :linkedin_url, skills: [])
+    params.require(:user).permit(:description, :github_url, :linkedin_url, :slack_url, skills: [])
   end
   
   def ensure_current_user

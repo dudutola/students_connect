@@ -88,6 +88,14 @@ body {
   gap: 12px;
 }
 
+.social-link.slack svg {
+  fill: #4A154B; /* Slack purple color */
+}
+
+.social-link.slack:hover svg {
+  fill: #611f64; /* Slightly darker on hover */
+}
+
 .social-link {
   display: flex;
   align-items: center;
