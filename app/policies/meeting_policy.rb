@@ -22,6 +22,14 @@ class MeetingPolicy < ApplicationPolicy
     user == record.requester || user == record.receiver
   end
 
+  def accept?
+    record.receiver == user
+  end
+
+  def decline?
+    record.requester == user
+  end
+
   def cancel?
     record.requester == user && record.status == "pending"
   end
