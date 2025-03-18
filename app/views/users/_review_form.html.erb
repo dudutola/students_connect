@@ -4,7 +4,7 @@
       <div class="card-body p-4">
         <h3 class="mb-3" style="font-weight: 500; color: #333;">Leave a Review</h3>
         
-        <div style="border-bottom: 2px solid #f0c14b; width: 60px; margin-bottom: 20px;"></div>
+       <div style="border-bottom: 4px solid #f0c14b; width: 60px; margin-bottom: 20px;"></div>
         
         <%= form_with(model: [@user, Review.new], url: user_reviews_path(@user), local: true) do |f| %>
           <div class="mb-4">
@@ -30,7 +30,7 @@
             <label class="form-label" style="font-weight: 500; color: #333;">Share your experience</label>
             <%= f.text_area :comment, 
                   class: 'form-control',
-                  style: 'border-radius: 8px; border-color: #ddd; padding: 12px;',
+                  style: 'border-radius: 8px; border-color: #ddd; padding: 12px; rezise: none;',
                   placeholder: 'What was your experience working with this person?',
                   rows: 4,
                   required: true %>
@@ -44,37 +44,4 @@
   </div>
 </div>
 
-<style>
-  .rating-container {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-  }
-  
-  .rating {
-    display: none;
-  }
-  
-  .rating + label {
-    font-size: 1.8rem;
-    color: #ddd;
-    cursor: pointer;
-    margin-right: 5px;
-  }
-  
-  .rating:checked ~ label {
-    color: #f0c14b;
-  }
-  
-  .rating + label:hover,
-  .rating + label:hover ~ label {
-    color: #f0c14b;
-  }
-  
-  .rating:checked + label:hover,
-  .rating:checked ~ label:hover,
-  .rating:checked ~ label:hover ~ label,
-  .rating + label:hover ~ .rating:checked ~ label {
-    color: #f0c14b;
-  }
-</style>
+

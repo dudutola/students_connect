@@ -13,10 +13,10 @@
           <% end %>
         </h3>
         
-        <div style="border-bottom: 2px solid #f0c14b; width: 60px; margin-bottom: 20px;"></div>
+        <div style="border-bottom: 4px solid #f0c14b; width: 60px; margin-bottom: 20px;"></div>
         
         <% if @user.reviews.any? %>
-          <div class="reviews-list">
+          <div class="reviews-list" id="reviews-container" style="max-height: 400px; overflow-y: auto;">
             <% @user.reviews.order(created_at: :desc).each do |review| %>
               <div class="review-card mb-4 p-3 bg-light rounded">
                 <div class="d-flex justify-content-between align-items-center mb-2">
@@ -44,7 +44,7 @@
                 
                 <div class="review-meta d-flex justify-content-between align-items-center" style="color: #777; font-size: 0.85rem;">
                   <span><%= time_ago_in_words(review.created_at) %> ago</span>
-                  <% if current_user == review.reviewer || (current_user) %>
+                  <% if current_user == review.reviewer %>
                     <%= button_to "/reviews/#{review.id}", method: :delete, class: "btn btn-sm", style: "color: #d9534f; background: none; border: none; padding: 0;", data: { confirm: "Are you sure you want to delete this review?" } do %>
                       <i class="fas fa-trash-alt"></i>
                     <% end %>
@@ -53,6 +53,13 @@
               </div>
             <% end %>
           </div>
+          
+          <% if @user.reviews.count > 4 %>
+            <div class="text-center mt-3 scrolldown-hint">
+              <small style="color: #777; display: block;">Scroll down to see more reviews</small>
+              <i class="fas fa-chevron-down" style="color: #f0c14b;"></i>
+            </div>
+          <% end %>
         <% else %>
           <div class="text-center py-5" style="color: #777;">
             <i class="far fa-comment-dots mb-3" style="font-size: 2rem;"></i>
@@ -63,3 +70,4 @@
     </div>
   </div>
 </div>
+
