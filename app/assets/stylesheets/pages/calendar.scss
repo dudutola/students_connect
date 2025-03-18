@@ -17,6 +17,7 @@
     .calendar-title {
       font-size: 30px;
       font-weight: bold;
+      color: $dark-green;
     }
 
     nav {
@@ -38,4 +39,17 @@
 .simple-calendar .day {
   height: 122px;
   // height: 130px;
+}
+
+.event {
+  .meeting-card {
+    border: 1px solid $main-color-green;
+    border-radius: 8px;
+    background-color: white;
+
+    p {
+      font-size: 12px;
+      color: $dark-green;
+    }
+  }
 }
