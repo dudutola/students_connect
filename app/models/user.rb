@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:github]
 
   has_many :lecture_users, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   has_many :requested_meetings, class_name: "Meeting", foreign_key: :requester_id, dependent: :destroy
   has_many :received_meetings, class_name: "Meeting", foreign_key: :receiver_id, dependent: :destroy
@@ -35,36 +36,35 @@ class User < ApplicationRecord
     stars
   end
 
-
   def completed_lecture?(lecture)
     return false if lecture.nil?
-    
+
     lecture_users.exists?(lecture: lecture)
   end
-  
+
   # Calculate percentage completion for a chapter
   def chapter_progress(chapter)
     return 0 if chapter.nil?
-    
+
     total_lectures = chapter.lectures.count
     return 0 if total_lectures == 0
-    
+
     completed_lectures = chapter.lectures.joins(:lecture_users)
                              .where(lecture_users: { user_id: self.id })
                              .distinct.count
-    
+
     (completed_lectures.to_f / total_lectures * 100).round
   end
-  
+
   # Get count of completed lectures in a chapter
   def completed_lectures_in_chapter(chapter)
     return 0 if chapter.nil?
-    
+
     chapter.lectures.joins(:lecture_users)
            .where(lecture_users: { user_id: self.id })
            .distinct.count
   end
-  
+
   def self.from_omniauth(access_token)
     data = access_token.info
     uid = access_token.uid

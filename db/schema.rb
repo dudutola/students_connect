@@ -63,6 +63,17 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_114505) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_reviews_on_user_id"
+
+    
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "meeting_id", null: false
+    t.string "message"
+    t.boolean "read", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meeting_id"], name: "index_notifications_on_meeting_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,4 +111,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_114505) do
   add_foreign_key "meetings", "users", column: "receiver_id"
   add_foreign_key "meetings", "users", column: "requester_id"
   add_foreign_key "reviews", "users"
+  add_foreign_key "notifications", "meetings"
+  add_foreign_key "notifications", "users"
 end

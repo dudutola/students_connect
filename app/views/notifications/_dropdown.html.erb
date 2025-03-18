@@ -1,0 +1,7 @@
+<div id="notification-dropdown">
+  <% notifications.each do |notification| %>
+    <div class="notification-item">
+      <p><%= notification.meeting.requester.name %> requested a meeting</p>
+    </div>
+  <% end %>
+</div>

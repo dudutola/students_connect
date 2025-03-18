@@ -3,6 +3,7 @@
   display: flex;
   gap: 48px;
   margin: 32px 0;
+  flex-wrap: wrap;
 
   > * {
     flex-grow: 1;
@@ -20,7 +21,74 @@
       flex: 1;
     }
   }
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
 }
+
+
+// pending
+// .pending__cards {
+//   gap: 24px;
+// }
+
+.pending__card {
+  padding: 12px;
+  background-color: white;
+  border-radius: 20px;
+
+  .user-infos {
+    gap: 12px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  &--avatar {
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+  }
+
+  &--user {
+    display: flex !important;
+    gap: 24px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &--details {
+    a {
+      color: $main-color-green;
+      text-decoration: underline;
+    }
+  }
+}
+
+.time,
+.challenge-name  {
+  color: $main-color-gray;
+}
+
+i {
+  margin-right: 12px;
+  color: $main-color-yellow;
+}
+
+
+// things inside of card
+.view-details {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
 
 // profile
 .profile__card {
@@ -58,65 +126,6 @@
   }
 }
 
-// pending
-.pending__cards {
-  gap: 24px;
-}
-
-.pending__card {
-  padding: 12px;
-  background-color: white;
-  border-radius: 20px;
-
-  .user-infos {
-    gap: 12px;
-
-  }
-
-  .text {
-   font-size: 12px;
-  }
-
-  &--avatar {
-    height: 38px;
-    width: 38px;
-    border-radius: 50%;
-  }
-
-  &--user {
-    display: flex !important;
-    gap: 24px;
-
-    p {
-      margin: 0;
-    }
-  }
-
-  &--details {
-    // p {
-    //   color: $main-color-gray;
-    // }
-
-    a {
-      color: $main-color-green;
-      text-decoration: underline;
-    }
-  }
-}
-
-.time,
-.challenge-name  {
-  color: $main-color-gray;
-}
-
-i {
-  margin-right: 12px;
-  color: $main-color-yellow;
-}
-
-
-
-
 
 // connections
 .connections__cards {
@@ -148,15 +157,18 @@ i {
 }
 
 .meeting__card {
+  flex: 0 1 280px;
+  max-width: 320px;
   padding: 12px;
   background-color: white;
   border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
 
   &--avatar {
     width: 67px;
   }
 }
-
 
 
 // lecture
