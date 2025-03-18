@@ -6,7 +6,7 @@
             <div class="hero-content">
                 <h1>Connect with students facing the <span>same challenges</span></h1>
                 <p>Find help. Solve together. Level up your coding skills.</p>
-                <button class="cta-button" class="login-button" id="nav-login-btn">Log In</button>
+                <a href="/users/sign_in" class="cta-button">Get Started </a>
             </div>
         </section>
         
@@ -136,23 +136,5 @@
             </section>
         </div>
     </div>
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var accordionElements = document.querySelectorAll('.accordion-button');
-        
-        accordionElements.forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                this.classList.toggle('collapsed');
-                    <%= render 'shared/login_modal' %>      
-                var target = document.querySelector(this.getAttribute('data-bs-target'));
-                if (target.classList.contains('show')) {
-                    target.classList.remove('show');
-                } else {
-                    target.classList.add('show');
-                }
-            });
-        });
-    });
-    </script>
 </body>
 </html>

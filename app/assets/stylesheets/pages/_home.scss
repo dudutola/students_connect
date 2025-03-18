@@ -338,50 +338,6 @@
             line-height: 1.6;
         }
 
-        .sc-login-button {
-            background-color: #4299e1;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            padding: 0.8rem 1.8rem;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-          }
-          
-          .sc-login-button:hover {
-            background-color: #3182ce;
-          }
-          
-          .sc-hero {
-            margin: 4rem 0;
-          }
-          
-          .sc-hero h1 {
-            font-size: 2.5rem;
-            color: #2d3748;
-            margin-bottom: 1rem;
-          }
-          
-          .sc-hero p {
-            font-size: 1.1rem;
-            color: #718096;
-            max-width: 700px;
-            margin: 0 auto 2rem auto;
-            line-height: 1.6;
-          }
-          
-          @media (max-width: 768px) {
-            .sc-hero h1 {
-              font-size: 2rem;
-            }
-            
-            .sc-hero p {
-              font-size: 1rem;
-            }
-          }
-
         @media (max-width: 991px) {
             .hero-section {
                 padding: 80px 5%;
