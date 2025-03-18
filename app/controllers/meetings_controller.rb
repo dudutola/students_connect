@@ -3,7 +3,6 @@ class MeetingsController < ApplicationController
   before_action :set_lecture, only: [ :create ]
 
   def index
-    # @meetings = Meeting.where("requester_id = ? OR receiver_id = ?", current_user.id, current_user.id)
     @meetings = policy_scope(Meeting).order(created_at: :asc)
 
     @pending_meetings = @meetings.where(status: "pending")
@@ -15,12 +14,16 @@ class MeetingsController < ApplicationController
   end
 
   def create
-    # @meeting = Meeting.new(meeting_params)
     @meeting = @lecture.meetings.new(meeting_params)
     authorize @meeting
+    @meeting.requester = current_user
 
     if @meeting.save
-      # redirect_to lecture_path(@lecture.chapter, @lecture), notice: "Meeting request sent!"
+      Notification.create!(
+        user: @meeting.receiver,
+        meeting: @meeting,
+        message: "#{current_user.name} has requested a meeting with you."
+      )
       redirect_to @meeting, notice: "Meeting request sent!"
     else
       redirect_to lecture_path(@lecture.chapter, @lecture), alert: "Failed to send meeting request."
@@ -31,6 +34,11 @@ class MeetingsController < ApplicationController
     authorize @meeting
 
     if @meeting.update(status: "accepted")
+      Notification.create!(
+        user: @meeting.requester,
+        meeting: @meeting,
+        message: "#{current_user.name} has accepted your meeting request!"
+      )
       redirect_to dashboard_path, notice: "Meeting request accepted!"
     else
       redirect_to dashboard_path, alert: "Something went wrong."
@@ -41,11 +49,15 @@ class MeetingsController < ApplicationController
     authorize @meeting
 
     if @meeting.update(status: "declined")
+      Notification.create!(
+        user: @meeting.requester,
+        meeting: @meeting,
+        message: "#{current_user.name} has declined your meeting request."
+      )
       redirect_to dashboard_path, notice: "Meeting request declined!"
     else
       redirect_to dashboard_path, alert: "Something went wrong."
     end
-
   end
 
   def cancel

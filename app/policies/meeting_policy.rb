@@ -27,7 +27,7 @@ class MeetingPolicy < ApplicationPolicy
   end
 
   def decline?
-    record.requester == user
+    record.requester == user || record.receiver == user
   end
 
   def cancel?

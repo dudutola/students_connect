@@ -2,6 +2,7 @@ class Meeting < ApplicationRecord
   belongs_to :requester, class_name: "User"
   belongs_to :receiver, class_name: "User"
   belongs_to :lecture
+  has_many :notifications, dependent: :destroy
 
   before_validation :set_default_status, on: :create
 
