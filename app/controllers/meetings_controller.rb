@@ -5,7 +5,8 @@ class MeetingsController < ApplicationController
   def index
     @meetings = policy_scope(Meeting).order(created_at: :asc)
 
-    @pending_meetings = @meetings.where(status: "pending")
+    @pending_meetings = @meetings.where(requester_id: current_user.id, status: "pending")
+    @requests_for_me = @meetings.where(receiver_id: current_user.id, status: "pending")
     @accepted_meetings = @meetings.where(status: "accepted")
   end
 

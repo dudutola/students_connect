@@ -83,10 +83,9 @@
 
   <!-- Requests for Me Section -->
   <div id="requests-for-me-content" data-toggle-meetings-target="requestsForMeContent" class="toggle-content d-none">
-    <% requests_for_me = @meetings.where(receiver_id: current_user.id) %>
-    <% if requests_for_me.any? %>
+    <% if @requests_for_me.any? %>
       <div class="dashboard__cards">
-        <% requests_for_me.each do |meeting| %>
+        <% @requests_for_me.each do |meeting| %>
           <div class="pending__card shadow-sm">
             <div class="d-flex user-infos">
               <%= image_tag meeting.requester.avatar_url, class: "pending__card--avatar green-border", alt: "" %>
