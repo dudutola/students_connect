@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
     user = @review.user
     
     # Only allow the review creator or an admin to delete
-    if current_user == @review.reviewer || current_user.admin?
+    if current_user == @review.reviewer || current_user
       @review.destroy
       redirect_to user_path(user), notice: "Review deleted successfully!"
     else

@@ -8,11 +8,12 @@ class UsersController < ApplicationController
   end
   
   def show
-    # Your existing show action
+    @reviews = @user.reviews.order(created_at: :desc)
+   
   end
   
   def edit
-    # Just renders the edit form
+    
   end
   
   def update
@@ -41,7 +42,6 @@ class UsersController < ApplicationController
   end
   
   def user_params
-    # The skills array will be handled by the serialize method in the model
     params.require(:user).permit(:description, :github_url, :linkedin_url, :slack_url, skills: [])
   end
   
