@@ -1,0 +1,31 @@
+<%# app/views/users/_review_form.html.erb %>
+<div class="review-form-container mt-4 p-3 border rounded bg-light">
+  <h5>Leave a Review for <%= @user.name %></h5>
+  
+  <%= form_with(model: [@user, Review.new], url: user_reviews_path(@user), local: true) do |f| %>
+    <div class="form-group mb-3">
+      <label>Rating</label>
+      <div class="rating-input d-flex">
+        <% 5.times do |i| %>
+          <div class="form-check form-check-inline">
+            <%= f.radio_button :rating, i+1, class: "form-check-input", required: true %>
+            <%= f.label "rating_#{i+1}", class: "form-check-label" do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="form-group mb-3">
+      <%= f.label :comment, 'Share your experience' %>
+      <%= f.text_area :comment, 
+                class: 'form-control',
+                placeholder: 'What was your experience working with this person?',
+                rows: 4,
+                required: true %>
+    </div>
+    
+    <%= f.submit 'Submit Review', class: 'btn btn-primary' %>
+  <% end %>
+</div>

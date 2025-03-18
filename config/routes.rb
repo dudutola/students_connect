@@ -21,6 +21,13 @@ Rails.application.routes.draw do
 
   resources :chapters, only: [ :index, :show ]
 
+  resources :users do
+    resources :reviews, only: [:create]
+  end
+  
+  resources :reviews, only: [:destroy]
+  
+
   resources :lectures, only: [ :show ] do
     member do
       post :mark_as_done
