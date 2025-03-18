@@ -6,6 +6,7 @@
       <div class="profile-intro">
         <h1 class="profile-name"><%= @user.name %></h1>
 
+       
         
         <div class="profile-location">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
@@ -122,7 +123,34 @@
         </div>
       </div>
     <% end %>
+      <div >
+             <%= render 'reviews' %>
+      </div>
   </section>
   <% end %>
+             
+          <!-- Review form if the current user is not viewing their own profile -->
+          <% if current_user && current_user != @user %>
+             <%= render 'reviews' %>
+            <%= render 'review_form' %>
+          <% end %>
+
+          <%# a shortway to see the reviews %>
+
+          <%# <% if @user.reviews.any? %>
+            <%# <div class="user-rating mb-3"> %>
+              <%# <% @user.average_rating.floor.times do %> 
+                <%# <i class="fas fa-star text-warning"></i> %>
+              <%# <% end %>
+              <%# <% if (@user.average_rating - @user.average_rating.floor) >= 0.5 %> 
+                <%# <i class="fas fa-star-half-alt text-warning"></i> %>
+              <%# <% end %>
+              <%# <% (5 - @user.average_rating.ceil).times do %> 
+                <%# <i class="far fa-star text-warning"></i>  %>
+              <%# <% end %> 
+              <%# <span class="ms-2"><%= @user.average_rating/5</span>   %>
+            <%# </div> %>
+          <%# <% end %> 
+          
   </div>
 </div>

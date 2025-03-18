@@ -1,0 +1,47 @@
+<div class="row mt-4">
+  <div class="col-12">
+    <div class="card border-0 shadow-sm" style="background-color: white; border-radius: 12px;">
+      <div class="card-body p-4">
+        <h3 class="mb-3" style="font-weight: 500; color: #333;">Leave a Review</h3>
+        
+       <div style="border-bottom: 4px solid #f0c14b; width: 60px; margin-bottom: 20px;"></div>
+        
+        <%= form_with(model: [@user, Review.new], url: user_reviews_path(@user), local: true) do |f| %>
+          <div class="mb-4">
+            <label class="form-label" style="font-weight: 500; color: #333;">Rating</label>
+            <div class="rating-container">
+              <%= f.radio_button :rating, 5, id: "star5", class: "rating" %>
+              <label for="star5">★</label>
+              <%= f.radio_button :rating, 4, id: "star4", class: "rating" %>
+              <label for="star4">★</label>
+              <%= f.radio_button :rating, 3, id: "star3", class: "rating" %>
+              <label for="star3">★</label>
+              <%= f.radio_button :rating, 2, id: "star2", class: "rating" %>
+              <label for="star2">★</label>
+              <%= f.radio_button :rating, 1, id: "star1", class: "rating" %>
+              <label for="star1">★</label>
+            </div>
+            <div class="rating-help ms-3 text-muted small mt-1">
+              (1=Poor, 5=Excellent)
+            </div>
+          </div>
+          
+          <div class="mb-4">
+            <label class="form-label" style="font-weight: 500; color: #333;">Share your experience</label>
+            <%= f.text_area :comment, 
+                  class: 'form-control',
+                  style: 'border-radius: 8px; border-color: #ddd; padding: 12px; rezise: none;',
+                  placeholder: 'What was your experience working with this person?',
+                  rows: 4,
+                  required: true %>
+          </div>
+          
+          <%= f.submit 'Submit Review', class: 'btn', 
+              style: 'background-color: #f0c14b; color: #333; border: none; border-radius: 8px; padding: 10px 20px; font-weight: 500;' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,36 @@
+
+  .rating-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+  
+  .form-control {
+    resize: none;
+  }
+  .rating {
+    display: none;
+  }
+  
+  .rating + label {
+    font-size: 1.8rem;
+    color: #ddd;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .rating:checked ~ label {
+    color: #f0c14b;
+  }
+  
+  .rating + label:hover,
+  .rating + label:hover ~ label {
+    color: #f0c14b;
+  }
+  
+  .rating:checked + label:hover,
+  .rating:checked ~ label:hover,
+  .rating:checked ~ label:hover ~ label,
+  .rating + label:hover ~ .rating:checked ~ label {
+    color: #f0c14b;
+  }
