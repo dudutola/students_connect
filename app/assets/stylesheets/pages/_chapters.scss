@@ -171,3 +171,16 @@ border-top: 1px solid #ecf0f1;
     grid-template-columns: 1fr;
   }
 }
+
+
+// chapter show
+.chapter-description {
+  h1 {
+    color: $dark-green;
+  }
+
+  i {
+    font-size: 24px;
+    color: $dark-green;
+  }
+}
