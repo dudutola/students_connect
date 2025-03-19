@@ -26,6 +26,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
+  // border-bottom: 2px solid black;
 }
 
 /* About and Skills container - side by side layout */
@@ -58,26 +59,26 @@ body {
   gap: 24px;
 }
 
-.edit-profile-button {
-  background-color: #ffffff;
-  border-radius: 4px;
-  padding: 8px 12px;
-  font-size: 14px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: all 0.2s ease;
-  color: #000000;
-}
+// .edit-profile-button {
+//   background-color: #ffffff;
+//   border-radius: 4px;
+//   padding: 8px 12px;
+//   font-size: 14px;
+//   cursor: pointer;
+//   display: flex;
+//   align-items: center;
+//   transition: all 0.2s ease;
+//   color: #000000;
+// }
 
-.edit-profile-button:hover {
-  background-color: #f5f5f5;
-}
+// .edit-profile-button:hover {
+//   background-color: #f5f5f5;
+// }
 
-.edit-profile-button i {
-  margin-right: 6px;
-  font-size: 12px;
-}
+// .edit-profile-button i {
+//   margin-right: 6px;
+//   font-size: 12px;
+// }
 
 /* Header section */
 .profile-header {
@@ -88,6 +89,8 @@ body {
   flex-direction: row;
   align-content: space-around;
   justify-content: flex-end;
+  border-bottom: 2px solid black;
+  padding-bottom: 29px;
 }
 
 .profile-header-1 {
