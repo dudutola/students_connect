@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_18_215126) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_19_125805) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,15 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_215126) do
     t.datetime "updated_at", null: false
     t.text "description"
     t.text "overview"
+  end
+
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "favourited_user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["favourited_user_id"], name: "index_favourites_on_favourited_user_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
   create_table "lecture_users", force: :cascade do |t|
@@ -103,6 +112,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_215126) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favourites", "users"
+  add_foreign_key "favourites", "users", column: "favourited_user_id"
   add_foreign_key "lecture_users", "lectures"
   add_foreign_key "lecture_users", "users"
   add_foreign_key "lectures", "chapters"

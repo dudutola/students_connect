@@ -11,9 +11,11 @@ class User < ApplicationRecord
   has_many :requested_meetings, class_name: "Meeting", foreign_key: :requester_id, dependent: :destroy
   has_many :received_meetings, class_name: "Meeting", foreign_key: :receiver_id, dependent: :destroy
 
-  has_many :reviews, dependent: :destroy  # Reviews received
-  has_many :given_reviews, class_name: 'Review', foreign_key: 'reviewer_id', dependent: :destroy  # Reviews given
+  has_many :reviews, dependent: :destroy
+  has_many :given_reviews, class_name: 'Review', foreign_key: 'reviewer_id', dependent: :destroy
 
+  has_many :favourites
+  has_many :favourited_users, through: :favourites, source: :favorited_user
 
   serialize :skills, Array, coder: YAML
 
