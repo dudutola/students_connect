@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :reviews, only: [:create]
+
+    post "favourite", to: "favourites#toggle"
   end
 
   resources :reviews, only: [:destroy]
