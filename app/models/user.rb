@@ -65,9 +65,9 @@ class User < ApplicationRecord
            .distinct.count
   end
 
-  after_update_commit do
-    broadcast_update_to "user_#{self.id}", target: "timezone_#{self.id}"
-  end
+  # after_update_commit do
+  #   broadcast_update_to "user_#{self.id}", target: "timezone_#{self.id}"
+  # end
 
   def self.from_omniauth(access_token)
     data = access_token.info
