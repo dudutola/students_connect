@@ -1,0 +1,6 @@
+<div class="timezone text-end" data-controller="time" data-user-id="<%= lecture_user.user.id %>" data-timezone="<%= lecture_user.user.timezone.presence || 'UTC' %>">
+  <p class="m-0 small text-muted"><strong>Timezone</strong></p>
+  <p class="m-0 small text-muted" data-time-target="time">
+    <%= Time.now.in_time_zone(lecture_user.user.timezone.presence || "UTC").strftime("%I:%M %p") %>
+  </p>
+</div>
