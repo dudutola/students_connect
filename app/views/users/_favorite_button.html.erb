@@ -1,7 +1,8 @@
 <span id="favorite-icon-<%= user.id %>" class="favorite-icon">
   <%= form_with(url: user_favourite_path(user), method: :post, local: true) do |f| %>
     <button type="submit" class="border-0 bg-transparent p-0">
-      <% if current_user.favourited_users.include?(user) %>
+      <%# <%= raise %>
+      <% if current_user.favourites.find_by(favourited_user: user) %>
         <i class="fa-solid fa-heart text-danger"></i>
       <% else %>
         <i class="fa-regular fa-heart"></i>
