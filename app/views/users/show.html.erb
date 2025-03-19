@@ -1,12 +1,10 @@
-  <div class="profile-user-container">
+<div class="profile-user-container">
     <header class="profile-header">
       <div class="avatar-user-container">
         <%= image_tag @user.avatar_url, class: "profile-avatar", alt: "#{@user.name}'s profile photo" %>
       </div>
       <div class="profile-intro">
         <h1 class="profile-name"><%= @user.name %></h1>
-
-       
         
         <div class="profile-location">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
@@ -34,123 +32,135 @@
       </div>
     </header>
 
-    <!-- About Me Card -->
+    <div class="about-skills-container">
+      <!-- About Me Card -->
       <section class="content-card about-section">
-      <div class="profile-header-1">  
-          <h2 class="card-title">About Me</h2>
-          <% if current_user && current_user.id == @user.id %>
-            <div class="edit-profile-button">
-              <%= link_to edit_user_profile_path(@user), class: " edit-profile-button btn btn-sm btn-primary", data: { turbo: false } do %>
-                <i class="fa-solid fa-pencil me-1"></i> Edit Profile
-              <% end %>
-            </div>
-          <% end %>
-      </div>
-      <% if @user.description.present? %>
-        <p><%= @user.description %></p>
-      <% else %>
-        <p>I'm a web development student passionate about creating user-friendly applications. Currently working on improving my Rails and JavaScript skills.</p>
-        <p>I enjoy collaborating with others and solving challenging problems.</p>
-      <% end %>
-    </section>
-
-    <!-- Skills Card -->
-    <section class="content-card skills-section">
-      <h2 class="card-title">Skills</h2>
-      <div class="skills-container">
-        <% if @user.skills.present? && @user.skills.any? %>
-          <% @user.skills.each do |skill| %>
-            <span class="skill-badge"><%= skill %></span>
-          <% end %>
+        <div class="profile-header-1">  
+            <h2 class="card-title">About Me</h2>
+            <% if current_user && current_user.id == @user.id %>
+              <div class="edit-profile-button">
+                <%= link_to edit_user_profile_path(@user), class: "edit-profile-button btn btn-sm btn-primary", data: { turbo: false } do %>
+                  <i class="fa-solid fa-pencil me-1"></i> Edit Profile
+                <% end %>
+              </div>
+            <% end %>
+        </div>
+        <% if @user.description.present? %>
+          <p><%= @user.description %></p>
         <% else %>
-         <% if current_user && current_user.id == @user.id %>
-        <p class="add-skills-message">
-          <%= link_to edit_user_profile_path(@user), class: "add-skills-link", data: { turbo: false } do %>
-            <i class="fa-solid fa-plus me-1"></i> Add your skills
-          <% end %>
-        </p>
-        <% else %>
-          <p class="no-skills-message">No skills added yet.</p>
+          <p>I'm a web development student passionate about creating user-friendly applications. Currently working on improving my Rails and JavaScript skills.</p>
+          <p>I enjoy collaborating with others and solving challenging problems.</p>
         <% end %>
-      <% end %>
-    </div>
-  </section>
-  <% if current_user && current_user.id == @user.id %>
-
-    <section class="content-card progress-section">
-    <h2 class="card-title">Course Progress</h2>
-    
-    <% Chapter.all.includes(:lectures).each do |chapter| %>
-      <% 
-        progress_percentage = current_user.chapter_progress(chapter)
-        completed_lectures = current_user.completed_lectures_in_chapter(chapter)
-        total_lectures = chapter.lectures.count
-        
-        # Skip chapters with no completed lectures
-        next if completed_lectures == 0
-      %>
+      </section>
       
-      <div class="chapter-progress-card">
-        <div class="progress-header" data-bs-toggle="collapse" data-bs-target="#chapter-<%= chapter.id %>" aria-expanded="false" role="button">
-          <h3><%= chapter.name %></h3>
-          <div class="progress-stats">
-            <span class="completion-count"><%= completed_lectures %>/<%= total_lectures %></span>
-            <span class="percentage-badge"><%= progress_percentage %>%</span>
-            <i class="fa-solid fa-chevron-down toggle-icon"></i>
-          </div>
+      <!-- Skills Card (always in right column) -->
+      <section class="content-card skills-section">
+        <h2 class="card-title">Skills</h2>
+        <div class="skills-container">
+          <% if @user.skills.present? && @user.skills.any? %>
+            <% @user.skills.each do |skill| %>
+              <span class="skill-badge"><%= skill %></span>
+            <% end %>
+          <% else %>
+            <% if current_user && current_user.id == @user.id %>
+              <p class="add-skills-message">
+                <%= link_to edit_user_profile_path(@user), class: "add-skills-link", data: { turbo: false } do %>
+                  <i class="fa-solid fa-plus me-1"></i> Add your skills
+                <% end %>
+              </p>
+            <% else %>
+              <p class="no-skills-message">No skills added yet.</p>
+            <% end %>
+          <% end %>
         </div>
+      </section>
+    </div>
+
+    <% if current_user && current_user.id == @user.id %>
+      <!-- Current User View: Progress bar followed by reviews -->
+      
+      <!-- Course Progress Card (only for current user) -->
+      <section class="content-card progress-section">
+        <h2 class="card-title">Course Progress</h2>
         
-        <div class="progress-bar-container">
-          <div class="progress-bar" style="width: <%= progress_percentage %>%"></div>
-        </div>
-        
-        <div class="lecture-list collapse" id="chapter-<%= chapter.id %>">
+        <% Chapter.all.includes(:lectures).each do |chapter| %>
           <% 
-            # Get only completed lectures for this chapter
-            completed_chapter_lectures = chapter.lectures.joins(:lecture_users)
-                                          .where(lecture_users: { user_id: current_user.id })
-                                          .distinct
+            progress_percentage = current_user.chapter_progress(chapter)
+            completed_lectures = current_user.completed_lectures_in_chapter(chapter)
+            total_lectures = chapter.lectures.count
+            
+            # Skip chapters with no completed lectures
+            next if completed_lectures == 0
           %>
           
-          <% completed_chapter_lectures.each do |lecture| %>
-            <div class="lecture-item completed">
-              <div class="lecture-status">
-                <i class="fa-solid fa-check-circle"></i>
+          <div class="chapter-progress-card">
+            <div class="progress-header" data-bs-toggle="collapse" data-bs-target="#chapter-<%= chapter.id %>" aria-expanded="false" role="button">
+              <h3><%= chapter.name %></h3>
+              <div class="progress-stats">
+                <span class="completion-count"><%= completed_lectures %>/<%= total_lectures %></span>
+                <span class="percentage-badge"><%= progress_percentage %>%</span>
+                <i class="fa-solid fa-chevron-down toggle-icon"></i>
               </div>
-              <%= link_to lecture.title, lecture_path(lecture), class: "lecture-link" %>
             </div>
-          <% end %>
+            
+            <div class="progress-bar-container">
+              <div class="progress-bar" style="width: <%= progress_percentage %>%"></div>
+            </div>
+            
+            <div class="lecture-list collapse" id="chapter-<%= chapter.id %>">
+              <% 
+                # Get only completed lectures for this chapter
+                completed_chapter_lectures = chapter.lectures.joins(:lecture_users)
+                                              .where(lecture_users: { user_id: current_user.id })
+                                              .distinct
+              %>
+              
+              <% completed_chapter_lectures.each do |lecture| %>
+                <div class="lecture-item completed">
+                  <div class="lecture-status">
+                    <i class="fa-solid fa-check-circle"></i>
+                  </div>
+                  <%= link_to lecture.title, lecture_path(lecture), class: "lecture-link" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </section>
+      
+      <!-- Skills section is now moved up to be in the same row as About Me -->
+      
+      <!-- Reviews Section (for current user) -->
+      <section class="content-card reviews-section">
+        <%= render 'reviews' %>
+      </section>
+      
+    <% else %>
+    
+     <div class="about-skills-container reviews-container">
+      <!-- Reviews Section (for other users) -->
+      <section class="content-card reviews-section">
+        <h2 class="card-title d-flex justify-content-between align-items-center">
+          Reviews (<%= @user.reviews.count %>)
+          <% if @user.reviews.any? %>
+            <span class="badge text-dark">
+              <%= @user.average_rating %>
+              <i class="fas fa-star" style="color: #f0c14b;"></i> 
+            </span>
+          <% end %> 
+        </h2>
+        
+        <div class="comment">
+          <%= render 'reviews' %>
         </div>
+      </section>
+        
+        <!-- Review Form -->
+        <section class="content-card review-form-section">
+          <h2 class="card-title">Leave a Review</h2>
+          <%= render 'review_form' %>
+        </section>
       </div>
     <% end %>
-      <div >
-             <%= render 'reviews' %>
-      </div>
-  </section>
-  <% end %>
-             
-          <!-- Review form if the current user is not viewing their own profile -->
-          <% if current_user && current_user != @user %>
-             <%= render 'reviews' %>
-            <%= render 'review_form' %>
-          <% end %>
-
-          <%# a shortway to see the reviews %>
-
-          <%# <% if @user.reviews.any? %>
-            <%# <div class="user-rating mb-3"> %>
-              <%# <% @user.average_rating.floor.times do %> 
-                <%# <i class="fas fa-star text-warning"></i> %>
-              <%# <% end %>
-              <%# <% if (@user.average_rating - @user.average_rating.floor) >= 0.5 %> 
-                <%# <i class="fas fa-star-half-alt text-warning"></i> %>
-              <%# <% end %>
-              <%# <% (5 - @user.average_rating.ceil).times do %> 
-                <%# <i class="far fa-star text-warning"></i>  %>
-              <%# <% end %> 
-              <%# <span class="ms-2"><%= @user.average_rating/5</span>   %>
-            <%# </div> %>
-          <%# <% end %> 
-          
   </div>
 </div>

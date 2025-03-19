@@ -1,10 +1,10 @@
-<div class="row mt-4">
-  <div class="col-12">
-    <div class="card border-0 shadow-sm" style="background-color: white; border-radius: 12px;">
-      <div class="card-body p-4">
-        <h3 class="mb-3" style="font-weight: 500; color: #333;">Leave a Review</h3>
+<%# <div class="row mt-4"> %>
+  <%# <div class="col-12"> %>
+    <%# <div class="c" style="background-color: white; border-radius: 12px;"> %>
+      <%# <div class="form-card"> %>
+        <%# <h3 class="mb-3" style="font-weight: 500; color: #333;">Leave a Review</h3> %>
         
-       <div style="border-bottom: 4px solid #f0c14b; width: 60px; margin-bottom: 20px;"></div>
+       <%# <div style="border-bottom: 4px solid #f0c14b; width: 60px; margin-bottom: 20px;"></div> %>
         
         <%= form_with(model: [@user, Review.new], url: user_reviews_path(@user), local: true) do |f| %>
           <div class="mb-4">

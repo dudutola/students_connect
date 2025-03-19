@@ -1,19 +1,20 @@
 <%# app/views/users/_reviews.html.erb %>
 <div class="row mt-4">
   <div class="col-12">
-    <div class="card border-0 shadow-sm" style="background-color: white; border-radius: 12px;">
-      <div class="card-body p-4">
-        <h3 class="mb-3" style="font-weight: 500; color: #333;">
-          Reviews (<%= @user.reviews.count %>)
-          <% if @user.reviews.any? %>
-            <span class="badge bg-light text-dark ms-2">
-              <%= @user.average_rating %> <i class="fas fa-star" style="color: #f0c14b;"></i>
-              <small>(<%= @user.reviews.count %>)</small>
-            </span>
-          <% end %>
-        </h3>
+    <div class="review-card">
+      <div class="card-body p4">
+        <%# <h3 class="mb-3" style="font-weight: 500; color: #333;">
+          Reviews (<%= @user.reviews.count) %>
+          <%# <% if @user.reviews.any? %> 
+            <%# <span class="badge bg-light text-dark ms-2"> %>
+              <%# <%= @user.average_rating %>
+               <%# <i class="fas fa-star" style="color: #f0c14b;"></i> %> 
+              <%# <small>(<%= @user.reviews.count)</small> %>
+            <%# </span> %>
+          <%# <% end %> 
+        <%# </h3> %>
         
-        <div style="border-bottom: 4px solid #f0c14b; width: 60px; margin-bottom: 20px;"></div>
+        <%# <div style="border-bottom: 4px solid #f0c14b; width: 60px; margin-bottom: 20px;"></div> %> 
         
         <% if @user.reviews.any? %>
           <div class="reviews-list" id="reviews-container" style="max-height: 400px; overflow-y: auto;">
@@ -53,13 +54,7 @@
               </div>
             <% end %>
           </div>
-          
-          <% if @user.reviews.count > 4 %>
-            <div class="text-center mt-3 scrolldown-hint">
-              <small style="color: #777; display: block;">Scroll down to see more reviews</small>
-              <i class="fas fa-chevron-down" style="color: #f0c14b;"></i>
-            </div>
-          <% end %>
+        
         <% else %>
           <div class="text-center py-5" style="color: #777;">
             <i class="far fa-comment-dots mb-3" style="font-size: 2rem;"></i>
