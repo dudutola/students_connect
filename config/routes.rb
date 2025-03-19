@@ -50,4 +50,6 @@ Rails.application.routes.draw do
   end
 
   get "user/:id/timezone", to: "users#timezone", as: :user_timezone
+
+  resources :favourites, only: [ :index ]
 end

@@ -1,4 +1,4 @@
-class UserPolicy < ApplicationPolicy
+class FavouritePolicy < ApplicationPolicy
   # NOTE: Up to Pundit v2.3.1, the inheritance was declared as
   # `Scope < Scope` rather than `Scope < ApplicationPolicy::Scope`.
   # In most cases the behavior will be identical, but if updating existing
@@ -14,6 +14,10 @@ class UserPolicy < ApplicationPolicy
   end
 
   def toggle?
-    user.present?
+    true
+  end
+
+  def index?
+    true
   end
 end
