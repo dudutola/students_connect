@@ -1,7 +1,8 @@
 class FavouritesController < ApplicationController
   def index
     # @favourited_users = current_user.favourited_users
-    @favourited_users = policy_scope(User).where(id: current_user.favourited_user_ids)
+    # @favourited_users = policy_scope(User).where(id: current_user.favourited_user_ids)
+    @favourites = policy_scope(current_user.favourites.where(user: current_user))
   end
 
   def toggle

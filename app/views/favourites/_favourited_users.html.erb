@@ -1,18 +1,18 @@
 <%= turbo_frame_tag "favourited-users" do %>
-  <% if favourited_users.any? %>
+  <% if favourites.any? %>
     <div class="favourited-users">
-      <% favourited_users.each do |user| %>
-        <turbo-frame id="favorite-user-<%= user.id %>">
+      <% favourites.each do |favourite| %>
+        <turbo-frame id="favorite-user-<%= favourite.favourited_user.id %>">
           <div class="user-card">
-            <%= link_to user_profile_path(user) do %>
+            <%= link_to user_profile_path(favourite) do %>
               <div class="d-flex align-items-center">
-                <%= image_tag user.avatar_url, class: "avatar", alt: "#{user.name}'s avatar" %>
+                <%= image_tag favourite.favourited_user.avatar_url, class: "avatar", alt: "#{favourite.favourited_user.name}'s avatar" %>
                 <div>
-                  <h4><%= user.name %></h4>
+                  <h4><%= favourite.favourited_user.name %></h4>
                 </div>
               </div>
             <% end %>
-            <%= button_to user_favourite_path(user, from: "index"), method: :post, class: "remove-fav-btn", data: { turbo_method: :post, turbo_frame: "favorite-user-#{user.id}" } do %>
+            <%= button_to user_favourite_path(favourite, from: "index"), method: :post, class: "remove-fav-btn", data: { turbo_method: :post, turbo_frame: "favorite-user-#{favourite.favourited_user.id}" } do %>
               <i class="fa-solid fa-heart text-danger"></i> Remove from Favorites
             <% end %>
           </div>
