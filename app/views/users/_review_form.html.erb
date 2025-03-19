@@ -7,7 +7,7 @@
        <%# <div style="border-bottom: 4px solid #f0c14b; width: 60px; margin-bottom: 20px;"></div> %>
         
         <%= form_with(model: [@user, Review.new], url: user_reviews_path(@user), local: true) do |f| %>
-          <div class="mb-4">
+          <div class="form-group d-flex align-items-center", style="gap: 120px";>
             <label class="form-label" style="font-weight: 500; color: #333;">Rating</label>
             <div class="rating-container">
               <%= f.radio_button :rating, 5, id: "star5", class: "rating" %>
@@ -21,19 +21,19 @@
               <%= f.radio_button :rating, 1, id: "star1", class: "rating" %>
               <label for="star1">★</label>
             </div>
-            <div class="rating-help ms-3 text-muted small mt-1">
+            <%# <div class="rating-help ms-3 text-muted small">
               (1=Poor, 5=Excellent)
-            </div>
+            </div> %>
           </div>
           
           <div class="mb-4">
             <label class="form-label" style="font-weight: 500; color: #333;">Share your experience</label>
             <%= f.text_area :comment, 
-                  class: 'form-control',
-                  style: 'border-radius: 8px; border-color: #ddd; padding: 12px; rezise: none;',
-                  placeholder: 'What was your experience working with this person?',
-                  rows: 4,
-                  required: true %>
+                class: 'form-control', 
+                style: 'border-radius: 8px; border-color: #ddd; padding: 12px; resize: none;', 
+                placeholder: "What was your experience working with #{@user.name}", 
+                rows: 4, 
+                required: true %>
           </div>
           
           <%= f.submit 'Submit Review', class: 'btn', 

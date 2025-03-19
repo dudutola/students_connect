@@ -31,7 +31,7 @@ body {
 /* About and Skills container - side by side layout */
 .about-skills-container {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1.4fr;
   gap: 24px;
   grid-column: 1 / -1;
 }
@@ -498,13 +498,6 @@ body {
     justify-content: center;
   }
   
-  .about-skills-container {
-    grid-template-columns: 1fr;
-  }
-
-  .other-user-profile-layout {
-    grid-template-columns: 1fr;
-  }
 
   .right-column {
     order: -1; /* Show review form before reviews on mobile */
