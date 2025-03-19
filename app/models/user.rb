@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :given_reviews, class_name: 'Review', foreign_key: 'reviewer_id', dependent: :destroy
 
   has_many :favourites
-  has_many :favourited_users, through: :favourites, source: :favorited_user
+  has_many :favourited_users, through: :favourites, source: :favourited_user
 
   serialize :skills, Array, coder: YAML
 

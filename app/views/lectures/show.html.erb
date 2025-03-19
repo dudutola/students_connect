@@ -43,10 +43,9 @@
                 </div>
               </div>
             <% end %>
-            <span class="favorite-icon">
-              <i class="fa-regular fa-heart"></i>
-              <%# <i class="fa-solid fa-heart"></i> %>
-            </span>
+
+            <%= render "users/favorite_button", user: lecture_user.user %>
+
           </div>
 
           <div class="d-flex justify-content-between align-items-center">
