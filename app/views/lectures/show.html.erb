@@ -67,11 +67,13 @@
 
           </div>
 
-          <% unless lecture_user.user == current_user %>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#meetingModal-<%= lecture_user.user.id %>">
-              Request Meeting
-            </button>
-          <% end %>
+          <div class="d-flex justify-content-center">
+            <% unless lecture_user.user == current_user %>
+              <button type="button" class="btn btn-request" data-bs-toggle="modal" data-bs-target="#meetingModal-<%= lecture_user.user.id %>">
+                Request Meeting
+              </button>
+            <% end %>
+          </div>
 
         </div>
       </div>
