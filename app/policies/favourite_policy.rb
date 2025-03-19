@@ -9,15 +9,20 @@ class FavouritePolicy < ApplicationPolicy
     # NOTE: Be explicit about which records you allow access to!
     def resolve
       # scope.all
-      scope.where(id: user.favourited_user_ids)
+      # scope.where(id: user.favourited_user_ids)
+      scope.where(user: user)
     end
-  end
-
-  def toggle?
-    true
   end
 
   def index?
     true
+  end
+
+  def toggle?
+    record.user == user
+  end
+
+  def destroy?
+    record.user == user
   end
 end
