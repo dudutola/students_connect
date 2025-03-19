@@ -33,3 +33,17 @@
 .github-btn {
   color: black;
 }
+
+
+//
+.btn-request {
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.635);
+  color: white;
+
+  &:hover {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+  }
+}

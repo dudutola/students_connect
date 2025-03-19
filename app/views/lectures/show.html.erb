@@ -5,7 +5,6 @@
     <%= link_to @lecture.resource_url, target: "_blank" do  %>
       <h1 class="m-0 pb-2 text-decoration-underline fw-bold"><%= @lecture.title %></h1>
     <% end %>
-    <%# add the icon %>
     <%= link_to "View this course in Odin Project", @lecture.resource_url, target: "_blank" %>
   </div>
 
@@ -31,53 +30,54 @@
 <h3 class="mt-5 mb-4"><%= pluralize(@lecture.lecture_users.count, "person") %> completed this lecture:</h3>
 <div class="lecture__list row">
   <% @lecture.lecture_users.order(created_at: :desc).each do |lecture_user| %>
-    <div class="col-md-4 mb-4">
-      <div class="lecture__card p-3 d-flex flex-column gap-3 rounded-lg">
-
-        <div class="d-flex align-items-center justify-content-between">
-
-          <%= link_to user_profile_path(lecture_user.user) do %>
-            <div class="d-flex align-items-center gap-3">
-              <%= image_tag lecture_user.user.avatar_url, class: "lecture__avatar", alt: "#{lecture_user.user.name}'s avatar" %>
-
-              <div>
-                <h4 class="m-0 fw-bold text-dark text-decoration-underline"><%= lecture_user.user.name %></h4>
-                <p class="current-lecture m-0 text-success small">Currently learning this lecture</p>
+    <% unless lecture_user.user == current_user %>
+      <div class="col-md-4 mb-4">
+        <div class="lecture__card p-3 d-flex flex-column gap-3 rounded-lg">
+          <div class="d-flex align-items-center justify-content-between">
+            <%= link_to user_profile_path(lecture_user.user) do %>
+              <div class="d-flex align-items-center gap-3">
+                <%= image_tag lecture_user.user.avatar_url, class: "lecture__avatar", alt: "#{lecture_user.user.name}'s avatar" %>
+                <div>
+                  <h4 class="m-0 fw-bold text-dark text-decoration-underline"><%= lecture_user.user.name %></h4>
+                  <%# <p class="current-lecture m-0 text-success small">Currently learning this lecture</p> %>
+                </div>
               </div>
+            <% end %>
+            <span class="favorite-icon">
+              <i class="fa-regular fa-heart"></i>
+              <%# <i class="fa-solid fa-heart"></i> %>
+            </span>
+          </div>
 
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex flex-column gap-1">
+              <p class="m-0 small text-muted">
+                <i class="fa-solid fa-laptop-code me-1"></i> Web Development FT
+              </p>
+              <p class="m-0 small text-muted">
+                <i class="fa-solid fa-location-dot me-1"></i> <%= lecture_user.user.location %>
+              </p>
             </div>
-          <% end %>
 
-          <span class="favorite-icon">
-            <i class="fa-regular fa-heart"></i>
-            <%# <i class="fa-solid fa-heart"></i> %>
-          </span>
-        </div>
+            <%= turbo_stream_from "user_#{lecture_user.user.id}" %>
 
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="d-flex flex-column gap-1">
-            <p class="m-0 small text-muted">
-              <i class="fa-solid fa-laptop-code me-1"></i> Web Development FT
-            </p>
-            <p class="m-0 small text-muted">
-              <i class="fa-solid fa-location-dot me-1"></i> Lisbon
-            </p>
+            <turbo-frame id="timezone_<%= lecture_user.user.id %>">
+              <%= render partial: "timezone", locals: { lecture_user: lecture_user } %>
+            </turbo-frame>
+
           </div>
 
-          <div class="timezone text-end">
-            <p class="m-0 small text-muted"><strong>Timezone</strong></p>
-            <p class="m-0 small text-muted">4:06 PM</p>
+          <div class="d-flex justify-content-center">
+            <% unless lecture_user.user == current_user %>
+              <button type="button" class="btn btn-request" data-bs-toggle="modal" data-bs-target="#meetingModal-<%= lecture_user.user.id %>">
+                Request Meeting
+              </button>
+            <% end %>
           </div>
+
         </div>
-
-        <% if lecture_user.user != current_user %>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#meetingModal-<%= lecture_user.user.id %>">
-            Request Meeting
-          </button>
-        <% end %>
-
       </div>
-    </div>
-    <%= render "modal-meetings", lecture: @lecture, lecture_user: lecture_user %>
+      <%= render "modal-meetings", lecture: @lecture, lecture_user: lecture_user %>
+    <% end %>
   <% end %>
 </div>

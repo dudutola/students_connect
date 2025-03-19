@@ -24,9 +24,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :reviews, only: [:create]
   end
-  
+
   resources :reviews, only: [:destroy]
-  
 
   resources :lectures, only: [ :show ] do
     member do
@@ -47,4 +46,6 @@ Rails.application.routes.draw do
       get :calendar
     end
   end
+
+  get "user/:id/timezone", to: "users#timezone", as: :user_timezone
 end

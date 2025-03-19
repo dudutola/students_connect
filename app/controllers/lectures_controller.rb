@@ -3,6 +3,7 @@ class LecturesController < ApplicationController
     @lecture = Lecture.find(params[:id])
     authorize @lecture
     @meeting = Meeting.new
+    @users = @lecture.lecture_users.where.not(user: current_user).map(&:user)
   end
 
   def mark_as_done
