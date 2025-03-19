@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students Connect - Sign In</title>
+  <style>
+    :root {
+      --primary-yellow: #FFD644;
+      --primary-green: #7ED957;
+      --text-dark: #333333;
+      --background-color: #FFF8EC;
+      --github-color: #24292e;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    
+    body {
+      background-color: var(--background-color);
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: white;
+    }
+    
+    .banner {
+      padding: 40px;
+      text-align: center;
+      background: linear-gradient(to right, var(--primary-yellow), var(--primary-green));
+    }
+    
+    .banner h1 {
+      font-size: 36px;
+      color: white;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .banner p {
+      font-size: 18px;
+      color: white;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .content-area {
+      display: flex;
+      min-height: 400px;
+    }
+    
+    .info-section {
+      flex: 1;
+      padding: 50px;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .auth-section {
+      flex: 1;
+      padding: 50px;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-left: 1px solid #eee;
+    }
+    
+    .slogan {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 30px;
+      display: inline-block;
+      position: relative;
+    }
+    
+    .highlight {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .highlight:after {
+      content: "";
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background-color: var(--primary-yellow);
+      z-index: -1;
+      opacity: 0.6;
+    }
+    
+    .info-point {
+      display: flex;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+    
+    .info-point svg {
+      width: 24px;
+      height: 24px;
+      margin-right: 15px;
+      flex-shrink: 0;
+      fill: var(--primary-green);
+    }
+    
+    .info-point-content h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    
+    .info-point-content p {
+      color: #666;
+      line-height: 1.5;
+    }
+    
+    .github-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--github-color);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 18px 30px;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      width: 280px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      margin-bottom: 30px;
+    }
+    
+    .github-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .github-icon {
+      margin-right: 12px;
+      width: 24px;
+      height: 24px;
+    }
+    
+    .auth-info {
+      text-align: center;
+      max-width: 320px;
+      margin-top: 20px;
+    }
+    
+    .auth-info p {
+      color: #666;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    
+    @media (max-width: 992px) {
+      .content-area {
+        flex-direction: column;
+      }
+      
+      .info-section, .auth-section {
+        padding: 40px;
+      }
+      
+      .auth-section {
+        border-left: none;
+        border-top: 1px solid #eee;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .banner {
+        padding: 30px 20px;
+      }
+      
+      .banner h1 {
+        font-size: 28px;
+      }
+      
+      .banner p {
+        font-size: 16px;
+      }
+      
+      .info-section, .auth-section {
+        padding: 30px 20px;
+      }
+      
+      .slogan {
+        font-size: 20px;
+      }
+      
+      .github-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="banner">
+      <h1>DevConnect</h1>
+      <p>The platform connecting web development students facing similar challenges</p>
+    </div>
+    
+    <div class="content-area">
+      <div class="info-section">
+        <div class="slogan">
+          Connect with students facing the <span class="highlight">same challenges</span>
+        </div>
+        
+        <div class="info-point">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.959 17l-4.5-4.319 1.395-1.435 3.08 2.937 7.021-7.183 1.422 1.409-8.418 8.591z"/>
+          </svg>
+          <div class="info-point-content">
+            <h3>Find Coding Partners</h3>
+            <p>Connect with fellow students who are working on the same challenges as you.</p>
+          </div>
+        </div>
+        
+        <div class="info-point">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.959 17l-4.5-4.319 1.395-1.435 3.08 2.937 7.021-7.183 1.422 1.409-8.418 8.591z"/>
+          </svg>
+          <div class="info-point-content">
+            <h3>Schedule Study Sessions</h3>
+            <p>Easily book meetings and collaborate in real-time on difficult problems.</p>
+          </div>
+        </div>
+        
+        <div class="info-point">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.959 17l-4.5-4.319 1.395-1.435 3.08 2.937 7.021-7.183 1.422 1.409-8.418 8.591z"/>
+          </svg>
+          <div class="info-point-content">
+            <h3>Level Up Together</h3>
+            <p>Learn faster by sharing insights and solving problems collaboratively.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="auth-section">
+        <a href="/users/auth/github" class="github-btn">
+          <svg class="github-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          Sign in with GitHub
+        </a>
+        
+        <div class="auth-info">
+          <p><strong>Why GitHub?</strong> Signing in with GitHub helps us connect you with students working on similar repositories and coding challenges.</p>
+          <p>Your GitHub profile also makes it easier to showcase your skills and projects to potential study partners.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+<h2>Log in</h2>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+   <div class="form-inputs">
+     <%= f.input :email,
+                 required: false,
+                 autofocus: true,
+                 input_html: { autocomplete: "email" } %>
+     <%= f.input :password,
+                 required: false,
+                 input_html: { autocomplete: "current-password" } %>
+     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+   </div>
+    <div class="form-actions">
+     <%= f.button :submit, "Log in" %>
+   </div>
+ <% end %>
+ <%= render "devise/shared/links" %>

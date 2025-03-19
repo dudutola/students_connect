@@ -1,3 +1,65 @@
+<div class="log-container">
+    <div class="log-banner">
+      <h1>Students Connect</h1>
+    </div>
+    
+    <div class="log-content-area">
+      <div class="log-info-section">
+        <div class="log-slogan">
+          Connect with students facing the <span class="log-highlight">same challenges</span>
+        </div>
+        
+        <div class="log-info-point">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.959 17l-4.5-4.319 1.395-1.435 3.08 2.937 7.021-7.183 1.422 1.409-8.418 8.591z"/>
+          </svg>
+          <div class="log-info-point-content">
+            <h3>Access to Coding Profiles</h3>
+            <p>GitHub login allows us to see which projects and languages you work with, making it easier to match you with relevant study partners.</p>
+          </div>
+        </div>
+        
+        <div class="log-info-point">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.959 17l-4.5-4.319 1.395-1.435 3.08 2.937 7.021-7.183 1.422 1.409-8.418 8.591z"/>
+          </svg>
+          <div class="log-info-point-content">
+            <h3>Simplified Sign-In</h3>
+            <p>No need to create a new account or remember another password. One click to connect and start collaborating.</p>
+          </div>
+        </div>
+        
+        <div class="log-info-point">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.959 17l-4.5-4.319 1.395-1.435 3.08 2.937 7.021-7.183 1.422 1.409-8.418 8.591z"/>
+          </svg>
+          <div class="log-info-point-content">
+            <h3>Developer-Focused Community</h3>
+            <p>Connect with a community that understands code. Share repositories, discuss pull requests, and build your network.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="log-auth-section">
+        <% if resource_class.omniauth_providers.include?(:github) %>
+          <%= button_to omniauth_authorize_path(resource_name, :github), 
+                      data: { turbo: false }, 
+                      class: "github-btn", 
+                      method: :post do %>
+            <svg class="github-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            Sign in with GitHub
+          <% end %>
+        <% end %>
+  
+        <div class="log-auth-info">
+          <p>By connecting with GitHub, we can identify which coding challenges you're working on and find others facing similar difficulties.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <h2>Log in</h2>
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
    <div class="form-inputs">
@@ -15,3 +77,4 @@
    </div>
  <% end %>
  <%= render "devise/shared/links" %>
+
