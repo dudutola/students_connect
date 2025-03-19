@@ -21,17 +21,18 @@ Meeting.destroy_all
 puts "Database cleaned."
 
 users_data = [
-  { username: "rita", email: "rita@studentsconnect.com", name: "Rita Costiv", location: "United States" },
-  { username: "tomás", email: "tomas@studentsconnect.com", name: "Tomás Gray Vasco", location: "Spain" },
-  { username: "simão", email: "simao@studentsconnect.com", name: "Simão Martins", location: "Portugal" },
-  { username: "miguel", email: "miguel@studentsconnect.com", name: "Miguel Rodrigues", location: "England" },
-  { username: "talice", email: "talice@studentsconnect.com", name: "Talice Netos", location: "São Tomé and Príncipe" },
-  { username: "diego", email: "diego@studentsconnect.com", name: "Diego Maldonado", location: "Brasil" },
-  { username: "roberta", email: "roberta@studentsconnect.com", name: "Roberta Messi", location: "Colombia" },
-  { username: "pedro", email: "pedro@studentsconnect.com", name: "Pedro Costa", location: "Gabon" },
-  { username: "alice", email: "alice@studentsconnect.com", name: "Alice Albuquerque", location: "France" },
-  { username: "tomás", email: "tomascampos@studentsconnect.com", name: "Tomás Campos", location: "Madagascar" },
-  { username: "carla", email: "carla@studentsconnect.com", name: "Carla Ferrer", location: "Malta" }
+  { username: "rita", email: "rita@studentsconnect.com", name: "Rita Costiv", location: "United States", description: "Hey there! Still figuring out JavaScript but I'd be happy to help with your CSS challenges! My background in painting gives me a good eye for layouts and color theory. Always looking to trade knowledge—you help me with JS logic, I'll make your site look amazing!"  },
+  { username: "tomás", email: "tomas@studentsconnect.com", name: "Tomás Gray Vasco", location: "Spain", description: "What's up fellow coders! Totally new to APIs but I've gotten pretty good at responsive designs. Coming from the restaurant industry taught me to stay organized with my code. Happy to walk through CSS Grid layouts if you can help me understand how to connect to databases!" },
+  { username: "simão", email: "simao@studentsconnect.com", name: "Simão Martins", location: "Portugal", description: "Learning Ruby on Rails here! Been making steady progress with backend logic but still struggling with frontend frameworks. I've got a knack for database structures though—so if you're stuck on ActiveRecord or SQL queries, I'm your guy!"
+  },
+  { username: "miguel", email: "miguel@studentsconnect.com", name: "Miguel Rodrigues", location: "England", description:  "Hi everyone! Just started this journey but already loving HTML/CSS. Still wrapping my head around JavaScript but I'm a quick learner! I'm great at spotting UI issues and can help review your designs. Looking for study buddies who want to tackle challenges together!"},
+  { username: "talice", email: "talice@studentsconnect.com", name: "Talice Netos", location: "São Tomé and Príncipe", description: "Former teacher still learning to code! JavaScript concepts finally clicking for me, but deployment still feels like magic. Really good at explaining complex topics in simple terms—happy to help break down concepts if you can show me the ropes with testing!" },
+  { username: "diego", email: "diego@studentsconnect.com", name: "Diego Maldonado", location: "Brasil", description: "Design-obsessed newbie here! Learning to code has been humbling but I've gotten the hang of UI libraries pretty quickly. Struggling with JavaScript but I can absolutely help make your projects look professional. Anyone want to trade design reviews for debugging help?" },
+  { username: "roberta", email: "roberta@studentsconnect.com", name: "Roberta Messi", location: "Colombia", description:"Marathon runner tackling this coding marathon too! Getting comfortable with Node.js but CSS animations still trip me up. I'm pretty good at staying persistent with bugs—happy to help troubleshoot your code if you can explain how to make things move on the screen!"  },
+  { username: "pedro", email: "pedro@studentsconnect.com", name: "Pedro Costa", location: "Gabon", description: " Multilingual and adding code to my language list! Getting the hang of vanilla JavaScript but Git workflows still confuse me. I've developed a solid debugging process that I'm happy to share! Anyone want to exchange Git tips for help with browser compatibility issues?" },
+  { username: "alice", email: "alice@studentsconnect.com", name: "Alice Albuquerque", location: "France", description: "Making good progress with data visualization but backend is still a mystery to me. I've gotten pretty good at working with chart libraries—happy to help you make beautiful data displays if you can explain server-side concepts!"  },
+  { username: "tomás", email: "tomascampos@studentsconnect.com", name: "Tomás Campos", location: "Madagascar", description: "Motorcycle rebuilder rebuilding my career through code! HTML structure makes perfect sense to me but I'm still learning JavaScript. I've got a methodical approach to debugging UI issues—let's help each other tackle these coding challenges!" },
+  { username: "carla", email: "carla@studentsconnect.com", name: "Carla Ferrer", location: "Malta", description: " I can help spot security vulnerabilities in your projects if you can help me make things look decent with CSS!"}
 ]
 
 users_data.each do |user_data|
