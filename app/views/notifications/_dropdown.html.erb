@@ -1,7 +1,13 @@
 <div id="notification-dropdown">
-  <% notifications.each do |notification| %>
-    <div class="notification-item">
-      <p><%= notification.meeting.requester.name %> requested a meeting</p>
+  <% if notifications.any? %>
+    <% notifications.each do |notification| %>
+      <div class="notification-item">
+        <p><%= notification.message %></p>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="no-notifications">
+      <p>You don't have any notifications yet.</p>
     </div>
   <% end %>
 </div>
