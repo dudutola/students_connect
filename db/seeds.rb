@@ -20,6 +20,7 @@ LectureUser.destroy_all
 Meeting.destroy_all
 Notification.destroy_all
 Review.destroy_all
+Favourite.destroy_all
 
 puts "Database cleaned."
 
