@@ -233,6 +233,12 @@ i {
   }
 }
 
+.timezone {
+  p {
+    color: #979595;
+  }
+}
+
 @media (min-width: 768px) {
   .col-md-4 {
     width: calc((100% - 16px) / 3);
