@@ -15,6 +15,23 @@
   width: 8px;
 }
 
+
+.delete-btn {
+  background: none;   /* Remove background */
+  border: none;       /* Remove the border */
+  padding: 0;         /* Remove any padding */
+  cursor: pointer;   /* Set pointer cursor */
+  font-size: 18px;    /* Icon size */
+}
+
+.fa-trash-alt {
+  color: #F0C14Bed;
+  border: none;
+}
+
+
+
+
 #reviews-container::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 10px;
