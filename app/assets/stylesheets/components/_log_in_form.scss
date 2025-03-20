@@ -106,23 +106,6 @@
   font-size: 15px;
 }
 
-.github-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--github-color);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 16px 25px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  width: 240px;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  margin-bottom: 25px;
-}
 
 .github-btn:hover {
   opacity: 0.95;
