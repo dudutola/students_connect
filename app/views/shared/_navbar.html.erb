@@ -43,8 +43,11 @@
         <% end %>
       <% else %>
         <div class="nav-item">
-          <%= link_to new_user_session_path, class: "github-btn" do %>
-            <i class="fab fa-github"></i> Sign in with Github
+          <%= button_to user_github_omniauth_authorize_path,
+                data: { turbo: false },
+                class: "github-btn",
+                method: :post do %>
+              <i class="fab fa-github"></i> Sign in with Github
           <% end %>
         </div>
       <% end %>
