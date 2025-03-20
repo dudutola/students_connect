@@ -79,7 +79,7 @@ users_data.each do |user|
     username: user[:username],
     password: 'password',
     email: user_data[:email],
-    description: user_data[:description],
+    description: user_data [:description],
     name: user_data[:name],
     location: user_data[:location],
     avatar_url: "https://i.pravatar.cc/150?img=#{rand(1..70)}",
