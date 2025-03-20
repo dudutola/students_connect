@@ -116,32 +116,40 @@ body {
 
 .profile-intro {
   flex: 1;
+  margin-top: 16px; 
 }
 
 .profile-name {
-  font-size: 42px;
-  font-weight: 700;
+  font-size: 37px;
+  font-weight: 500;
   margin: 0 0 6px 0;
   color: #333;
 }
 
+
 .profile-location {
   display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.location-row, .timezone-row {
+  display: flex;
   align-items: center;
-  font-size: 16px;
-  margin-bottom: 16px;
-  color: #555;
+  gap: 8px; /* Space between icon and text */
+
 }
 
 .profile-location svg {
-  margin-right: 6px;
-  fill: #555;
+  flex-shrink: 0;
 }
-
 /* Social links */
 .social-links {
   display: flex;
-  gap: 12px;
+  gap: 19px;
+  flex-direction: row-reverse;
+  margin-top: -45px;
+
 }
 
 .social-link.slack svg {
@@ -172,20 +180,12 @@ body {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background-color: var(--card-color);
-    // box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-//   box-shadow: var(--box-shadow);
-//   transition: var(--transition);
+  background-color: rgba(255, 255, 255, 0.694);
+  text-shadow: 2px 2px 4px #15191F;
+
 }
 
-// .social-link:hover {
-//   transform: translateY(-3px);
-//   background-color: var(--accent-color);
-// }
 
-// .social-link:hover svg {
-//   fill: white;
-// }
 
 .social-link svg {
   width: 22px;
