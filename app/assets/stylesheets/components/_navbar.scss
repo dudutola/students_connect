@@ -49,7 +49,7 @@
 }
 
 .navbar-nav {
-  gap: 24px;
+  gap: 36px;
 
   .nav-item {
     margin-bottom: 0;
@@ -73,4 +73,9 @@
   //   border-radius: 20px;
   //   margin-top: 2rem;
   // }
+}
+
+.dropdown-menu {
+  background-color: white;
+  border-radius: 8px;
 }
