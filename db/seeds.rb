@@ -13,7 +13,7 @@ require "open-uri"
 
 puts "Cleaning everything..."
 
-User.destroy_all
+# Delete dependent records first
 Chapter.destroy_all
 Lecture.destroy_all
 LectureUser.destroy_all
@@ -22,14 +22,17 @@ Notification.destroy_all
 Review.destroy_all
 Favourite.destroy_all
 
+# Now, delete the users
+User.destroy_all
+
 puts "Database cleaned."
 
 users_data = [
-  { username: "rita", email: "rita@studentsconnect.com", name: "Rita Costiv", location: "United States", description: "Hey there! Still figuring out JavaScript but I'd be happy to help with your CSS challenges! My background in painting gives me a good eye for layouts and color theory. Always looking to trade knowledge—you help me with JS logic, I'll make your site look amazing!"  },
-  { username: "tomás", email: "tomas@studentsconnect.com", name: "Tomás Gray Vasco", location: "Spain", description: "What's up fellow coders! Totally new to APIs but I've gotten pretty good at responsive designs. Coming from the restaurant industry taught me to stay organized with my code. Happy to walk through CSS Grid layouts if you can help me understand how to connect to databases!" },
-  { username: "simão", email: "simao@studentsconnect.com", name: "Simão Martins", location: "Portugal", description: "Learning Ruby on Rails here! Been making steady progress with backend logic but still struggling with frontend frameworks. I've got a knack for database structures though—so if you're stuck on ActiveRecord or SQL queries, I'm your guy!"
+  { username: "rita", email: "rita@studentsconnect.com", name: "Rita C", location: "United States", description: "Hey there! Still figuring out JavaScript but I'd be happy to help with your CSS challenges! My background in painting gives me a good eye for layouts and color theory. Always looking to trade knowledge—you help me with JS logic, I'll make your site look amazing!"  },
+  { username: "tomás", email: "tomas@studentsconnect.com", name: "Tomás G", location: "Spain", description: "What's up fellow coders! Totally new to APIs but I've gotten pretty good at responsive designs. Coming from the restaurant industry taught me to stay organized with my code. Happy to walk through CSS Grid layouts if you can help me understand how to connect to databases!" },
+  { username: "simão", email: "simao@studentsconnect.com", name: "Simão M", location: "Portugal", description: "Learning Ruby on Rails here! Been making steady progress with backend logic but still struggling with frontend frameworks. I've got a knack for database structures though—so if you're stuck on ActiveRecord or SQL queries, I'm your guy!"
   },
-  { username: "miguel", email: "miguel@studentsconnect.com", name: "Miguel Rodrigues", location: "England", description:  "Hi everyone! Just started this journey but already loving HTML/CSS. Still wrapping my head around JavaScript but I'm a quick learner! I'm great at spotting UI issues and can help review your designs. Looking for study buddies who want to tackle challenges together!"},
+  { username: "miguel", email: "miguel@studentsconnect.com", name: "Miguel R", location: "England", description:  "Hi everyone! Just started this journey but already loving HTML/CSS. Still wrapping my head around JavaScript but I'm a quick learner! I'm great at spotting UI issues and can help review your designs. Looking for study buddies who want to tackle challenges together!"},
   { username: "talice", email: "talice@studentsconnect.com", name: "Talice Netos", location: "São Tomé and Príncipe", description: "Former teacher still learning to code! JavaScript concepts finally clicking for me, but deployment still feels like magic. Really good at explaining complex topics in simple terms—happy to help break down concepts if you can show me the ropes with testing!" },
   { username: "diego", email: "diego@studentsconnect.com", name: "Diego Maldonado", location: "Brasil", description: "Design-obsessed newbie here! Learning to code has been humbling but I've gotten the hang of UI libraries pretty quickly. Struggling with JavaScript but I can absolutely help make your projects look professional. Anyone want to trade design reviews for debugging help?" },
   { username: "roberta", email: "roberta@studentsconnect.com", name: "Roberta Messi", location: "Colombia", description: "Marathon runner tackling this coding marathon too! Getting comfortable with Node.js but CSS animations still trip me up. I'm pretty good at staying persistent with bugs—happy to help troubleshoot your code if you can explain how to make things move on the screen!"  },
@@ -78,10 +81,10 @@ users_data.each do |user|
   User.create!(
     username: user[:username],
     password: 'password',
-    email: user_data[:email],
-    description: user_data [:description],
-    name: user_data[:name],
-    location: user_data[:location],
+    email: user[:email],
+    description: user[:description],
+    name: user[:name],
+    location: user[:location],
     avatar_url: "https://i.pravatar.cc/150?img=#{rand(1..70)}",
     provider: 'github',
     uid: SecureRandom.uuid,
