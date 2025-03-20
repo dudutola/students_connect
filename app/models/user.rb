@@ -15,9 +15,8 @@ class User < ApplicationRecord
   has_many :given_reviews, class_name: 'Review', foreign_key: 'reviewer_id', dependent: :destroy
 
   has_many :favourites, dependent: :destroy
-  # has_many :favourited_users, through: :favourites, source: :favourited_user, dependent: :destroy
-  # coudln't create favorites??
-  has_many :favourited_users, class_name: "Favourite", foreign_key: "favourited_user_id", dependent: :destroy
+  has_many :favourited_users, through: :favourites, dependent: :destroy
+  # has_many :favourited_users, through: :favourites, class_name: "Favourite", foreign_key: "favourited_user_id", dependent: :destroy
 
   serialize :skills, Array, coder: YAML
 
