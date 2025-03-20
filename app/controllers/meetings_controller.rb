@@ -25,7 +25,8 @@ class MeetingsController < ApplicationController
         meeting: @meeting,
         message: "#{current_user.name} has requested a meeting with you."
       )
-      redirect_to @meeting, notice: "Meeting request sent!"
+      # redirect_to @meeting, notice: "Meeting request sent!"
+      redirect_to lecture_path(@lecture.chapter, @lecture), notice: "Meeting request sent!"
     else
       redirect_to lecture_path(@lecture.chapter, @lecture), alert: "Failed to send meeting request."
     end
