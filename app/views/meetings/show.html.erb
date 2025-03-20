@@ -1,26 +1,35 @@
+<%= link_to '< Back to Meetings', dashboard_path, class: 'back-btn mb-4' %>
+
 <section class="meeting-details">
   <h1>Meeting Details</h1>
 
-  <div class="meeting-info">
-    <p><%= @meeting.requester.name %> you have a meeting with <%= @meeting.receiver.name %>.</p>
+  <div class="d-flex justify-content-around mt-5">
+    <div class="meeting-info">
+      <p><%= @meeting.requester.name %> you have a meeting with <%= @meeting.receiver.name %>.</p>
 
-    <div class="d-flex align-items-center mb-3">
-      <% if @meeting.requester.avatar_url.present? %>
-        <%= image_tag(@meeting.requester.avatar_url, alt: @meeting.requester.name, class: "avatar-large") %>
-      <% end %>
+      <div class="d-flex align-items-center mb-3">
+        <% if @meeting.requester.avatar_url.present? %>
+          <%= link_to user_path(@meeting.requester), class: "user-avatar-link" do %>
+            <%= image_tag(@meeting.requester.avatar_url, alt: @meeting.requester.name, class: "avatar-large") %>
+          <% end %>
+        <% end %>
 
-      <i class="fa-solid fa-plus"></i>
+        <i class="fa-solid fa-plus"></i>
 
-      <% if @meeting.receiver.avatar_url.present? %>
-        <%= image_tag(@meeting.receiver.avatar_url, alt: @meeting.receiver.name, class: "avatar-large") %>
-      <% end %>
+        <% if @meeting.receiver.avatar_url.present? %>
+          <%= link_to user_path(@meeting.receiver), class: "user-avatar-link" do %>
+            <%= image_tag(@meeting.receiver.avatar_url, alt: @meeting.receiver.name, class: "avatar-large") %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <p><strong>Lecture:</strong> <%= @meeting.lecture.title %></p>
+      <p><strong>Start time:</strong> <%= @meeting.start_time.strftime("%B %d, %Y %H:%M") %></p>
+      <p class="mb-5"><strong>End time:</strong> <%= @meeting.end_time.strftime("%H:%M") %></p>
     </div>
 
-    <p><strong>Lecture:</strong> <%= @meeting.lecture.title %></p>
-    <p><strong>Start time:</strong> <%= @meeting.start_time.strftime("%B %d, %Y %H:%M") %></p>
-    <p><strong>End time:</strong> <%= @meeting.end_time.strftime("%H:%M") %></p>
-
-    <% if @meeting.status == "pending" && current_user == @meeting.receiver %>
+    <div class="d-flex meeting-acceptance">
+      <% if @meeting.status == "pending" && current_user == @meeting.receiver %>
       <%= simple_form_for @meeting, url: accept_meeting_path(@meeting), method: :patch do |f| %>
         <%= f.button :submit, "Accept", class: "btn btn-success" %>
       <% end %>
@@ -30,9 +39,10 @@
       <% end %>
 
     <% elsif @meeting.status == "pending" && current_user == @meeting.requester %>
-      <%= link_to 'Cancel Request', cancel_meeting_path(@meeting), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"  }, class: 'btn btn-warning' %>
+      <div>
+        <%= link_to 'Cancel Request', cancel_meeting_path(@meeting), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"  }, class: 'btn btn-warning' %>
+      </div>
     <% end %>
-
-    <%= link_to 'Back to Meetings', dashboard_path, class: 'btn btn-secondary' %>
+    </div>
   </div>
 </section>
