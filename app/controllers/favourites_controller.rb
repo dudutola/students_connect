@@ -17,7 +17,8 @@ class FavouritesController < ApplicationController
     else
       # Favourite.create!(user: @user, favourited_user: @lecture_user)
       # raise
-      current_user.favourited_users_ids << @user.id
+      Favourite.create!(user: current_user, favourited_user: @user)
+      # current_user.favourited_users_ids << @user.id
       @removed = false
     end
 
