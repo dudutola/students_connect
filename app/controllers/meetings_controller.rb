@@ -75,8 +75,7 @@ class MeetingsController < ApplicationController
   def calendar
     skip_authorization
     @meetings = Meeting.all
-
-    @accepted_meetings = @meetings.where(status: "accepted") if @meetings.present?
+    @accepted_meetings = @meetings.where(status: "accepted")
   end
 
   private

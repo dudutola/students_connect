@@ -187,7 +187,6 @@ i {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    cursor: pointer;
 
     &:hover {
       box-shadow: 0 8px 16px rgba(0,0,0,0.12);
@@ -231,6 +230,12 @@ i {
 
   .gap-3 {
     gap: 16px;
+  }
+}
+
+.timezone {
+  p {
+    color: #979595;
   }
 }
 

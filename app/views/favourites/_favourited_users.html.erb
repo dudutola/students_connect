@@ -1,0 +1,28 @@
+<%= turbo_frame_tag "favourited-users" do %>
+  <% if favourited_users.any? %>
+    <div class="favourited-users">
+      <% favourited_users.each do |user| %>
+        <turbo-frame id="favorite-user-<%= user.id %>">
+          <div class="user-card">
+            <%= link_to user_profile_path(user) do %>
+              <div class="d-flex align-items-center">
+                <%= image_tag user.avatar_url, class: "avatar", alt: "#{user.name}'s avatar" %>
+                <div>
+                  <h4><%= user.name %></h4>
+                </div>
+              </div>
+            <% end %>
+            <%= button_to user_favourite_path(user, from: "index"), method: :post, class: "remove-fav-btn", data: { turbo_method: :post, turbo_frame: "favorite-user-#{user.id}" } do %>
+              <i class="fa-solid fa-heart text-danger"></i> Remove from Favorites
+            <% end %>
+          </div>
+        </turbo-frame>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="empty-favorites">
+      <h3>No Favorites Yet</h3>
+      <p>You haven't favorited anyone yet. Start adding some!</p>
+    </div>
+  <% end %>
+<% end %>

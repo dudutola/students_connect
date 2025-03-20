@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_18_114505) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_18_141737) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,15 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_114505) do
     t.datetime "updated_at", null: false
     t.text "description"
     t.text "overview"
+  end
+
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "favourited_user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["favourited_user_id"], name: "index_favourites_on_favourited_user_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
   create_table "lecture_users", force: :cascade do |t|
@@ -55,16 +64,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_114505) do
     t.index ["requester_id"], name: "index_meetings_on_requester_id"
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.integer "rating"
-    t.text "comment"
-    t.bigint "user_id", null: false
-    t.integer "reviewer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_reviews_on_user_id"
-
-    
   create_table "notifications", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "meeting_id", null: false
@@ -74,6 +73,17 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_114505) do
     t.datetime "updated_at", null: false
     t.index ["meeting_id"], name: "index_notifications_on_meeting_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "comment"
+    t.bigint "user_id", null: false
+    t.integer "reviewer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reviewer_id"], name: "index_reviews_on_reviewer_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,19 +108,19 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_114505) do
     t.string "linkedin_url"
     t.string "slack_url"
     t.string "timezone"
-    t.float "latitude"
-    t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favourites", "users"
+  add_foreign_key "favourites", "users", column: "favourited_user_id"
   add_foreign_key "lecture_users", "lectures"
   add_foreign_key "lecture_users", "users"
   add_foreign_key "lectures", "chapters"
   add_foreign_key "meetings", "lectures"
   add_foreign_key "meetings", "users", column: "receiver_id"
   add_foreign_key "meetings", "users", column: "requester_id"
-  add_foreign_key "reviews", "users"
   add_foreign_key "notifications", "meetings"
   add_foreign_key "notifications", "users"
+  add_foreign_key "reviews", "users"
 end
