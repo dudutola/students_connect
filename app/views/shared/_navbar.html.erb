@@ -26,7 +26,7 @@
             <%= turbo_stream_from "notifications_#{current_user.id}" %>
 
             <div class="dropdown">
-              <button class="notification-btn" id="notification-button">
+              <button class="notification-btn" id="notification-button" data-action="click->notification#markRead">
                 <i class="fas fa-bell"></i>
                 <%= render 'notifications/count', count: current_user.notifications.unread.count %>
               </button>
@@ -35,6 +35,7 @@
                 <%= render 'notifications/dropdown', notifications: current_user.notifications.unread %>
               </div>
             </div>
+
           </li>
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,9 +47,14 @@
             </div>
           </li>
         <% else %>
-          <%= link_to new_user_session_path, class: "github-btn" do %>
-            <i class="fab fa-github"></i> Sign in with Github
-          <% end %>
+          <div class="nav-item">
+            <%= button_to user_github_omniauth_authorize_path,
+                  data: { turbo: false },
+                  class: "github-btn-nav",
+                  method: :post do %>
+                <i class="fab fa-github"></i> Sign in with Github
+            <% end %>
+          </div>
         <% end %>
       </ul>
     </div>
