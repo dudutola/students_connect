@@ -30,7 +30,8 @@
 <h3 class="mt-5 mb-4"><%= pluralize(@lecture.lecture_users.count, "person") %> completed this lecture:</h3>
 <div class="lecture__list row">
   <% @lecture.lecture_users.order(created_at: :desc).each do |lecture_user| %>
-    <% unless lecture_user.user == current_user %>
+    <% if lecture_user.user != current_user %>
+    <%# <% unless lecture_user.user == current_user %>
       <div class="col-md-4 mb-4">
         <div class="lecture__card p-3 d-flex flex-column gap-3 rounded-lg">
           <div class="d-flex align-items-center justify-content-between">
