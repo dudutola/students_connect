@@ -26,38 +26,59 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
+  // border-bottom: 2px solid black;
+}
+
+/* About and Skills container - side by side layout */
+.about-skills-container {
+  display: grid;
+  grid-template-columns: 2fr 1.4fr;
+  gap: 24px;
+  grid-column: 1 / -1;
+}
+
+/* For current user view - maintain the grid layout */
+.profile-user-container > .progress-section,
+.profile-user-container > .reviews-section {
+  grid-column: 1 / -1;
+}
+
+/* Two-column layout for other users' profiles */
+.other-user-profile-layout {
+  display: grid;
   grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  grid-column: 1 / -1;
+  margin-top: 24px;
 }
 
-.edit-profile-button {
-  background-color: #ffffff;
-  border-radius: 4px;
-  padding: 8px 12px;
-  font-size: 14px;
-  cursor: pointer;
+.left-column,
+.right-column {
   display: flex;
-  align-items: center;
-  transition: all 0.2s ease;
-  color: #000000;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.progress-section{
-  width: 154%;
-}
+// .edit-profile-button {
+//   background-color: #ffffff;
+//   border-radius: 4px;
+//   padding: 8px 12px;
+//   font-size: 14px;
+//   cursor: pointer;
+//   display: flex;
+//   align-items: center;
+//   transition: all 0.2s ease;
+//   color: #000000;
+// }
+
 // .edit-profile-button:hover {
 //   background-color: #f5f5f5;
 // }
 
-.edit-profile-button i {
-  margin-right: 6px;
-  font-size: 12px;
-}
-
-@media (min-width: 768px) {
-  .profile-user-container {
-    // grid-template-columns: 1fr 1fr;
-  }
-}
+// .edit-profile-button i {
+//   margin-right: 6px;
+//   font-size: 12px;
+// }
 
 /* Header section */
 .profile-header {
@@ -68,7 +89,10 @@ body {
   flex-direction: row;
   align-content: space-around;
   justify-content: flex-end;
+  border-bottom: 2px solid black;
+  padding-bottom: 29px;
 }
+
 .profile-header-1 {
   display: flex;
   justify-content: space-between;
@@ -80,7 +104,7 @@ body {
   height: 140px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid (#79E168);
+  border: 2px solid #79E168;
   box-shadow: var(--box-shadow);
   transition: var(--transition);
 }
@@ -128,6 +152,19 @@ body {
   fill: #611f64; /* Slightly darker on hover */
 }
 
+.social-link.linkedin svg {
+  
+  fill: #0A66C2; /* Slack purple color */
+
+}
+
+.social-link.github svg {
+  
+  fill: #15191F; /* Slack purple color */
+
+}
+
+
 .social-link {
   display: flex;
   align-items: center;
@@ -136,26 +173,25 @@ body {
   height: 42px;
   border-radius: 50%;
   background-color: var(--card-color);
-  box-shadow: var(--box-shadow);
-  transition: var(--transition);
+    // box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+//   box-shadow: var(--box-shadow);
+//   transition: var(--transition);
 }
 
-.social-link:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-  background-color: var(--accent-color);
-}
+// .social-link:hover {
+//   transform: translateY(-3px);
+//   background-color: var(--accent-color);
+// }
 
-.social-link:hover svg {
-  fill: white;
-}
+// .social-link:hover svg {
+//   fill: white;
+// }
 
 .social-link svg {
   width: 22px;
   height: 22px;
-  fill: #333;
-  transition: var(--transition);
 }
+
 
 /* Content cards */
 .content-card {
@@ -210,6 +246,119 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Reviews styling */
+.reviews-section {
+  height: 100%;
+  margin-top: 0;
+}
+
+.review-form-section {
+  height: 100%;
+  margin-top: 0;
+}
+
+/* Review item styling */
+.review-item {
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+/* Reviews header styling to match About Me and Skills */
+.reviews-section h2,
+.review-form-section h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.reviews-section h2:after,
+.review-form-section h2:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--accent-color);
+  border-radius: 3px;
+}
+
+/* Rating stars styling */
+.rating-stars {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.rating-stars i {
+  color: var(--accent-color);
+}
+
+/* Review count and average rating styling */
+.reviews-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.reviews-title {
+  margin-right: 10px;
+}
+
+.reviews-average {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Submit review button styling */
+.submit-review-btn {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 30px;
+  padding: 10px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.submit-review-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Review form input styling */
+.review-form textarea {
+  width: 100%;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 15px;
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+.review-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* Progress bar styling */
+.progress-section {
+  width: 100%;
+}
+
 .chapter-progress-card {
   background-color: white;
   border-radius: 10px;
@@ -223,6 +372,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 
 .progress-header h3 {
@@ -314,10 +464,6 @@ body {
   color: #28a745;
 }
 
-.progress-header {
-  cursor: pointer;
-}
-
 .toggle-icon {
   transition: transform 0.3s ease;
 }
@@ -334,6 +480,23 @@ body {
   display: block;
 }
 
+/* Helper classes for skills sections */
+.add-skills-message {
+  margin: 0;
+}
+
+.add-skills-link {
+  color: #4a6fdc;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.no-skills-message {
+  color: #888;
+  font-style: italic;
+}
+
 /* Responsive adjustments */
 @media (max-width: 767px) {
   .profile-header {
@@ -348,10 +511,15 @@ body {
   .social-links {
     justify-content: center;
   }
+  
+
+  .right-column {
+    order: -1; /* Show review form before reviews on mobile */
+  }
 
   .card-title:after {
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    transform: none;
   }
 
   .profile-container {

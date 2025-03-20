@@ -12,16 +12,16 @@ class Notification < ApplicationRecord
   end
 
   # Broadcast the unread notification count when a new notification is created
-  # after_create_commit do
-  #   broadcast_replace_to "notifications_#{user.id}",
-  #                        target: "notification-count",
-  #                        partial: "notifications/count",
-  #                        locals: { count: user.notifications.unread.count }
+  after_create_commit do
+    broadcast_replace_to "notifications_#{user.id}",
+                         target: "notification-count",
+                         partial: "notifications/count",
+                         locals: { count: user.notifications.unread.count }
 
-  #   # Broadcast the updated dropdown list
-  #   broadcast_replace_to "notifications_dropdown_#{user.id}",
-  #                        target: "notification-dropdown",
-  #                        partial: "notifications/dropdown",
-  #                        locals: { notifications: user.notifications.unread }
-  # end
+    # Broadcast the updated dropdown list
+    broadcast_replace_to "notifications_dropdown_#{user.id}",
+                         target: "notification-dropdown",
+                         partial: "notifications/dropdown",
+                         locals: { notifications: user.notifications.unread }
+  end
 end
