@@ -31,13 +31,13 @@
 }
 
 .github-btn-nav {
-  color: #fff;
+  color: #24292e;
   font-family: 'Poppins', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: black;
-  border: 1px solid var(--accent-green);
+  background-color: transparent;
+  border: 1px solid #6ED05F;
   border-radius: 6px;
   padding: 10px 16px;
   font-size: 14px;
@@ -48,16 +48,15 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-// .github-btn-nav:hover {
-//   background-color: rgba(0, 0, 0, 0.05);
-//   border-color: var(--accent-yellow);
-// }
+.github-btn-nav:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: #FFD966;
+}
 
-.github-icon {
+.fa-github {
   margin-right: 8px;
-  width: 18px;
-  height: 18px;
-  fill: #24292e;
+  font-size: 18px;
+  color: #24292e;
 }
 
 
