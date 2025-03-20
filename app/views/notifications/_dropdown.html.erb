@@ -1,7 +1,19 @@
 <div id="notification-dropdown">
-  <% notifications.each do |notification| %>
-    <div class="notification-item">
-      <p><%= notification.meeting.requester.name %> requested a meeting</p>
+  <% if notifications.any? %>
+    <% notifications.order(created_at: :desc).each do |notification| %>
+      <div class="notification-item">
+        <% if notification.message.include?("accepted") %>
+          <p class="mb-0">
+            <%= link_to notification.message, meeting_path(notification.meeting), class: "notification-link" %>
+          </p>
+        <% else %>
+          <p class="mb-0"><%= notification.message %></p>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="no-notifications">
+      <p class="mb-0">You don't have any notifications yet.</p>
     </div>
   <% end %>
 </div>
