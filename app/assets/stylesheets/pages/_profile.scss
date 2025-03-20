@@ -152,6 +152,19 @@ body {
   fill: #611f64; /* Slightly darker on hover */
 }
 
+.social-link.linkedin svg {
+  
+  fill: #0A66C2; /* Slack purple color */
+
+}
+
+.social-link.github svg {
+  
+  fill: #15191F; /* Slack purple color */
+
+}
+
+
 .social-link {
   display: flex;
   align-items: center;
@@ -160,25 +173,23 @@ body {
   height: 42px;
   border-radius: 50%;
   background-color: var(--card-color);
-  box-shadow: var(--box-shadow);
-  transition: var(--transition);
+    // box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+//   box-shadow: var(--box-shadow);
+//   transition: var(--transition);
 }
 
-.social-link:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-  background-color: var(--accent-color);
-}
+// .social-link:hover {
+//   transform: translateY(-3px);
+//   background-color: var(--accent-color);
+// }
 
-.social-link:hover svg {
-  fill: white;
-}
+// .social-link:hover svg {
+//   fill: white;
+// }
 
 .social-link svg {
   width: 22px;
   height: 22px;
-  fill: #333;
-  transition: var(--transition);
 }
 
 
