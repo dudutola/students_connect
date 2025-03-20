@@ -13,7 +13,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="<%= 'calendar-body' if controller.action_name == 'calendar' %>">
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
 
