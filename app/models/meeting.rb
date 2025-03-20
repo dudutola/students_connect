@@ -34,7 +34,7 @@ class Meeting < ApplicationRecord
                 "#{requester.name} accepted your meeting request at #{start_time.strftime('%I:%M %p')}"
               when 'declined'
                 "#{requester.name} declined your meeting request at #{start_time.strftime('%I:%M %p')}"
-              else
+              when 'pending'
                 "#{requester.name} requested a meeting at #{start_time.strftime('%I:%M %p')}"
               end
 

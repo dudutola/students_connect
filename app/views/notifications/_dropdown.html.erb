@@ -1,8 +1,8 @@
-<div id="notification-dropdown">
+<div class="dropdown-content" id="notification-dropdown">
   <% if notifications.any? %>
     <% notifications.order(created_at: :desc).each do |notification| %>
-      <div class="notification-item">
-        <% if notification.message.include?("accepted") %>
+      <div class="notification-item <%= 'read' if notification.read %>" data-notification-id="<%= notification.id %>">
+        <% if notification.meeting.status == 'accepted' || notification.meeting.status == 'pending' %>
           <p class="mb-0">
             <%= link_to notification.message, meeting_path(notification.meeting), class: "notification-link" %>
           </p>
