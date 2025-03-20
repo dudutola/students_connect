@@ -1,10 +1,11 @@
 development:
-  adapter: async
+  adapter: solid_cable
 
 test:
   adapter: test
 
 production:
-  adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
-  channel_prefix: students_connect_production
+  adapter: solid_cable
+  # url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  # channel_prefix: students_connect_production
+  database_url: <%= ENV["DATABASE_URL"] %>
