@@ -23,7 +23,7 @@
         <% if user_signed_in? %>
           <li class="nav-item">
             <!-- Notification Icon -->
-            <%# <%= turbo_stream_from "notifications_#{current_user.id}" %>
+            <%= turbo_stream_from "notifications_#{current_user.id}" %>
 
             <div class="dropdown">
               <button class="notification-btn" id="notification-button">
