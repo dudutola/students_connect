@@ -69,6 +69,7 @@ def get_user_timezone(location)
     return "UTC"
   end
 end
+# hello
 
 users_data.each do |user|
   puts "Fetching timezone for #{user[:name]} (#{user[:location]})..."
