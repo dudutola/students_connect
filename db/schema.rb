@@ -22,6 +22,15 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_141737) do
     t.text "overview"
   end
 
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "favourited_user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["favourited_user_id"], name: "index_favourites_on_favourited_user_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
   create_table "lecture_users", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "lecture_id", null: false
@@ -73,6 +82,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_141737) do
     t.integer "reviewer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["reviewer_id"], name: "index_reviews_on_reviewer_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -98,12 +108,12 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_141737) do
     t.string "linkedin_url"
     t.string "slack_url"
     t.string "timezone"
-    t.float "latitude"
-    t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favourites", "users"
+  add_foreign_key "favourites", "users", column: "favourited_user_id"
   add_foreign_key "lecture_users", "lectures"
   add_foreign_key "lecture_users", "users"
   add_foreign_key "lectures", "chapters"

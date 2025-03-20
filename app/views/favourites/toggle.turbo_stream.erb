@@ -1,0 +1,5 @@
+<turbo-stream action="replace" target="favorite-icon-<%= @user.id %>">
+  <template>
+    <%= render partial: "users/favorite_button", locals: { user: @user } %>
+  </template>
+</turbo-stream>

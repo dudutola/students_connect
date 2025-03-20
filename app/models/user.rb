@@ -11,28 +11,32 @@ class User < ApplicationRecord
   has_many :requested_meetings, class_name: "Meeting", foreign_key: :requester_id, dependent: :destroy
   has_many :received_meetings, class_name: "Meeting", foreign_key: :receiver_id, dependent: :destroy
 
-  has_many :reviews, dependent: :destroy  # Reviews received
-  has_many :given_reviews, class_name: 'Review', foreign_key: 'reviewer_id', dependent: :destroy  # Reviews given
+  has_many :reviews, dependent: :destroy
+  has_many :given_reviews, class_name: 'Review', foreign_key: 'reviewer_id', dependent: :destroy
 
-  
+  has_many :favourites, dependent: :destroy
+  # has_many :favourited_users, through: :favourites, source: :favourited_user, dependent: :destroy
+  # coudln't create favorites??
+  has_many :favourited_users, class_name: "Favourite", foreign_key: "favourited_user_id", dependent: :destroy
+
   serialize :skills, Array, coder: YAML
 
   # Method to get average rating
   def average_rating
     reviews.average(:rating).to_f.round(1)
   end
-  
+
   # Method to get rating as stars
   def rating_as_stars
     avg = average_rating
     full_stars = avg.floor
     half_star = (avg - full_stars) >= 0.5
-    
+
     stars = ""
     full_stars.times { stars += "★" }
     stars += "☆" if half_star
     (5 - stars.length).times { stars += "☆" }
-    
+
     stars
   end
 
@@ -64,6 +68,10 @@ class User < ApplicationRecord
            .where(lecture_users: { user_id: self.id })
            .distinct.count
   end
+
+  # after_update_commit do
+  #   broadcast_update_to "user_#{self.id}", target: "timezone_#{self.id}"
+  # end
 
   def self.from_omniauth(access_token)
     data = access_token.info

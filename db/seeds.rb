@@ -1,4 +1,4 @@
-	# This file should ensure the existence of records required to run the application in every environment (production,
+# This file should ensure the existence of records required to run the application in every environment (production,
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -8,7 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-require 'json'
+require "json"
+require "open-uri"
 
 puts "Cleaning everything..."
 
@@ -17,6 +18,9 @@ Chapter.destroy_all
 Lecture.destroy_all
 LectureUser.destroy_all
 Meeting.destroy_all
+Notification.destroy_all
+Review.destroy_all
+Favourite.destroy_all
 
 puts "Database cleaned."
 
@@ -35,9 +39,44 @@ users_data = [
   { username: "carla", email: "carla@studentsconnect.com", name: "Carla Ferrer", location: "Malta", description: " I can help spot security vulnerabilities in your projects if you can help me make things look decent with CSS!"}
 ]
 
-users_data.each do |user_data|
-  user = User.create!(
-    username: user_data[:username],
+puts "Fetching timezones for users..."
+
+def get_user_timezone(location)
+  mapbox_api = "https://api.mapbox.com/search/geocode/v6/forward?q=#{URI.encode_www_form_component(location)}&access_token=#{ENV['MAPBOX_API_KEY']}"
+
+  first_serialized = URI.parse(mapbox_api).read
+  first = JSON.parse(first_serialized)
+
+  if first["features"].any?
+    coordinates = first["features"].first["geometry"]["coordinates"].join(",")
+
+    second_mapbox_api = "https://api.mapbox.com/v4/examples.4ze9z6tv/tilequery/#{coordinates}.json?access_token=#{ENV['MAPBOX_API_KEY']}"
+
+    second_serialized = URI.parse(second_mapbox_api).read
+    second = JSON.parse(second_serialized)
+
+    if second["features"].any? && second["features"].first["properties"].key?("TZID")
+      tzid = second["features"].first["properties"]["TZID"]
+      # timezone = Timezone[tzid] rescue Timezone["UTC"]
+      # return timezone.utc_to_local(Time.now)
+      return tzid
+    else
+      puts "No timezone found for coordinates: #{coordinates}"
+      return "UTC"
+    end
+  else
+    puts "No coordinates found for location: #{location}"
+    return "UTC"
+  end
+end
+
+users_data.each do |user|
+  puts "Fetching timezone for #{user[:name]} (#{user[:location]})..."
+
+  timezone = get_user_timezone(user[:location])
+
+  User.create!(
+    username: user[:username],
     password: 'password',
     email: user_data[:email],
     description: user_data [:description],
@@ -45,10 +84,15 @@ users_data.each do |user_data|
     location: user_data[:location],
     avatar_url: "https://i.pravatar.cc/150?img=#{rand(1..70)}",
     provider: 'github',
-    uid: SecureRandom.uuid
+    uid: SecureRandom.uuid,
+    timezone: timezone
   )
-  puts "Created user #{user.name}"
+
+  puts "#{user[:name]}'s timezone is: #{timezone}"
 end
+
+puts "Timezone updates completed!"
+
 
 filepath = File.join(__dir__, "curriculum.json")
 serialized_curriculum = File.read(filepath)

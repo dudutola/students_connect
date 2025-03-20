@@ -14,40 +14,43 @@
         <%# <%= link_to "Exercises", "#", class: "nav-link" %>
         <%= link_to "Calendar", calendar_meetings_path, class: "nav-link #{'active' if current_page?(calendar_meetings_path)}" %>
         <%# <%= link_to "Connections", "#", class: "nav-link" %>
-        <%= link_to "Favourites", "#", class: "nav-link" %>
+        <%= link_to "Favourites", favourites_path, class: "nav-link #{'active' if current_page?(favourites_path)}" %>
       <% end %>
     </div>
 
-    <div class="dropdown d-flex align-items-center g-4">
-      <% if user_signed_in? %>
-        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item me-4" %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav align-items-center me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <!-- Notification Icon -->
+            <%# <%= turbo_stream_from "notifications_#{current_user.id}" %>
 
-          <!-- Notification Icon -->
-        <%= turbo_stream_from "notifications_#{current_user.id}" %>
+            <div class="dropdown">
+              <button class="notification-btn" id="notification-button">
+                <i class="fas fa-bell"></i>
+                <%= render 'notifications/count', count: current_user.notifications.unread.count %>
+              </button>
 
-        <div class="dropdown">
-          <button class="notification-btn" id="notification-button">
-            <i class="fas fa-bell"></i>
-            <%= render 'notifications/count', count: current_user.notifications.unread.count %>
-          </button>
-
-          <div class="dropdown-content" id="notification-dropdown">
-            <%= render 'notifications/dropdown', notifications: current_user.notifications.unread %>
-          </div>
-        </div>
-
-
-        <%= link_to user_profile_path(current_user) do %>
-          <%= image_tag current_user.avatar_url, class: "avatar my-avatar green-border", alt: "Image of #{current_user.name}" %>
-        <% end %>
-      <% else %>
-        <div class="nav-item">
+              <div class="dropdown-content" id="notification-dropdown">
+                <%= render 'notifications/dropdown', notifications: current_user.notifications.unread %>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag current_user.avatar_url, class: "avatar my-avatar green-border", alt: "Image of #{current_user.name}" %>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "My profile", user_profile_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item me-4" %>
+            </div>
+          </li>
+        <% else %>
           <%= link_to new_user_session_path, class: "github-btn" do %>
             <i class="fab fa-github"></i> Sign in with Github
           <% end %>
-        </div>
-      <% end %>
+        <% end %>
+      </ul>
     </div>
-
   </div>
 </div>
