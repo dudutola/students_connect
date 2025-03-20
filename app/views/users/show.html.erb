@@ -5,13 +5,24 @@
       </div>
       <div class="profile-intro">
         <h1 class="profile-name"><%= @user.name %></h1>
-        
-        <div class="profile-location">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-            <path d="M12 0C7.802 0 4 3.403 4 7.602 4 11.8 12 24 12 24s8-12.2 8-16.398C20 3.403 16.199 0 12 0zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" />
-          </svg>
-          <span><%= @user.location %></span>
-        </div>
+          <div class="profile-location">
+            <!-- Location with pin icon -->
+            <div class="location-row">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                <path d="M12 0C7.802 0 4 3.403 4 7.602 4 11.8 12 24 12 24s8-12.2 8-16.398C20 3.403 16.199 0 12 0zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" />
+              </svg>
+              <span><%= @user.location.present? ? @user.location : "Lisbon" %></span>
+            </div>
+            
+            <!-- Timezone with clock icon on a new line -->
+            <div class="timezone-row">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                <path d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm0 21.6c-5.303 0-9.6-4.297-9.6-9.6S6.697 2.4 12 2.4 21.6 6.697 21.6 12s-4.297 9.6-9.6 9.6z"/>
+                <path d="M12.5 6h-1v6.5l4.5 2.7.75-1.23-4.25-2.47z"/>
+              </svg>
+              <span><%= Time.now.in_time_zone(@user.timezone.presence || "UTC").strftime("%I:%M %p") %></span>
+            </div>
+          </div>
         
         <div class="social-links">
           <a href="<%= @user.github_url %>" class="social-link github" aria-label="GitHub Profile">
