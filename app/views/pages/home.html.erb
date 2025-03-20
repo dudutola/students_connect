@@ -6,8 +6,16 @@
             <div class="hero-content">
                 <h1>Connect with students facing the <span>same challenges</span></h1>
                 <p>Find help. Solve together. Level up your coding skills.</p>
-                <a href="/users/sign_in" class="cta-button">Get Started </a>
-            </div>
+                <div class="cta">
+                    <%= button_to user_github_omniauth_authorize_path,
+                     data: { turbo: false },
+                     method: :post,
+                     class: "cta-button" do %>
+                     Get Started
+                    <% end %>
+                </div>
+
+             </div>   
         </section>
         
         <!-- Main Content Container -->
@@ -117,18 +125,6 @@
                         <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
                                Sign up for a free account, describe your coding challenge, and browse available mentors. Select your match, schedule a session, and connect instantly.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
-                                What support do you offer?
-                            </button>
-                        </h2>
-                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                We provide collaborative tools including video chat, screen sharing, code editors, and whiteboards. Our team is also available for technical support and to help you make the most of the platform.
                             </div>
                         </div>
                     </div>

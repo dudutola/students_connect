@@ -11,24 +11,28 @@
   <% if @accepted_meetings.any? %>
     <div class="d-flex gap-3 w-100 flex-wrap mt-4">
       <% @accepted_meetings.first(3).each do |meeting| %>
-        <div class="meeting__card flex-fill p-3 shadow">
-          <div class="d-flex align-items-center gap-2 mb-2">
-            <%= image_tag meeting.receiver.avatar_url, class: "meeting__card--avatar green-border radius-avatar", alt: "" %>
-            <div>
-              <p class="mb-0 text-decoration-underline">
-                <strong>
-                  <%= link_to meeting.receiver.name, user_profile_path(meeting.receiver), class: "text-decoration-underline text-dark" %>
-                </strong>
-              </p>
-              <p class="small text-muted">In <%= distance_of_time_in_words(Time.now, meeting.start_time) %></p>
+        <% if meeting.requester == current_user || meeting.receiver == current_user %>
+          <div class="meeting__card flex-fill p-3 shadow">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <% avatar_user = meeting.receiver == current_user ? meeting.requester : meeting.receiver %>
+              <%= image_tag avatar_user.avatar_url, class: "meeting__card--avatar green-border radius-avatar", alt: "" %>
+
+              <div>
+                <p class="mb-0 text-decoration-underline">
+                  <strong>
+                    <%= link_to avatar_user.name, user_profile_path(avatar_user), class: "text-decoration-underline text-dark" %>
+                  </strong>
+                </p>
+                <p class="small text-muted">In <%= distance_of_time_in_words(Time.now, meeting.start_time) %></p>
+              </div>
             </div>
+            <ul class="list-unstyled mb-2">
+              <li><strong>Lecture:</strong> <%= meeting.lecture.title %></li>
+              <li><strong>Start time:</strong> <%= meeting.start_time.strftime("%B %d, %Y %H:%M") %></li>
+              <li><strong>End time:</strong> <%= meeting.end_time.strftime("%H:%M") %></li>
+            </ul>
           </div>
-          <ul class="list-unstyled mb-2">
-            <li><strong>Lecture:</strong> <%= meeting.lecture.title %></li>
-            <li><strong>Start time:</strong> <%= meeting.start_time.strftime("%B %d, %Y %H:%M") %></li>
-            <li><strong>End time:</strong> <%= meeting.end_time.strftime("%H:%M") %></li>
-          </ul>
-        </div>
+        <% end %>
       <% end %>
     </div>
 
@@ -43,6 +47,7 @@
     </div>
   <% end %>
 </section>
+
 
 <div class="profile-container mt-5 mb-5" data-controller="toggle-meetings">
   <div class="d-flex content-name">
