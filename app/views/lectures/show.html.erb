@@ -51,10 +51,10 @@
 
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex flex-column gap-1">
-              <p class="m-0 small text-muted">
-                <i class="fa-solid fa-laptop-code me-1"></i> Web Development FT
-              </p>
-              <p class="m-0 small text-muted">
+<!--               <p class="m-0 small text-muted"> -->
+                <%# <i class="fa-solid fa-laptop-code me-1"></i> Web Development FT %>
+<!--               </p> -->
+              <p class="m-0 text-muted">
                 <i class="fa-solid fa-location-dot me-1"></i> <%= lecture_user.user.location %>
               </p>
             </div>
@@ -68,12 +68,23 @@
           </div>
 
           <div class="d-flex justify-content-center">
-            <% unless lecture_user.user == current_user %>
-              <button type="button" class="btn btn-request" data-bs-toggle="modal" data-bs-target="#meetingModal-<%= lecture_user.user.id %>">
-                Request Meeting
-              </button>
-            <% end %>
-          </div>
+          <% unless lecture_user.user == current_user %>
+            <% meeting_requested = Meeting.exists?(requester_id: current_user.id, receiver_id: lecture_user.user.id, status: "pending") %>
+
+            <button
+              type="button"
+              class="btn btn-request <%= 'btn-disabled' if meeting_requested %>"
+              data-bs-toggle="modal"
+              data-bs-target="#meetingModal-<%= lecture_user.user.id %>"
+              data-controller="meeting"
+              data-action="click->meeting#sendRequest"
+              data-meeting-user-id="<%= lecture_user.user.id %>"
+              <%= 'disabled' if meeting_requested %>
+            >
+              <%= meeting_requested ? "Request Sent!" : "Request Meeting" %>
+            </button>
+          <% end %>
+        </div>
 
         </div>
       </div>

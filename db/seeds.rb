@@ -39,7 +39,17 @@ users_data = [
   { username: "pedro", email: "pedro@studentsconnect.com", name: "Pedro Costa", location: "Gabon", description: " Multilingual and adding code to my language list! Getting the hang of vanilla JavaScript but Git workflows still confuse me. I've developed a solid debugging process that I'm happy to share! Anyone want to exchange Git tips for help with browser compatibility issues?" },
   { username: "alice", email: "alice@studentsconnect.com", name: "Alice Albuquerque", location: "France", description: "Making good progress with data visualization but backend is still a mystery to me. I've gotten pretty good at working with chart libraries—happy to help you make beautiful data displays if you can explain server-side concepts!"  },
   { username: "tomás", email: "tomascampos@studentsconnect.com", name: "Tomás Campos", location: "Madagascar", description: "Motorcycle rebuilder rebuilding my career through code! HTML structure makes perfect sense to me but I'm still learning JavaScript. I've got a methodical approach to debugging UI issues—let's help each other tackle these coding challenges!" },
-  { username: "carla", email: "carla@studentsconnect.com", name: "Carla Ferrer", location: "Malta", description: " I can help spot security vulnerabilities in your projects if you can help me make things look decent with CSS!"}
+  { username: "carla", email: "carla@studentsconnect.com", name: "Carla Ferrer", location: "Malta", description: " I can help spot security vulnerabilities in your projects if you can help me make things look decent with CSS!"},
+  { username: "bruno", email: "bruno@studentsconnect.com", name: "Bruno L.", location: "Brazil", description: "Backend enthusiast learning to love the frontend! I can help with Rails and PostgreSQL if you can show me how to make things look great with CSS and animations!" },
+  { username: "zara", email: "zara@studentsconnect.com", name: "Zara K.", location: "Germany", description: "Love working with JavaScript and React but still figuring out how to properly structure backend APIs. Happy to walk through async programming if you can help me with Rails!" },
+  { username: "kenji", email: "kenji@studentsconnect.com", name: "Kenji S.", location: "Japan", description: "Experienced in Python and AI but totally new to web development. I can help with algorithms and data structures if you guide me through the magic of CSS and HTML layouts!" },
+  { username: "amina", email: "amina@studentsconnect.com", name: "Amina O.", location: "Nigeria", description: "Frontend wizard here! Love making pixel-perfect designs, but backend logic can be a nightmare. Let's swap skills—I help you with layouts, you teach me API design!" },
+  { username: "lucas", email: "lucas@studentsconnect.com", name: "Lucas D.", location: "Canada", description: "Django developer trying to understand JavaScript better. Pretty good with databases and authentication—let's trade knowledge!" },
+  { username: "fatima", email: "fatima@studentsconnect.com", name: "Fatima H.", location: "Morocco", description: "Loving Vue.js but struggling with testing frameworks. If you’re great at writing tests, let's connect! I can help you with Vue components and animations!" },
+  { username: "omar", email: "omar@studentsconnect.com", name: "Omar E.", location: "Egypt", description: "Cybersecurity student diving into web dev! I know how to secure your apps but need help making them functional and user-friendly. Let's collaborate!" },
+  { username: "elena", email: "elena@studentsconnect.com", name: "Elena M.", location: "Italy", description: "Self-taught coder loving TypeScript but still figuring out databases. Can help with clean code and best practices if you teach me database indexing!" },
+  { username: "matt", email: "matt@studentsconnect.com", name: "Matt J.", location: "Australia", description: "Node.js backend developer getting into frontend design. I can guide you through RESTful API design if you help me understand flexbox and grid better!" },
+  { username: "sofia", email: "sofia@studentsconnect.com", name: "Sofia R.", location: "Argentina", description: "Full-stack newbie but learning fast! Can help with debugging JavaScript errors, but still figuring out SQL queries—let's learn together!" }
 ]
 
 puts "Fetching timezones for users..."
@@ -118,7 +128,7 @@ chapters.each do |chapter|
         chapter: new_chapter
       )
 
-      rand(2..6).times do
+      rand(10..22).times do
         user = User.all.sample
         begin
           LectureUser.create!(user: user, lecture: lecture)
