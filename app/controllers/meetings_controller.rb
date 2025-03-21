@@ -5,7 +5,10 @@ class MeetingsController < ApplicationController
   def index
     @meetings = policy_scope(Meeting).order(created_at: :asc)
 
+    #pending_requested_meetings
     @pending_meetings = @meetings.where(requester_id: current_user.id, status: "pending")
+
+    #pending_received_meetings
     @requests_for_me = @meetings.where(receiver_id: current_user.id, status: "pending")
     @accepted_meetings = @meetings.where(status: "accepted")
   end
@@ -75,7 +78,9 @@ class MeetingsController < ApplicationController
 
   def calendar
     skip_authorization
-    @meetings = Meeting.all
+    @meetings = policy_scope(Meeting)
+
+    # @accepted_meetings = @meetings.where(status: "accepted").where("receiver_id = ? OR requester_id = ?", current_user.id, current_user.id)
     @accepted_meetings = @meetings.where(status: "accepted")
   end
 
