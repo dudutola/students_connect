@@ -1,28 +1,42 @@
-<%= turbo_frame_tag "favourited-users" do %>
-  <% if favourited_users.any? %>
-    <div class="favourited-users">
-      <% favourited_users.each do |user| %>
-        <turbo-frame id="favorite-user-<%= user.id %>">
-          <div class="user-card">
-            <%= link_to user_profile_path(user) do %>
-              <div class="d-flex align-items-center">
-                <%= image_tag user.avatar_url, class: "avatar", alt: "#{user.name}'s avatar" %>
-                <div>
-                  <h4><%= user.name %></h4>
-                </div>
+<div class="favorites-container">
+  
+  
+  <%= turbo_frame_tag "favourited-users" do %>
+    <% if favourited_users.any? %>
+      <div class="favorites-grid">
+        <% favourited_users.each do |user| %>
+          <turbo-frame id="favorite-user-<%= user.id %>">
+            <div class="favorite-card">
+              <div class="favorite-header">
+                <%= image_tag user.avatar_url, class: "favorite-avatar", alt: "#{user.name}'s avatar" %>
+                <h3 class="favorite-name"><%= user.name %></h3>
               </div>
-            <% end %>
-            <%= button_to user_favourite_path(user, from: "index"), method: :post, class: "remove-fav-btn", data: { turbo_method: :post, turbo_frame: "favorite-user-#{user.id}" } do %>
-              <i class="fa-solid fa-heart text-danger"></i> Remove from Favorites
-            <% end %>
-          </div>
-        </turbo-frame>
-      <% end %>
-    </div>
-  <% else %>
-    <div class="empty-favorites">
-      <h3>No Favorites Yet</h3>
-      <p>You haven't favorited anyone yet. Start adding some!</p>
-    </div>
+              
+              <div class="favorite-info">
+                <% if user.location.present? %>
+                  <div class="favorite-detail">
+                    <i class="fa-solid fa-map-marker-alt"></i>
+                    <span><%= user.location %></span>
+                  </div>
+                <% end %>
+                
+                <% if user.timezone.present? %>
+                  <div class="favorite-detail">
+                    <i class="fa-solid fa-clock"></i>
+                    <span><%= user.timezone %></span>
+                  </div>
+                <% end %>
+              </div>
+              
+              
+            </div>
+          </turbo-frame>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="favorites-empty">
+        <p>You haven't favorited anyone yet.</p>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

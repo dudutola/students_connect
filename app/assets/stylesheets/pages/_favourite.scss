@@ -1,3 +1,123 @@
+/* Simple Large Cards CSS */
+
+.favorites-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 .favourite-title {
-  color: $dark-green;
+  font-size: 35px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #333;
+  text-align: center;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 23px;
+}
+
+.favorite-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 350px; /* Larger fixed height */
+}
+
+.favorite-header {
+  padding: 30px 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #eee;
+}
+
+.favorite-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 20px;
+  border: 5px solid white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.favorite-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.favorite-info {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+.favorite-detail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+.favorite-detail i {
+  color:#204d48;
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+}
+
+.favorite-actions {
+  padding: 0 25px 25px;
+}
+
+.favorite-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #4a6cf7;
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.favorite-btn:hover {
+  background-color: #3a5ce5;
+}
+
+.favorites-empty {
+  background-color: white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  color: #666;
+  font-size: 18px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .favorites-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .favorite-card {
+    height: 300px;
+  }
 }
