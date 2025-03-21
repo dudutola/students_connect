@@ -14,7 +14,7 @@ export default class extends Controller {
     setTimeout(() => {
       button.textContent = "Request Sent!";
       button.classList.add("btn-disabled");
-    }, 5000);
+    }, 7000);
 
     fetch(`/meetings`, {
       method: "POST",
