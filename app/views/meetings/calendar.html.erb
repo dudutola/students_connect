@@ -7,7 +7,11 @@
         <div class="event">
           <%= link_to meeting_path(meeting) do %>
             <div class="meeting-card p-2 mb-2">
-              <p class="mb-0"><strong><%= meeting.receiver.name %></strong></p>
+              <p class="mb-0">
+                <strong>
+                  <%= meeting.requester == current_user ? meeting.receiver.name : meeting.requester.name %>
+                </strong>
+              </p>
               <p class="mb-0"><strong><%= meeting.lecture.title %></strong></p>
               <p class="mb-0"><%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %></p>
             </div>
