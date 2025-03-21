@@ -5,7 +5,13 @@
 
   <div class="d-flex justify-content-around mt-5">
     <div class="meeting-info">
-      <p><%= @meeting.requester.name %> you have a meeting with <%= @meeting.receiver.name %>.</p>
+      <p>
+        <% if current_user == @meeting.requester %>
+          <%= @meeting.requester.name %> you have a meeting with <%= @meeting.receiver.name %>.
+        <% else %>
+          <%= @meeting.receiver.name %> you have a meeting with <%= @meeting.requester.name %>.
+        <% end %>
+      </p>
 
       <div class="d-flex align-items-center mb-3">
         <% if @meeting.requester.avatar_url.present? %>
