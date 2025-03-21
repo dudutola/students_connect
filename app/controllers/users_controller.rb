@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:description, :github_url, :linkedin_url, :slack_url, :skills, :timezone)
+    params.require(:user).permit(:description, :github_url, :linkedin_url, :slack_url, { skills: [] }, :timezone)
   end
 
   def ensure_current_user
