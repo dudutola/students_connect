@@ -13,21 +13,16 @@
               </div>
               
               <div class="favorite-info">
-                <% if user.location.present? %>
-                  <div class="favorite-detail">
-                    <i class="fa-solid fa-map-marker-alt"></i>
-                    <span><%= user.location %></span>
-                  </div>
-                <% end %>
-                
-                <% if user.timezone.present? %>
-                  <div class="favorite-detail">
-                    <i class="fa-solid fa-clock"></i>
-                    <span><%= user.timezone %></span>
-                  </div>
+                <%# <% if user.location.present? %>
+                  <%# <div class="favorite-detail"> %>
+                    <%# <i class="fa-solid fa-map-marker-alt"></i> %>
+                    <%# <span><%= user.location</span> %>
+                  <%# </div> %>
+                <%# <% end %> 
+                <%= button_to user_favourite_path(user, from: "index"), method: :post, class: "remove-fav-btn", data: { turbo_method: :post, turbo_frame: "favorite-user-#{user.id}" } do %>
+                  <i class="fa-solid fa-heart text-danger"></i> Remove from Favorites
                 <% end %>
               </div>
-              
               
             </div>
           </turbo-frame>
