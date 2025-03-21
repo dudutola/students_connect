@@ -1,9 +1,14 @@
+.calendar-body {
+  background-color: #ffffff;
+}
+
 .simple-calendar {
   background-color: white;
   overflow: hidden;
+  border-top: 1px solid #A3A1A161;
 
   table {
-    width: 97%;
+    width: 84%;
     margin: auto;
   }
 
@@ -11,8 +16,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 32px;
-    border-top: 1px solid #A3A1A161;
+    padding: 20px 0;
+    margin: 0 150px;
 
     .calendar-title {
       font-size: 30px;

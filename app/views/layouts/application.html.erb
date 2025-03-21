@@ -7,12 +7,13 @@
     <%= csp_meta_tag %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
+    <link rel="icon" type="image/png" href="<%= asset_path('favicon-32x32.png') %>">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="<%= 'calendar-body' if controller.action_name == 'calendar' %>">
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
 
