@@ -2,6 +2,11 @@
   justify-content: space-between;
   background: white;
   height: 90px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
 
   .navbar-collapse {
     flex-grow: 0;
