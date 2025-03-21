@@ -39,7 +39,9 @@
               <div class="d-flex align-items-center gap-3">
                 <%= image_tag lecture_user.user.avatar_url, class: "lecture__avatar", alt: "#{lecture_user.user.name}'s avatar" %>
                 <div>
-                  <h4 class="m-0 fw-bold text-dark text-decoration-underline"><%= lecture_user.user.name %></h4>
+                  <h4 class="m-0 fw-bold text-dark text-decoration-underline">
+                     <%= lecture_user.user.name.presence || "Rita Cc" %>
+                  </h4>
                   <%# <p class="current-lecture m-0 text-success small">Currently learning this lecture</p> %>
                 </div>
               </div>
@@ -55,7 +57,8 @@
                 <%# <i class="fa-solid fa-laptop-code me-1"></i> Web Development FT %>
 <!--               </p> -->
               <p class="m-0 text-muted">
-                <i class="fa-solid fa-location-dot me-1"></i> <%= lecture_user.user.location %>
+                <i class="fa-solid fa-location-dot me-1"></i>
+                <%= lecture_user.user.location.presence || "Lisbon" %>
               </p>
             </div>
 
