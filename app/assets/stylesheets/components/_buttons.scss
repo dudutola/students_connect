@@ -72,3 +72,11 @@
     font-weight: bold;
   }
 }
+
+
+//
+.btn-disabled {
+  background-color: grey !important;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
