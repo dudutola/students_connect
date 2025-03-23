@@ -4,7 +4,7 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-   :root {
+  :root {
     --main-color-yellow: #F7DB60;
     --main-color-green: #79E168;
     --dark-green: #042B1B;
@@ -55,6 +55,39 @@
     background-clip: text;
     color: transparent;
     font-weight: bold;
+    display: inline-block;
+    position: relative;
+  }
+
+  .falling {
+    animation: fall 2s ease-in-out infinite;
+  }
+
+  .falling:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .falling:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .falling:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(20px);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
   .rails-default-error-page div.dialog > p {
@@ -78,10 +111,12 @@
 
   a {
     text-decoration: none;
+    color: black;
   }
 
   a:hover {
     text-decoration: underline;
+    font-weight: bold;
   }
 
   .error__logo {
@@ -89,10 +124,6 @@
     padding: 8px;
     border-radius: 8px;
     font-weight: bold;
-  }
-
-  .error__logo--1 {
-    color: black;
   }
 
   .error__logo--2 {
@@ -109,9 +140,9 @@
   <!-- This file lives in public/404.html -->
   <div class="container">
     <h1>
-      <span>4</span>
-      <span>0</span>
-      <span>4</span>
+      <span class="falling">4</span>
+      <span class="falling">0</span>
+      <span class="falling">4</span>
     </h1>
     <h2>Oops! Page Not Found</h2>
     <p>Sorry, the page you're looking for might have been moved or doesn't exist.</p>
