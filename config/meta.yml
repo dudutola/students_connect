@@ -1,0 +1,5 @@
+meta_product_name: "StudentsConnect"
+meta_title: "StudentsConnect - Learn Together, Grow Together."
+meta_description: "StudentsConnect helps learners support each other by making it easy to share challenges, track progress, and request or offer help within the same curriculum. Find peers, collaborate, and accelerate your learning journey."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account" # required for Twitter Cards
