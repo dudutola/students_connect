@@ -4,12 +4,23 @@
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+  :root {
+    --main-color-yellow: #F7DB60;
+    --main-color-green: #79E168;
+    --dark-green: #042B1B;
+  }
+
   .rails-default-error-page {
-    background-color: #EFEFEF;
+    background-color: #FFF4E6;
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
     margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
 
   .rails-default-error-page div.dialog {
@@ -32,9 +43,51 @@
   }
 
   .rails-default-error-page h1 {
-    font-size: 100%;
+    font-size: 140px;
     color: #730E15;
     line-height: 1.5em;
+    margin: 20px 0;
+  }
+
+  .rails-default-error-page h1 span {
+    background: linear-gradient(to right, var(--main-color-yellow) 30%, var(--main-color-green) 70%, var(--dark-green) 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+  }
+
+  .falling {
+    animation: fall 2s ease-in-out infinite;
+  }
+
+  .falling:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .falling:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .falling:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(20px);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
   .rails-default-error-page div.dialog > p {
@@ -51,16 +104,49 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  .container p {
+    font-size: 18px;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  .error__logo {
+    background-color: #F7DB60;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+
+  .error__logo--2 {
+    color: white;
+  }
+
+  .back {
+    margin-top: 36px;
+  }
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+  <div class="container">
+    <h1>
+      <span class="falling">5</span>
+      <span class="falling">0</span>
+      <span class="falling">0</span>
+    </h1>
+    <h2>Oops! Page Not Found</h2>
+    <p>Sorry, we're experiencing an issue on our server. Please try again later.</p>
+    <p class="back"><a href="/">Back to <span class="error__logo"><span class="error__logo--1">Students</span><span class="error__logo--2">Connect</span></span></a></p>
   </div>
 </body>
 </html>
