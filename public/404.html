@@ -4,12 +4,23 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+   :root {
+    --main-color-yellow: #F7DB60;
+    --main-color-green: #79E168;
+    --dark-green: #042B1B;
+  }
+
   .rails-default-error-page {
-    background-color: #EFEFEF;
+    background-color: #FFF4E6;
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
     margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
 
   .rails-default-error-page div.dialog {
@@ -32,9 +43,18 @@
   }
 
   .rails-default-error-page h1 {
-    font-size: 100%;
+    font-size: 140px;
     color: #730E15;
     line-height: 1.5em;
+    margin: 20px 0;
+  }
+
+  .rails-default-error-page h1 span {
+    background: linear-gradient(to right, var(--main-color-yellow) 30%, var(--main-color-green) 70%, var(--dark-green) 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
   }
 
   .rails-default-error-page div.dialog > p {
@@ -51,17 +71,51 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  .container p {
+    font-size: 18px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .error__logo {
+    background-color: #F7DB60;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+
+  .error__logo--1 {
+    color: black;
+  }
+
+  .error__logo--2 {
+    color: white;
+  }
+
+  .back {
+    margin-top: 36px;
+  }
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+  <div class="container">
+    <h1>
+      <span>4</span>
+      <span>0</span>
+      <span>4</span>
+    </h1>
+    <h2>Oops! Page Not Found</h2>
+    <p>Sorry, the page you're looking for might have been moved or doesn't exist.</p>
+    <p class="back"><a href="/">Back to <span class="error__logo"><span class="error__logo--1">Students</span><span class="error__logo--2">Connect</span></span></a></p>
   </div>
 </body>
 </html>
