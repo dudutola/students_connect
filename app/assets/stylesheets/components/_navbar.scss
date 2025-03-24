@@ -1,92 +1,158 @@
+@media (min-width: 768px) {
+  .navbar-lewagon {
+    justify-content: space-between;
+    background: white;
+    height: 90px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+
+    .navbar-collapse {
+      flex-grow: 0;
+    }
+
+    .container-fluid {
+      padding: 0 150px;
+    }
+
+    .navbar-brand {
+      background-color: $main-color-yellow;
+      padding: 0;
+      width: 110px;
+      position: relative;
+      border-radius: 10px;
+      padding-top: 8px;
+
+      &__first--word {
+        font-size: 22px;
+        font-weight: bold;
+        position: absolute;
+        top: -14px;
+      }
+
+      &__second--word {
+        font-size: 18px;
+        color: white;
+        text-align: center;
+      }
+    }
+
+    .dropdown {
+      .my-avatar {
+        width: 50px;
+      }
+    }
+  }
+
+  .navbar-nav .nav-link.active {
+    font-weight: bold;
+    border-bottom: 3px solid $main-color-green;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .navbar-nav {
+
+    div {
+      gap: 36px;
+    }
+
+    .nav-item {
+      margin-bottom: 0;
+    }
+
+    .nav-link {
+      color: $main-color-gray;
+      padding-bottom: 0;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+
+      &:not(.active):hover {
+        color: #6A6A6A;
+      }
+    }
+  }
+
+  .dropdown-menu {
+    background-color: white;
+    border-radius: 8px;
+
+    .dropdown-item {
+      a, i {
+        color: $dark-green;
+      }
+    }
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+
+    .nav-items {
+      display: flex;
+      justify-content: center;
+      flex-grow: 1;
+    }
+  }
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-  height: 90px;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  width: 100%;
-
-  .navbar-collapse {
-    flex-grow: 0;
-  }
-
-  .container-fluid {
-    padding: 0 150px;
-  }
-
-  .navbar-brand {
-    background-color: $main-color-yellow;
-    padding: 0;
-    width: 110px;
-    position: relative;
-    border-radius: 10px;
-    padding-top: 8px;
-
-    &__first--word {
-      font-size: 22px;
-      font-weight: bold;
-      position: absolute;
-      top: -14px;
-    }
-
-    &__second--word {
-      font-size: 18px;
-      color: white;
-      text-align: center;
-    }
-  }
-
-  .dropdown {
-    .my-avatar {
-      width: 50px;
-    }
-  }
 }
 
-.navbar-nav .nav-link.active {
-  font-weight: bold;
-  border-bottom: 3px solid $main-color-green;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
 }
 
-.navbar-nav {
-  gap: 36px;
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
 
-  .nav-item {
-    margin-bottom: 0;
-  }
+@media (max-width: 768px) {
+  .navbar-lewagon {
+    .container-fluid {
+      padding: 18px 20px;
+    }
 
-  .nav-link {
-    color: $main-color-gray;
-    padding-bottom: 0;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    .navbar-brand {
+      background-color: $main-color-yellow;
+      padding: 0;
+      width: 110px;
+      position: relative;
+      border-radius: 10px;
+      padding-top: 8px;
 
-    &:not(.active):hover {
-      color: #6A6A6A;
+      &__first--word {
+        font-size: 22px;
+        font-weight: bold;
+        position: absolute;
+        top: -14px;
+      }
+
+      &__second--word {
+        font-size: 18px;
+        color: white;
+        text-align: center;
+      }
+    }
+
+    .dropdown {
+      padding-right: 20px;
     }
   }
-  // .fa-github {
-  //   color: $main-color-gray;
-  //   margin: 0;
-  //   padding: 4px;
-  //   border: 1px solid $main-color-gray;
-  //   border-radius: 20px;
-  //   margin-top: 2rem;
-  // }
-}
 
-.dropdown-menu {
-  background-color: white;
-  border-radius: 8px;
 
-  .dropdown-item {
-    a, i {
-      color: $dark-green;
+  ul {
+    align-items: start;
+
+    .nav-items {
+      flex-direction: column;
     }
   }
 }
