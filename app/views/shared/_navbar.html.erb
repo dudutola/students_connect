@@ -1,65 +1,74 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid d-flex justify-content-between align-items-center">
-
+  <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <div class="navbar-brand__first--word">Students</div>
       <div class="navbar-brand__second--word">connect</div>
     <% end %>
 
-    <div class="navbar-nav mx-auto">
-      <% if user_signed_in? %>
-        <%= link_to "Dashboard", dashboard_path, class: "nav-link #{'active' if current_page?(dashboard_path)}" %>
-        <%# <%= link_to "Dashboard", dashboard_path, class: "nav-link #{'active' if current_page?(dashboard_path)}" %>
-        <%= link_to "Chapters", chapters_path, class: "nav-link #{'active' if current_page?(chapters_path)}" %>
-        <%# <%= link_to "Exercises", "#", class: "nav-link" %>
-        <%= link_to "Calendar", calendar_meetings_path, class: "nav-link #{'active' if current_page?(calendar_meetings_path)}" %>
-        <%# <%= link_to "Connections", "#", class: "nav-link" %>
-        <%= link_to "Favourites", favourites_path, class: "nav-link #{'active' if current_page?(favourites_path)}" %>
-      <% end %>
-    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav align-items-center me-auto">
+    <div class="collapse navbar-collapse flex-grow-1" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <!-- Notification Icon -->
-            <%= turbo_stream_from "notifications_#{current_user.id}" %>
+          <div class="nav-items">
+            <li class="nav-item">
+              <%= link_to "Dashboard", dashboard_path, class: "nav-link #{'active' if current_page?(dashboard_path)}" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Chapters", chapters_path, class: "nav-link #{'active' if current_page?(chapters_path)}" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Calendar", calendar_meetings_path, class: "nav-link #{'active' if current_page?(calendar_meetings_path)}" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Favourites", favourites_path, class: "nav-link #{'active' if current_page?(favourites_path)}" %>
+            </li>
+          </div>
 
-            <div class="dropdown">
-              <button class="notification-btn" id="notification-button" data-action="click->notification#markRead">
-                <i class="fas fa-bell"></i>
-                <%= render 'notifications/count', count: current_user.notifications.unread.count %>
-              </button>
+          <div class="d-flex align-items-center">
 
-              <div class="dropdown-content" id="notification-dropdown">
-                <%= render 'notifications/dropdown', notifications: current_user.notifications.unread %>
+            <li class="nav-item">
+              <!-- Notification Icon -->
+              <%= turbo_stream_from "notifications_#{current_user.id}" %>
+
+              <div class="dropdown">
+                <button class="notification-btn" id="notification-button" data-action="click->notification#markRead">
+                  <i class="fas fa-bell"></i>
+                  <%= render 'notifications/count', count: current_user.notifications.unread.count %>
+                </button>
+
+                <div class="dropdown-content" id="notification-dropdown">
+                  <%= render 'notifications/dropdown', notifications: current_user.notifications.unread %>
+                </div>
               </div>
-            </div>
+            </li>
 
-          </li>
-          <li class="nav-item dropdown">
-            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag current_user.avatar_url, class: "avatar my-avatar green-border", alt: "Image of #{current_user.name}" %>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to user_profile_path(current_user), class: "dropdown-item" do %>
-                <i class="fa-solid fa-user"></i> My profile
-              <% end %>
+            <li class="nav-item dropdown">
+              <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= image_tag current_user.avatar_url, class: "avatar my-avatar green-border", alt: "Image of #{current_user.name}" %>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to user_profile_path(current_user), class: "dropdown-item" do %>
+                  <i class="fa-solid fa-user"></i> My profile
+                <% end %>
 
-              <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item me-4" do %>
-                <i class="fa-solid fa-arrow-right-from-bracket"></i> Log out
-              <% end %>
-            </div>
-          </li>
+                <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item me-4" do %>
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i> Log out
+                <% end %>
+              </div>
+            </li>
+          </div>
         <% else %>
-          <div class="nav-item">
+          <li class="nav-item">
             <%= button_to user_github_omniauth_authorize_path,
                   data: { turbo: false },
                   class: "github-btn-nav",
                   method: :post do %>
-                <i class="fab fa-github"></i> Sign in with Github
-            <% end %>
-          </div>
+                    <i class="fab fa-github"></i> Sign in with Github
+                  <% end %>
+          </li>
         <% end %>
       </ul>
     </div>
