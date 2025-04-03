@@ -52,4 +52,10 @@ Rails.application.routes.draw do
   get "user/:id/timezone", to: "users#timezone", as: :user_timezone
 
   resources :favourites, only: [ :index ]
+
+  resources :notifications, only: [ :patch ] do
+    member do
+      patch :mark_as_read
+    end
+  end
 end

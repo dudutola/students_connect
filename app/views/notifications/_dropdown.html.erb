@@ -1,7 +1,16 @@
 <div class="dropdown-content" id="notification-dropdown">
-  <% if notifications.any? %>
+  <% if notifications.where(read: false).any? %>
     <% notifications.order(created_at: :desc).each do |notification| %>
-      <div class="notification-item <%= 'read' if notification.read %>" data-notification-id="<%= notification.id %>">
+
+      <div class="notification-item <%= 'read' if notification.read %> d-flex" data-notification-id="<%= notification.id %>">
+
+        <%= button_to mark_as_read_notification_path(notification),
+              method: :patch,
+              class: "mark-as-read-btn",
+              data: { turbo_stream: true, turbo_method: :patch } do %>
+          <i class="fa-solid fa-check"></i>
+        <% end %>
+
         <% if notification.meeting.status == 'accepted' || notification.meeting.status == 'pending' %>
           <p class="mb-0">
             <%= link_to notification.message, meeting_path(notification.meeting), class: "notification-link" %>
