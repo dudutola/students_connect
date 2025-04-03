@@ -32,17 +32,18 @@
             <li class="nav-item">
               <!-- Notification Icon -->
               <%= turbo_stream_from "notifications_#{current_user.id}" %>
-
               <div class="dropdown">
-                <button class="notification-btn" id="notification-button" data-action="click->notification#markRead">
+                <button class="notification-btn" id="notification-button">
                   <i class="fas fa-bell"></i>
                   <%= render 'notifications/count', count: current_user.notifications.unread.count %>
                 </button>
 
-                <div class="dropdown-content" id="notification-dropdown">
+              <%= turbo_stream_from "notifications_dropdown_#{current_user.id}" %>
+                <div class="notification-dropdown dropdown-content" id="notification-dropdown">
                   <%= render 'notifications/dropdown', notifications: current_user.notifications.unread %>
                 </div>
               </div>
+
             </li>
 
             <li class="nav-item dropdown">
