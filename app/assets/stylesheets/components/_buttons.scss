@@ -80,3 +80,24 @@
   cursor: not-allowed;
   opacity: 0.6;
 }
+
+
+//
+.mark-as-read-btn {
+  border: none;
+  background-color: transparent;
+}
+
+.fa-check {
+  margin: 0;
+  padding: 12px;
+  background-color: #F7DB6026;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.fa-check:hover {
+  background-color: #f7db6074;
+  font-weight: bold;
+}
