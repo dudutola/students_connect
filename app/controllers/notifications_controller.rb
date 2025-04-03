@@ -26,8 +26,6 @@ class NotificationsController < ApplicationController
       redirect_to dashboard_path, notice: "Notification was successfully updated."
     end
 
-
-
 =begin
     if @notification.update(read: true)
       respond to format
