@@ -24,9 +24,30 @@
     flex-direction: column;
     margin-bottom: 24px;
     align-items: start;
+    width: 100%;
   }
 
   .lecture-completed-mobile {
     width: 88%;
+  }
+
+  .edit_lecture {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .lecture__help {
+    &--subtitle {
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .completed-number {
+    margin-top: 0 !important;
   }
 }

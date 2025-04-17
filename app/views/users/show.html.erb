@@ -4,7 +4,9 @@
         <%= image_tag @user.avatar_url, class: "profile-avatar", alt: "#{@user.name}'s profile photo" %>
       </div>
       <div class="profile-intro">
-        <h1 class="profile-name"><%= @user.name %></h1>
+        <h1 class="profile-name <%= 'my-account-name' if current_user == @user %>">
+          <%= @user.name %>
+        </h1>
           <div class="profile-location">
             <!-- Location with pin icon -->
             <div class="location-row">
@@ -15,7 +17,7 @@
 
             </div>
 
-            
+
             <!-- Timezone with clock icon on a new line -->
             <div class="timezone-row">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
@@ -44,7 +46,7 @@
           </a>
               <div class="heart">
                 <% unless @user== current_user %>
-                  <%= render "users/favorite_button", user: @user %> 
+                  <%= render "users/favorite_button", user: @user %>
                 <% end %>
               </div>
         </div>
@@ -54,7 +56,7 @@
     <div class="about-skills-container">
       <!-- About Me Card -->
       <section class="content-card about-section">
-        <div class="profile-header-1">  
+        <div class="profile-header-1">
             <h2 class="card-title">About Me</h2>
             <% if current_user && current_user.id == @user.id %>
               <div class="edit-profile-button">
@@ -71,7 +73,7 @@
           <p>I enjoy collaborating with others and solving challenging problems.</p>
         <% end %>
       </section>
-      
+
       <!-- Skills Card (always in right column) -->
       <section class="content-card skills-section">
         <h2 class="card-title">Skills</h2>
@@ -97,21 +99,21 @@
 
     <% if current_user && current_user.id == @user.id %>
       <!-- Current User View: Progress bar followed by reviews -->
-      
+
       <!-- Course Progress Card (only for current user) -->
       <section class="content-card progress-section">
         <h2 class="card-title">Course Progress</h2>
-        
+
         <% Chapter.all.includes(:lectures).each do |chapter| %>
-          <% 
+          <%
             progress_percentage = current_user.chapter_progress(chapter)
             completed_lectures = current_user.completed_lectures_in_chapter(chapter)
             total_lectures = chapter.lectures.count
-            
+
             # Skip chapters with no completed lectures
             next if completed_lectures == 0
           %>
-          
+
           <div class="chapter-progress-card">
             <div class="progress-header" data-bs-toggle="collapse" data-bs-target="#chapter-<%= chapter.id %>" aria-expanded="false" role="button">
               <h3><%= chapter.name %></h3>
@@ -121,19 +123,19 @@
                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
               </div>
             </div>
-            
+
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: <%= progress_percentage %>%"></div>
             </div>
-            
+
             <div class="lecture-list collapse" id="chapter-<%= chapter.id %>">
-              <% 
+              <%
                 # Get only completed lectures for this chapter
                 completed_chapter_lectures = chapter.lectures.joins(:lecture_users)
                                               .where(lecture_users: { user_id: current_user.id })
                                               .distinct
               %>
-              
+
               <% completed_chapter_lectures.each do |lecture| %>
                 <div class="lecture-item completed">
                   <div class="lecture-status">
@@ -146,17 +148,17 @@
           </div>
         <% end %>
       </section>
-      
+
       <!-- Skills section is now moved up to be in the same row as About Me -->
-      
+
       <!-- Reviews Section (for current user) -->
       <section class="content-card reviews-section">
         <h2 class="card-title">My Reviews</h2>
         <%= render 'reviews' %>
       </section>
-      
+
     <% else %>
-    
+
      <div class="about-skills-container reviews-container">
       <!-- Reviews Section (for other users) -->
       <section class="content-card reviews-section">
@@ -165,16 +167,16 @@
           <% if @user.reviews.any? %>
             <span class="badge text-dark">
               <%= @user.average_rating %>
-              <i class="fas fa-star" style="color: #f0c14b;"></i> 
+              <i class="fas fa-star" style="color: #f0c14b;"></i>
             </span>
-          <% end %> 
+          <% end %>
         </h2>
-        
+
         <div class="comment">
           <%= render 'reviews' %>
         </div>
       </section>
-        
+
         <!-- Review Form -->
         <section class="content-card review-form-section">
           <h2 class="card-title">Leave a Review</h2>

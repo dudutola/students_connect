@@ -30,7 +30,7 @@
   <p class="text-muted">Reach out to someone who completed this lecture and might be able to help you!</p>
 </div>
 
-<h3 class="mt-5 mb-4"><%= pluralize(@lecture.lecture_users.count, "person") %> completed this lecture:</h3>
+<h3 class="mt-5 mb-4 completed-number"><%= pluralize(@lecture.lecture_users.count, "person") %> completed this lecture:</h3>
 <div class="lecture__list row">
   <% @lecture.lecture_users.order(created_at: :desc).each do |lecture_user| %>
     <% if lecture_user.user != current_user %>
