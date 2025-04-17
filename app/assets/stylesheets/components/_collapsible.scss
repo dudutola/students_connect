@@ -83,3 +83,16 @@ details[open] summary i {
 details[open] .lecture-card {
   background-color: #e9ecef;
 }
+
+
+@media (max-width: 767px) {
+  .lectures-collapse {
+    .collapsible {
+      width: 100%;
+    }
+
+    .chapter-name {
+      width: 72%;
+    }
+  }
+}

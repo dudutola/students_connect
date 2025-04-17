@@ -16,3 +16,17 @@
     // color: $main-color-gray;
   }
 }
+
+
+@media (max-width: 768px) {
+  .lecture-mobile {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    align-items: start;
+  }
+
+  .lecture-completed-mobile {
+    width: 88%;
+  }
+}
