@@ -3,7 +3,7 @@
 <div class="lectures-collapse">
   <% @lectures.group_by(&:chapter).each do |chapter, lectures| %>
     <div class="chapter-description mb-5">
-      <div class="d-flex justify-content-between align-content-center">
+      <div class="d-flex justify-content-between align-items-center">
         <h1 class="chapter-name"><%= @chapter.name %></h1>
         <div>
           <% if @previous_chapter %>

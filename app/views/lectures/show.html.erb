@@ -4,7 +4,7 @@
 <%= link_to "< Back to #{@lecture.chapter.name}", chapter_path(@lecture.chapter), class: "back-btn mb-5" %>
 
 <div class="d-flex justify-content-between align-items-center mb-5 flex-column flex-md-row text-center text-md-start lecture-content">
-  <div>
+  <div class="lecture-mobile">
     <%= link_to @lecture.resource_url, target: "_blank" do  %>
       <h1 class="m-0 pb-2 text-decoration-underline fw-bold"><%= @lecture.title %></h1>
     <% end %>
@@ -12,7 +12,7 @@
   </div>
 
   <% if @lecture.lecture_users.exists?(user: current_user) %>
-    <div class="d-flex flex-column align-items-end">
+    <div class="d-flex flex-column align-items-end lecture-completed-mobile">
       <p class="text-success fw-bold mb-0">✅ You have completed this lecture!</p>
       <%= simple_form_for @lecture, url: mark_as_done_lecture_path(@lecture), method: :post do |f| %>
         <%= f.button :submit, "Cancel ❌", class: "cancel-done-btn text-danger p-0 fw-bold" %>
