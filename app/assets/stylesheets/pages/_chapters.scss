@@ -161,6 +161,10 @@ border-top: 1px solid #ecf0f1;
 }
 
 @media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
   .topic-grid {
     grid-template-columns: repeat(2, 1fr);
   }

@@ -20,7 +20,8 @@
     .navbar-brand {
       background-color: $main-color-yellow;
       padding: 0;
-      width: 110px;
+      // width: 110px;
+      width: 94px;
       position: relative;
       border-radius: 10px;
       padding-top: 8px;
@@ -99,6 +100,10 @@
       flex-grow: 1;
     }
   }
+
+  .notification-desktop {
+    margin-right: 36px;
+  }
 }
 
 .navbar-lewagon {
@@ -123,7 +128,8 @@
     .navbar-brand {
       background-color: $main-color-yellow;
       padding: 0;
-      width: 110px;
+      // width: 110px;
+      width: 94px;
       position: relative;
       border-radius: 10px;
       padding-top: 8px;
@@ -153,6 +159,7 @@
 
     .nav-items {
       flex-direction: column;
+      margin: 12px 0;
     }
   }
 }

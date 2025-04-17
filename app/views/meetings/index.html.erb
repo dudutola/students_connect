@@ -9,7 +9,7 @@
   <h2><strong>My next meetings</strong></h2>
 
   <% if @accepted_meetings.any? %>
-    <div class="d-flex gap-3 w-100 flex-wrap mt-4">
+    <div class="d-flex gap-3 w-100 flex-wrap mt-4 accepted-meetings">
       <% @accepted_meetings.first(3).each do |meeting| %>
         <% if meeting.requester == current_user || meeting.receiver == current_user %>
           <div class="meeting__card flex-fill p-3 shadow">

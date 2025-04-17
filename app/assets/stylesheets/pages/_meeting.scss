@@ -46,3 +46,11 @@
     border-radius: 12px;
   }
 }
+
+
+@media (max-width: 768px) {
+  .accepted-meetings {
+    gap: 0 !important;
+    margin-top: 0 !important;
+  }
+}

@@ -20,9 +20,11 @@ body {
 
 .heart {
   margin-top: -8.5vh;
-  margin-right: -24vh;
+  // margin-right: -24vh;
+  margin-right: -20vh;
   font-size: 30px;
 }
+
 /* Main container - all profile content goes here */
 .profile-user-container {
   max-width: 1000px;
@@ -521,13 +523,20 @@ body {
   // }
 
   .profile-name {
-    text-align: center;
+    text-align: left;
     margin: 0 0 16px 0;
+  }
+  .my-account-name {
+    text-align: center;
   }
 
   .about-skills-container {
     display: flex;
     flex-direction: column;
+  }
+
+  .profile-user-container {
+    display: block;
   }
 
   .right-column {
@@ -545,5 +554,6 @@ body {
 
   .content-card {
     padding: 24px;
+    margin-top: 12px;
   }
 }
