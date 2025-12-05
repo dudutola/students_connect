@@ -33,3 +33,18 @@ rails server
 **http://localhost:3000**
 
 You ready to go!
+
+## Usage
+
+1. Marking Progress
+When you complete a lesson or exercise, simply mark it as **Mark as Done!**.
+
+2. Requesting Help
+If you are stuck on a lesson or concept, you can **Request a Meeting**.
+
+3. Connecting & Scheduling
+Once matched, students can:
+* Chat in Slack
+* Agree on time
+* Meet in person or online
+* Add each other as favourite
