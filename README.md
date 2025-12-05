@@ -36,15 +36,27 @@ You ready to go!
 
 ## Usage
 
-1. Marking Progress
+1. Marking Progress  
 When you complete a lesson or exercise, simply mark it as **Mark as Done!**.
 
-2. Requesting Help
+2. Requesting Help  
 If you are stuck on a lesson or concept, you can **Request a Meeting**.
 
-3. Connecting & Scheduling
+3. Connecting & Scheduling  
 Once matched, students can:
 * Chat in Slack
 * Agree on time
 * Meet in person or online
 * Add each other as favourite
+
+## Contributing
+
+Contributions are welcome!  
+If you would like to improve Students Connect, follow these steps:
+1. **Fork** the project
+2. **Create** a new branch
+3. **Commit** your changes
+4. **Push** your branch
+5. Open a **pull request**
+
+Please make sure your code is clean, tested, and documented when needed.
