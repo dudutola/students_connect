@@ -5,3 +5,31 @@ A platform that helps students ask for support, share theirs skills, and learn f
 ## Motivation
 
 During coding bootcamps or school projects, students often struggle alone or don't know who to ask for help. This platform solves that by connecting learners with other students who have the skills or availability to support them. The goal is to reduce frustration, encourage teamwork, and help everyone lean faster together.
+
+## Quick Start
+
+1. Clone the repository
+```bash
+git clone git@github.com:dudutola/students_connect.git
+cd students_connect
+```
+
+2. Install dependencies
+```bash
+bundle install
+```
+
+3. Set up database
+```bash
+rails db:create db:migrate db:seed
+```
+
+4. Start the server
+```bash
+rails server
+```
+
+5. Open the app in your browser at:
+**http://localhost:3000**
+
+You ready to go!
