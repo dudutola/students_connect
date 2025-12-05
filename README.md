@@ -1,4 +1,6 @@
-# Students Connect: a platform for students to help each other
+# Students Connect
+
+A platform that helps students ask for support, share theirs skills, and learn from one another. It makes collaboration easy by connecting learners and tutors accross different topics.
 
 
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+
